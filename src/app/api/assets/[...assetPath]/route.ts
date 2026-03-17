@@ -108,6 +108,20 @@ function rewriteInMySkinIndex(html: string): string {
   );
 }
 
+async function fetchRemoteContentLength(url: string): Promise<string | null> {
+  try {
+    const headResponse = await fetch(url, {
+      method: "HEAD",
+      cache: "no-store"
+    });
+
+    if (!headResponse.ok) return null;
+    return headResponse.headers.get("content-length");
+  } catch {
+    return null;
+  }
+}
+
 function buildAssetPath(segments: string[]): string | null {
   let currentPath = ASSETS_ROOT;
 
@@ -413,6 +427,12 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
       headers["Vary"] = "Accept-Encoding";
     }
 
+    const upstreamLength =
+      upstreamResponse.headers.get("content-length") ?? (await fetchRemoteContentLength(remoteUrl));
+    if (upstreamLength) {
+      headers["Content-Length"] = upstreamLength;
+    }
+
     return new NextResponse(bodyResult.stream, {
       status: upstreamResponse.status,
       headers
@@ -459,14 +479,13 @@ export async function GET(_request: Request, { params }: RouteContext) {
   const meta = responseMetaFor(assetPath);
   const headers: Record<string, string> = {
     "Content-Type": meta.contentType,
-    "Cache-Control": DEFAULT_CACHE_CONTROL
+    "Cache-Control": DEFAULT_CACHE_CONTROL,
+    "Content-Length": String(stat.size)
   };
 
   if (meta.contentEncoding) {
     headers["Content-Encoding"] = meta.contentEncoding;
     headers["Vary"] = "Accept-Encoding";
-  } else {
-    headers["Content-Length"] = String(stat.size);
   }
 
   try {
