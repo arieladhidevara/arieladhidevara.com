@@ -199,6 +199,14 @@ function startsWithGzip(bytes: Uint8Array): boolean {
   return bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b;
 }
 
+function looksLikeUnityFrameworkScript(bytes: Uint8Array): boolean {
+  const previewLength = Math.min(bytes.length, 512);
+  if (previewLength === 0) return false;
+
+  const preview = new TextDecoder().decode(bytes.subarray(0, previewLength));
+  return preview.includes("unityFramework");
+}
+
 async function inspectAndRebuildBody(
   body: ReadableStream<Uint8Array>
 ): Promise<{ stream: ReadableStream<Uint8Array>; looksGzipped: boolean }> {
@@ -277,6 +285,36 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
 
     const meta = responseMetaFor(assetPath);
     const isGzipAsset = assetPath.toLowerCase().endsWith(".gz");
+    const isFrameworkGzip = assetPath.toLowerCase().endsWith(".framework.js.gz");
+
+    if (isFrameworkGzip) {
+      const bytes = new Uint8Array(await upstreamResponse.arrayBuffer());
+      if (bytes.length === 0) {
+        continue;
+      }
+
+      const looksGzipped = startsWithGzip(bytes);
+      if (!looksGzipped && !looksLikeUnityFrameworkScript(bytes)) {
+        continue;
+      }
+
+      const headers: Record<string, string> = {
+        "Content-Type": meta.contentType,
+        "Cache-Control": upstreamResponse.headers.get("cache-control") ?? DEFAULT_CACHE_CONTROL,
+        "Content-Length": String(bytes.byteLength)
+      };
+
+      if (looksGzipped) {
+        headers["Content-Encoding"] = "gzip";
+        headers["Vary"] = "Accept-Encoding";
+      }
+
+      return new NextResponse(bytes, {
+        status: upstreamResponse.status,
+        headers
+      });
+    }
+
     const bodyResult = isGzipAsset
       ? await inspectAndRebuildBody(upstreamResponse.body)
       : { stream: upstreamResponse.body, looksGzipped: false };
@@ -296,11 +334,6 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
     } else if (upstreamEncoding) {
       headers["Content-Encoding"] = upstreamEncoding;
       headers["Vary"] = "Accept-Encoding";
-    }
-
-    const upstreamLength = upstreamResponse.headers.get("content-length");
-    if (upstreamLength && !headers["Content-Encoding"]) {
-      headers["Content-Length"] = upstreamLength;
     }
 
     return new NextResponse(bodyResult.stream, {
