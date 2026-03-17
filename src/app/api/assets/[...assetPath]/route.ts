@@ -43,23 +43,34 @@ function stripTrailingSlashes(value: string): string {
   return value.replace(/\/+$/, "");
 }
 
-function resolveRemoteBaseUrl(): string {
-  const candidates = [process.env.BLOB_BASE_URL, process.env.NEXT_PUBLIC_ASSET_BASE_URL];
+function resolveRemoteBaseUrls(): string[] {
+  // Prefer explicitly public URL first, then optional fallback.
+  const candidates = [process.env.NEXT_PUBLIC_ASSET_BASE_URL, process.env.BLOB_BASE_URL];
+  const unique = new Set<string>();
+  const baseUrls: string[] = [];
 
   for (const candidate of candidates) {
     const normalized = stripTrailingSlashes((candidate ?? "").trim());
-    if (normalized) {
-      return normalized;
+    if (!normalized || unique.has(normalized)) continue;
+
+    try {
+      const parsed = new URL(normalized);
+      // This is the S3 API endpoint, not a public asset origin.
+      if (parsed.hostname.endsWith(".r2.cloudflarestorage.com")) {
+        continue;
+      }
+    } catch {
+      continue;
     }
+
+    unique.add(normalized);
+    baseUrls.push(normalized);
   }
 
-  return "";
+  return baseUrls;
 }
 
-function buildRemoteAssetUrl(segments: string[]): string {
-  const baseUrl = resolveRemoteBaseUrl();
-  if (!baseUrl) return "";
-
+function buildRemoteAssetUrl(baseUrl: string, segments: string[]): string {
   const encodedPath = segments.map((segment) => encodeURIComponent(segment)).join("/");
   return `${baseUrl}/${encodedPath}`;
 }
@@ -209,50 +220,60 @@ async function remoteBodyLooksGzipped(url: string): Promise<boolean> {
 }
 
 async function serveRemoteAsset(segments: string[], assetPath: string): Promise<NextResponse | null> {
-  const remoteUrl = buildRemoteAssetUrl(segments);
-  if (!remoteUrl) return null;
+  const baseUrls = resolveRemoteBaseUrls();
+  if (baseUrls.length === 0) return null;
 
-  let upstreamResponse: Response;
-  try {
-    upstreamResponse = await fetch(remoteUrl, {
-      method: "GET",
-      cache: "no-store"
-    });
-  } catch {
-    return null;
-  }
+  for (const baseUrl of baseUrls) {
+    const remoteUrl = buildRemoteAssetUrl(baseUrl, segments);
 
-  if (!upstreamResponse.ok || !upstreamResponse.body) {
-    return null;
-  }
+    let upstreamResponse: Response;
+    try {
+      upstreamResponse = await fetch(remoteUrl, {
+        method: "GET",
+        cache: "no-store"
+      });
+    } catch {
+      continue;
+    }
 
-  const meta = responseMetaFor(assetPath);
-  const headers: Record<string, string> = {
-    "Content-Type": upstreamResponse.headers.get("content-type") ?? meta.contentType,
-    "Cache-Control": upstreamResponse.headers.get("cache-control") ?? DEFAULT_CACHE_CONTROL
-  };
+    if (!upstreamResponse.ok || !upstreamResponse.body) {
+      continue;
+    }
 
-  const upstreamEncoding = (upstreamResponse.headers.get("content-encoding") ?? "").toLowerCase();
-  if (upstreamEncoding) {
-    headers["Content-Encoding"] = upstreamEncoding;
-    headers["Vary"] = "Accept-Encoding";
-  } else if (assetPath.toLowerCase().endsWith(".gz")) {
-    const looksCompressed = await remoteBodyLooksGzipped(remoteUrl);
-    if (looksCompressed) {
-      headers["Content-Encoding"] = "gzip";
+    const meta = responseMetaFor(assetPath);
+    const headers: Record<string, string> = {
+      "Content-Type": upstreamResponse.headers.get("content-type") ?? meta.contentType,
+      "Cache-Control": upstreamResponse.headers.get("cache-control") ?? DEFAULT_CACHE_CONTROL
+    };
+
+    const isGzipAsset = assetPath.toLowerCase().endsWith(".gz");
+    const upstreamEncoding = (upstreamResponse.headers.get("content-encoding") ?? "").toLowerCase();
+
+    if (isGzipAsset) {
+      // Upstream may transparently decompress while still exposing the original
+      // content-encoding header, so detect from actual bytes instead.
+      const looksCompressed = await remoteBodyLooksGzipped(remoteUrl);
+      if (looksCompressed) {
+        headers["Content-Encoding"] = "gzip";
+        headers["Vary"] = "Accept-Encoding";
+      }
+    } else if (upstreamEncoding) {
+      headers["Content-Encoding"] = upstreamEncoding;
       headers["Vary"] = "Accept-Encoding";
     }
+
+    const upstreamLength = upstreamResponse.headers.get("content-length");
+    if (upstreamLength && !headers["Content-Encoding"]) {
+      headers["Content-Length"] = upstreamLength;
+    }
+
+    return new NextResponse(upstreamResponse.body, {
+      status: upstreamResponse.status,
+      headers
+    });
   }
 
-  const upstreamLength = upstreamResponse.headers.get("content-length");
-  if (upstreamLength && !headers["Content-Encoding"]) {
-    headers["Content-Length"] = upstreamLength;
-  }
-
-  return new NextResponse(upstreamResponse.body, {
-    status: upstreamResponse.status,
-    headers
-  });
+  return null;
 }
 
 export async function GET(_request: Request, { params }: RouteContext) {
