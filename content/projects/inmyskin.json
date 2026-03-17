@@ -1,0 +1,85 @@
+﻿{
+  "slug": "inmyskin",
+  "title": "InMySkin",
+  "year": 2026,
+  "category": "Interactive Systems",
+  "type": "Academics",
+  "tags": [
+    "Virtual Reality",
+    "Simulation",
+    "Healthcare",
+    "XR",
+    "Interactive"
+  ],
+  "summaryShort": "A placeholder intake project used to validate repository workflows.",
+  "summaryMedium": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture.",
+  "summaryLong": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture. Standardized folder names, media naming patterns, and a structured narrative template so agents can parse metadata, map media, and generate project JSON consistently.",
+  "sections": {
+    "overview": "A placeholder intake project used to validate repository workflows.",
+    "background": "Created as a seed project while setting up the long-term portfolio architecture.",
+    "concept": "Define conventions that let agents process new work without manual cleanup each time.",
+    "theProject": "This example project demonstrates the folder structure and naming required by the portfolio ingestion system.",
+    "process": "Standardized folder names, media naming patterns, and a structured narrative template.",
+    "reflectionImpact": "Agents can parse metadata, map media, and generate project JSON consistently.",
+    "documentation": "Contributors: Guido Sijabat, Ana Paola, Petr Mogutov. Role: System architect and visual designer. Tools: TypeScript, Markdown, Blob Storage, static assets."
+  },
+  "roles": [
+    "System architect and visual designer"
+  ],
+  "tools": [
+    "TypeScript",
+    "Markdown",
+    "Blob Storage",
+    "Static assets"
+  ],
+  "heroImage": "inmyskin/images/cover.jpg",
+  "coverImage": "inmyskin/images/cover.jpg",
+  "cardImage": "inmyskin/images/card.jpg",
+  "primaryVideo": "inmyskin/videos/demo.mov",
+  "primaryMedia": "inmyskin/videos/demo.mov",
+  "demoUrl": "/api/assets/inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html",
+  "gallery": [
+    "inmyskin/images/setup-01.png"
+  ],
+  "galleryImages": [
+    "inmyskin/images/setup-01.png"
+  ],
+  "videos": [
+    "inmyskin/videos/demo.mov"
+  ],
+  "assets": {
+    "videos": [
+      "inmyskin/videos/demo.mov"
+    ],
+    "images": [
+      "inmyskin/images/card.jpg",
+      "inmyskin/images/cover.jpg",
+      "inmyskin/images/setup-01.png"
+    ],
+    "scripts": [
+      "inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html"
+    ],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "example-project"
+  ],
+  "seoTitle": "InMySkin (2026) | Ariel Adhidevara",
+  "seoDescription": "A placeholder intake project used to validate repository workflows.",
+  "openGraphImage": "inmyskin/images/card.jpg",
+  "socialPreviewText": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/inmyskin/project.txt",
+    "metaJson": null
+  },
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  }
+}

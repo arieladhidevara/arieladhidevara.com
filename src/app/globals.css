@@ -1,0 +1,238 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-base: #f1f2f4;
+  --color-surface: #f7f7f8;
+  --color-layer: #eceef1;
+  --color-text: #121418;
+  --color-subtext: #4c5360;
+  --color-muted: #8c939f;
+  --color-accent: #5a6880;
+  --color-line: rgba(20, 26, 34, 0.1);
+  --radius-soft: 1rem;
+  --radius-card: 1.28rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  forced-color-adjust: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html.cv-scrollbar-visible,
+body.cv-scrollbar-visible {
+  scrollbar-width: thin;
+}
+
+html.cv-scrollbar-visible::-webkit-scrollbar,
+body.cv-scrollbar-visible::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+html.cv-scrollbar-visible::-webkit-scrollbar-track,
+body.cv-scrollbar-visible::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html.cv-scrollbar-visible::-webkit-scrollbar-thumb,
+body.cv-scrollbar-visible::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background-color: rgba(76, 84, 98, 0.45);
+}
+
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(219, 224, 233, 0.5) 0%, rgba(219, 224, 233, 0) 34%),
+    radial-gradient(circle at 88% 8%, rgba(230, 232, 238, 0.8) 0%, rgba(230, 232, 238, 0) 42%),
+    var(--color-base);
+  color: var(--color-text);
+  font-feature-settings: "ss01" 1, "cv03" 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  color: var(--color-subtext) !important;
+  -webkit-text-fill-color: var(--color-subtext);
+}
+
+/* Hard guard: never allow white text anywhere in the interface. */
+.text-white,
+[class*="text-white"],
+[style*="color:white"],
+[style*="color: white"],
+[style*="color:#fff"],
+[style*="color: #fff"],
+[style*="color:#ffffff"],
+[style*="color: #ffffff"] {
+  color: var(--color-subtext) !important;
+}
+
+.display-type {
+  letter-spacing: -0.028em;
+  font-family: var(--font-display);
+}
+
+.kicker {
+  color: var(--color-muted);
+  font-size: 0.71rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.editorial-copy {
+  max-width: 72ch;
+  color: #4c5360 !important;
+  line-height: 1.74;
+}
+
+.surface-panel {
+  background: color-mix(in oklab, var(--color-surface) 92%, #ffffff 8%);
+  box-shadow: 0 22px 50px -42px rgba(13, 22, 34, 0.26);
+}
+
+.tone-layer {
+  background: color-mix(in oklab, var(--color-layer) 86%, #ffffff 14%);
+}
+
+.media-integrated {
+  background: linear-gradient(138deg, #f5f6f8 0%, #e9ecf1 100%);
+  box-shadow: 0 24px 42px -36px rgba(17, 22, 30, 0.2);
+}
+
+/* Project detail glass treatment for all major content boxes. */
+.project-glass .surface-panel,
+.project-glass .tone-layer {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background-color: rgba(246, 248, 251, 0.34);
+  background-image:
+    radial-gradient(124% 96% at 0% 0%, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0.03) 100%),
+    linear-gradient(156deg, rgba(255, 255, 255, 0.2) 0%, rgba(240, 245, 252, 0.13) 58%, rgba(224, 232, 243, 0.22) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(126, 141, 160, 0.18),
+    0 24px 44px -34px rgba(17, 24, 33, 0.34);
+  -webkit-backdrop-filter: blur(19px) saturate(1.2);
+  backdrop-filter: blur(19px) saturate(1.2);
+}
+
+.project-glass .media-integrated {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background:
+    radial-gradient(112% 90% at 6% 4%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.06) 52%, rgba(255, 255, 255, 0.02) 100%),
+    linear-gradient(136deg, rgba(239, 246, 251, 0.22) 0%, rgba(229, 236, 245, 0.16) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.44),
+    inset 0 -1px 0 rgba(122, 136, 154, 0.16),
+    0 26px 44px -34px rgba(15, 22, 31, 0.32);
+  -webkit-backdrop-filter: blur(16px) saturate(1.16);
+  backdrop-filter: blur(16px) saturate(1.16);
+}
+
+.project-glass ul > li.text-clamp-1.rounded-full {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background:
+    linear-gradient(152deg, rgba(255, 255, 255, 0.34) 0%, rgba(237, 242, 248, 0.2) 100%),
+    rgba(246, 248, 252, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    0 12px 22px -20px rgba(15, 22, 31, 0.35);
+  -webkit-backdrop-filter: blur(12px) saturate(1.14);
+  backdrop-filter: blur(12px) saturate(1.14);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+  color: var(--color-text);
+}
+
+/* Global glass hover for interactive controls that already use a background utility. */
+:where(a, button, [role="button"]):not(.no-glass-hover)[class*="bg-"] {
+  transition-property:
+    color,
+    background-color,
+    background-image,
+    border-color,
+    box-shadow,
+    -webkit-backdrop-filter,
+    backdrop-filter,
+    opacity,
+    transform;
+  transition-duration: 280ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(a, button, [role="button"]):not(.no-glass-hover)[class*="bg-"]:not(:disabled):hover {
+    background-color: color-mix(in oklab, var(--color-surface) 28%, transparent);
+    background-image:
+      radial-gradient(125% 96% at 0% 0%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 54%),
+      linear-gradient(154deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 58%, rgba(220, 226, 236, 0.2) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(131, 144, 161, 0.2),
+      0 18px 34px -28px rgba(14, 20, 29, 0.44);
+    -webkit-backdrop-filter: blur(14px) saturate(1.22);
+    backdrop-filter: blur(14px) saturate(1.22);
+  }
+}
+
+.text-clamp-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clamp-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.text-clamp-3 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.text-clamp-4 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.text-clamp-5 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}

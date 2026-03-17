@@ -1,0 +1,77 @@
+﻿{
+  "slug": "example-project",
+  "title": "Example Project",
+  "year": 2026,
+  "category": "AI & Software",
+  "type": "Concept Study",
+  "tags": [
+    "Architecture",
+    "Visualization",
+    "Storytelling",
+    "XR",
+    "Creative Coding"
+  ],
+  "summaryShort": "A placeholder intake project used to validate repository workflows.",
+  "summaryMedium": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture.",
+  "summaryLong": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture. Standardized folder names, media naming patterns, and a structured narrative template so agents can parse metadata, map media, and generate project JSON consistently.",
+  "sections": {
+    "overview": "A placeholder intake project used to validate repository workflows.",
+    "background": "Created as a seed project while setting up the long-term portfolio architecture.",
+    "concept": "Define conventions that let agents process new work without manual cleanup each time.",
+    "theProject": "This example project demonstrates the folder structure and naming required by the portfolio ingestion system.",
+    "process": "Standardized folder names, media naming patterns, and a structured narrative template.",
+    "reflectionImpact": "Agents can parse metadata, map media, and generate project JSON consistently.",
+    "documentation": "Role: System architect and visual designer. Tools: TypeScript, Markdown, Blob Storage, static assets."
+  },
+  "roles": [
+    "System architect and visual designer"
+  ],
+  "tools": [
+    "TypeScript",
+    "Markdown",
+    "Blob Storage",
+    "Static assets"
+  ],
+  "heroImage": "example-project/images/cover.jpg",
+  "coverImage": "example-project/images/cover.jpg",
+  "cardImage": "example-project/images/card.jpg",
+  "primaryVideo": "example-project/videos/demo.mov",
+  "primaryMedia": "example-project/videos/demo.mov",
+  "gallery": [],
+  "galleryImages": [],
+  "videos": [
+    "example-project/videos/demo.mov"
+  ],
+  "assets": {
+    "videos": [
+      "example-project/videos/demo.mov"
+    ],
+    "images": [
+      "example-project/images/card.jpg",
+      "example-project/images/cover.jpg"
+    ],
+    "scripts": [],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "inmyskin"
+  ],
+  "seoTitle": "Example Project (2026) | Ariel Adhidevara",
+  "seoDescription": "A placeholder intake project used to validate repository workflows.",
+  "openGraphImage": "example-project/images/card.jpg",
+  "socialPreviewText": "A placeholder intake project used to validate repository workflows. Created as a seed project while setting up the long-term portfolio architecture.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/example-project/project.txt",
+    "metaJson": null
+  },
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  }
+}

@@ -1,0 +1,21 @@
+﻿{
+  "slug": "",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "category": "",
+  "type": "",
+  "tags": [],
+  "coverImage": "",
+  "cardImage": "",
+  "primaryMedia": "",
+  "sections": {
+    "overview": "",
+    "background": "",
+    "concept": "",
+    "theProject": "",
+    "process": "",
+    "reflectionImpact": "",
+    "documentation": ""
+  }
+}
