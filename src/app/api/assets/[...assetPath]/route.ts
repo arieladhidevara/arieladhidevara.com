@@ -108,20 +108,6 @@ function rewriteInMySkinIndex(html: string): string {
   );
 }
 
-async function fetchRemoteContentLength(url: string): Promise<string | null> {
-  try {
-    const headResponse = await fetch(url, {
-      method: "HEAD",
-      cache: "no-store"
-    });
-
-    if (!headResponse.ok) return null;
-    return headResponse.headers.get("content-length");
-  } catch {
-    return null;
-  }
-}
-
 function buildAssetPath(segments: string[]): string | null {
   let currentPath = ASSETS_ROOT;
 
@@ -425,12 +411,6 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
     } else if (upstreamEncoding) {
       headers["Content-Encoding"] = upstreamEncoding;
       headers["Vary"] = "Accept-Encoding";
-    }
-
-    const upstreamLength =
-      upstreamResponse.headers.get("content-length") ?? (await fetchRemoteContentLength(remoteUrl));
-    if (upstreamLength) {
-      headers["Content-Length"] = upstreamLength;
     }
 
     return new NextResponse(bodyResult.stream, {
