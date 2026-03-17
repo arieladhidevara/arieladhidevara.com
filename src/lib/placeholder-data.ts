@@ -155,7 +155,7 @@ const inMySkinAssets = {
   demoBuild: "inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html"
 } as const;
 
-const inMySkinDemoUrl = resolveAssetUrl(inMySkinAssets.demoBuild);
+const inMySkinDemoUrl = `/api/assets/${inMySkinAssets.demoBuild}`;
 
 const projectSeeds: ProjectSeed[] = [
   {
