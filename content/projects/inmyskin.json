@@ -1,4 +1,4 @@
-﻿{
+{
   "slug": "inmyskin",
   "title": "InMySkin",
   "year": 2026,
@@ -37,7 +37,7 @@
   "cardImage": "inmyskin/images/card.jpg",
   "primaryVideo": "inmyskin/videos/demo.mov",
   "primaryMedia": "inmyskin/videos/demo.mov",
-  "demoUrl": "/api/assets/inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html",
+  "demoUrl": "inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html",
   "gallery": [
     "inmyskin/images/setup-01.png"
   ],
@@ -83,3 +83,4 @@
     "skippedCount": 0
   }
 }
+
