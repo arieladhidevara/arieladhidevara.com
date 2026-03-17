@@ -16,6 +16,9 @@ out/
 # Local media and intake workspace (large files should not be versioned)
 assets-local/
 project-inbox/
+ONPROGRESS/
+TEMP/
+public/site/ui-graphics/cv-journey/
 
 # Logs
 *.log
