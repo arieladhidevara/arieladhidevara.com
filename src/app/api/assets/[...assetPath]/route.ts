@@ -1,5 +1,6 @@
 import { createReadStream, promises as fs } from "node:fs";
 import path from "node:path";
+import { gunzipSync } from "node:zlib";
 import { NextResponse } from "next/server";
 
 const ASSETS_ROOT = path.resolve(process.cwd(), "assets-local");
@@ -73,6 +74,38 @@ function resolveRemoteBaseUrls(): string[] {
 function buildRemoteAssetUrl(baseUrl: string, segments: string[]): string {
   const encodedPath = segments.map((segment) => encodeURIComponent(segment)).join("/");
   return `${baseUrl}/${encodedPath}`;
+}
+
+function resolveRemoteSegments(segments: string[]): { targetSegments: string[]; isVirtualFramework: boolean } {
+  if (segments.length === 0) {
+    return { targetSegments: segments, isVirtualFramework: false };
+  }
+
+  const targetSegments = [...segments];
+  const lastIndex = targetSegments.length - 1;
+  const lastSegment = targetSegments[lastIndex]?.toLowerCase() ?? "";
+
+  if (lastSegment.endsWith(".framework.js")) {
+    targetSegments[lastIndex] = `${targetSegments[lastIndex]}.gz`;
+    return { targetSegments, isVirtualFramework: true };
+  }
+
+  return { targetSegments, isVirtualFramework: false };
+}
+
+function isInMySkinUnityIndex(segments: string[]): boolean {
+  if (segments.length === 0) return false;
+  const joined = segments.join("/").toLowerCase();
+  return joined.endsWith("inmyskin-webgl/index.html");
+}
+
+function rewriteInMySkinIndex(html: string): string {
+  // Use virtual framework path (without .gz) to avoid gzip-header dependency
+  // on script loading while keeping other asset URLs intact.
+  return html.replace(
+    /frameworkUrl:\s*buildUrl\s*\+\s*"\/inmyskin\.framework\.js\.gz"/g,
+    'frameworkUrl: buildUrl + "/inmyskin.framework.js"'
+  );
 }
 
 function buildAssetPath(segments: string[]): string | null {
@@ -266,8 +299,10 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
   const baseUrls = resolveRemoteBaseUrls();
   if (baseUrls.length === 0) return null;
 
+  const remoteResolution = resolveRemoteSegments(segments);
+
   for (const baseUrl of baseUrls) {
-    const remoteUrl = buildRemoteAssetUrl(baseUrl, segments);
+    const remoteUrl = buildRemoteAssetUrl(baseUrl, remoteResolution.targetSegments);
 
     let upstreamResponse: Response;
     try {
@@ -283,7 +318,49 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
       continue;
     }
 
+    if (isInMySkinUnityIndex(segments)) {
+      const html = await upstreamResponse.text();
+      const rewritten = rewriteInMySkinIndex(html);
+
+      return new NextResponse(rewritten, {
+        status: upstreamResponse.status,
+        headers: {
+          "Content-Type": CONTENT_TYPES[".html"],
+          "Cache-Control": DEFAULT_CACHE_CONTROL
+        }
+      });
+    }
+
     const meta = responseMetaFor(assetPath);
+    if (remoteResolution.isVirtualFramework) {
+      const rawBytes = new Uint8Array(await upstreamResponse.arrayBuffer());
+      if (rawBytes.length === 0) {
+        continue;
+      }
+
+      let scriptBytes = rawBytes;
+      if (startsWithGzip(rawBytes)) {
+        try {
+          scriptBytes = new Uint8Array(gunzipSync(rawBytes));
+        } catch {
+          continue;
+        }
+      }
+
+      if (!looksLikeUnityFrameworkScript(scriptBytes)) {
+        continue;
+      }
+
+      return new NextResponse(scriptBytes, {
+        status: upstreamResponse.status,
+        headers: {
+          "Content-Type": CONTENT_TYPES[".js"],
+          "Cache-Control": DEFAULT_CACHE_CONTROL,
+          "Content-Length": String(scriptBytes.byteLength)
+        }
+      });
+    }
+
     const isGzipAsset = assetPath.toLowerCase().endsWith(".gz");
     const isFrameworkGzip = assetPath.toLowerCase().endsWith(".framework.js.gz");
 
