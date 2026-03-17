@@ -195,28 +195,63 @@ function toSafeWebStream(stream: ReturnType<typeof createReadStream>): ReadableS
   });
 }
 
-async function remoteBodyLooksGzipped(url: string): Promise<boolean> {
-  try {
-    const probeResponse = await fetch(url, {
-      method: "GET",
-      headers: {
-        Range: "bytes=0-1",
-        "Accept-Encoding": "identity"
-      },
-      cache: "no-store"
-    });
+function startsWithGzip(bytes: Uint8Array): boolean {
+  return bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b;
+}
 
-    const reader = probeResponse.body?.getReader();
-    if (!reader) return false;
+async function inspectAndRebuildBody(
+  body: ReadableStream<Uint8Array>
+): Promise<{ stream: ReadableStream<Uint8Array>; looksGzipped: boolean }> {
+  const reader = body.getReader();
+  const buffered: Uint8Array[] = [];
+  let bufferedBytes = 0;
 
-    const { value } = await reader.read();
-    await reader.cancel();
-
-    if (!value || value.length < 2) return false;
-    return value[0] === 0x1f && value[1] === 0x8b;
-  } catch {
-    return false;
+  // Read enough bytes for a reliable gzip signature check.
+  while (bufferedBytes < 2) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    if (!value || value.length === 0) continue;
+    buffered.push(value);
+    bufferedBytes += value.length;
   }
+
+  const probeBytes = new Uint8Array(Math.min(bufferedBytes, 2));
+  if (probeBytes.length > 0) {
+    let offset = 0;
+    for (const chunk of buffered) {
+      const remaining = probeBytes.length - offset;
+      if (remaining <= 0) break;
+      const take = Math.min(remaining, chunk.length);
+      probeBytes.set(chunk.subarray(0, take), offset);
+      offset += take;
+    }
+  }
+
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      try {
+        for (const chunk of buffered) {
+          controller.enqueue(chunk);
+        }
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (!value || value.length === 0) continue;
+          controller.enqueue(value);
+        }
+
+        controller.close();
+      } catch (error) {
+        controller.error(error);
+      }
+    },
+    cancel(reason) {
+      return reader.cancel(reason);
+    }
+  });
+
+  return { stream, looksGzipped: startsWithGzip(probeBytes) };
 }
 
 async function serveRemoteAsset(segments: string[], assetPath: string): Promise<NextResponse | null> {
@@ -241,19 +276,20 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
     }
 
     const meta = responseMetaFor(assetPath);
+    const isGzipAsset = assetPath.toLowerCase().endsWith(".gz");
+    const bodyResult = isGzipAsset
+      ? await inspectAndRebuildBody(upstreamResponse.body)
+      : { stream: upstreamResponse.body, looksGzipped: false };
+
     const headers: Record<string, string> = {
-      "Content-Type": upstreamResponse.headers.get("content-type") ?? meta.contentType,
+      "Content-Type": isGzipAsset ? meta.contentType : upstreamResponse.headers.get("content-type") ?? meta.contentType,
       "Cache-Control": upstreamResponse.headers.get("cache-control") ?? DEFAULT_CACHE_CONTROL
     };
 
-    const isGzipAsset = assetPath.toLowerCase().endsWith(".gz");
     const upstreamEncoding = (upstreamResponse.headers.get("content-encoding") ?? "").toLowerCase();
 
     if (isGzipAsset) {
-      // Upstream may transparently decompress while still exposing the original
-      // content-encoding header, so detect from actual bytes instead.
-      const looksCompressed = await remoteBodyLooksGzipped(remoteUrl);
-      if (looksCompressed) {
+      if (bodyResult.looksGzipped) {
         headers["Content-Encoding"] = "gzip";
         headers["Vary"] = "Accept-Encoding";
       }
@@ -267,7 +303,7 @@ async function serveRemoteAsset(segments: string[], assetPath: string): Promise<
       headers["Content-Length"] = upstreamLength;
     }
 
-    return new NextResponse(upstreamResponse.body, {
+    return new NextResponse(bodyResult.stream, {
       status: upstreamResponse.status,
       headers
     });
