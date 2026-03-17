@@ -155,6 +155,8 @@ const inMySkinAssets = {
   demoBuild: "inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html"
 } as const;
 
+const inMySkinDemoUrl = `/api/assets/${inMySkinAssets.demoBuild}`;
+
 const projectSeeds: ProjectSeed[] = [
   {
     slug: "mnemonic-mixology",
@@ -253,7 +255,7 @@ const projectSeeds: ProjectSeed[] = [
     outcome: "Produced a functional simulation prototype that can be presented as both case-study media and an interactive demo.",
     roles: ["Interaction Designer"],
     tools: ["Python", "WebGL Shader", "GPT-4o", "Python"],
-    demoUrl: resolveAssetUrl(inMySkinAssets.demoBuild),
+    demoUrl: inMySkinDemoUrl,
     demoCtaLabel: "Play InMySkin Demo"
   },
   {
@@ -653,7 +655,7 @@ function buildDocumentationLinks(seed: ProjectSeed): ProjectDocumentationLink[] 
     return [
       {
         label: "WebGL Demo Build",
-        href: resolveAssetUrl(inMySkinAssets.demoBuild),
+        href: inMySkinDemoUrl,
         type: "demo"
       },
       {

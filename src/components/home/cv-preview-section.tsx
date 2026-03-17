@@ -29,6 +29,21 @@ const MAX_BACKWARD_RATE = 2.4;
 const BACKWARD_RATE_BOOST = 0.2;
 const STEP_EPSILON = 0.02;
 const CV_SCROLLBAR_CLASS = "cv-scrollbar-visible";
+const CV_JOURNEY_VIDEO_PATH = "site/ui-graphics/cv-journey/Ariels_journey_seek.mp4";
+const CV_JOURNEY_VIDEO_QUERY = "v=1";
+
+function trimTrailingSlashes(value: string) {
+  return value.replace(/\/+$/, "");
+}
+
+function buildCvJourneyVideoSource(): string {
+  const publicPath = `/${CV_JOURNEY_VIDEO_PATH}?${CV_JOURNEY_VIDEO_QUERY}`;
+  const base = trimTrailingSlashes((process.env.NEXT_PUBLIC_ASSET_BASE_URL ?? "").trim());
+  if (!base) return publicPath;
+  return `${base}/${CV_JOURNEY_VIDEO_PATH}?${CV_JOURNEY_VIDEO_QUERY}`;
+}
+
+const CV_JOURNEY_VIDEO_SRC = buildCvJourneyVideoSource();
 
 const phases: JourneyPhase[] = [
   {
@@ -165,6 +180,7 @@ export function CvPreviewSection() {
   const [videoReady, setVideoReady] = useState(false);
   const [holdPhaseIndex, setHoldPhaseIndex] = useState(0);
   const [textTransition, setTextTransition] = useState<TextTransition | null>(null);
+  const [videoSource, setVideoSource] = useState(CV_JOURNEY_VIDEO_SRC);
 
   const progress = useMemo(() => {
     if (duration <= 0) return 0;
@@ -914,10 +930,14 @@ export function CvPreviewSection() {
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
         style={{ opacity: videoOpacity }}
-        src="/site/ui-graphics/cv-journey/Ariels_journey_seek.mp4?v=1"
+        src={videoSource}
         preload="auto"
         muted
         playsInline
+        onError={() => {
+          if (videoSource.startsWith("/")) return;
+          setVideoSource(`/${CV_JOURNEY_VIDEO_PATH}?${CV_JOURNEY_VIDEO_QUERY}`);
+        }}
         aria-label="Ariel career journey video"
       />
 

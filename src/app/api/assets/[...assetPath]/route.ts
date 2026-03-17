@@ -26,6 +26,7 @@ const CONTENT_TYPES: Record<string, string> = {
 };
 
 const SAFE_SEGMENT_PATTERN = /^[a-zA-Z0-9 _().%+-]+$/;
+const DEFAULT_CACHE_CONTROL = "public, max-age=60, stale-while-revalidate=300";
 
 type RouteContext = {
   params: {
@@ -37,6 +38,31 @@ type ResponseMeta = {
   contentType: string;
   contentEncoding?: string;
 };
+
+function stripTrailingSlashes(value: string): string {
+  return value.replace(/\/+$/, "");
+}
+
+function resolveRemoteBaseUrl(): string {
+  const candidates = [process.env.BLOB_BASE_URL, process.env.NEXT_PUBLIC_ASSET_BASE_URL];
+
+  for (const candidate of candidates) {
+    const normalized = stripTrailingSlashes((candidate ?? "").trim());
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  return "";
+}
+
+function buildRemoteAssetUrl(segments: string[]): string {
+  const baseUrl = resolveRemoteBaseUrl();
+  if (!baseUrl) return "";
+
+  const encodedPath = segments.map((segment) => encodeURIComponent(segment)).join("/");
+  return `${baseUrl}/${encodedPath}`;
+}
 
 function buildAssetPath(segments: string[]): string | null {
   let currentPath = ASSETS_ROOT;
@@ -158,6 +184,77 @@ function toSafeWebStream(stream: ReturnType<typeof createReadStream>): ReadableS
   });
 }
 
+async function remoteBodyLooksGzipped(url: string): Promise<boolean> {
+  try {
+    const probeResponse = await fetch(url, {
+      method: "GET",
+      headers: {
+        Range: "bytes=0-1",
+        "Accept-Encoding": "identity"
+      },
+      cache: "no-store"
+    });
+
+    const reader = probeResponse.body?.getReader();
+    if (!reader) return false;
+
+    const { value } = await reader.read();
+    await reader.cancel();
+
+    if (!value || value.length < 2) return false;
+    return value[0] === 0x1f && value[1] === 0x8b;
+  } catch {
+    return false;
+  }
+}
+
+async function serveRemoteAsset(segments: string[], assetPath: string): Promise<NextResponse | null> {
+  const remoteUrl = buildRemoteAssetUrl(segments);
+  if (!remoteUrl) return null;
+
+  let upstreamResponse: Response;
+  try {
+    upstreamResponse = await fetch(remoteUrl, {
+      method: "GET",
+      cache: "no-store"
+    });
+  } catch {
+    return null;
+  }
+
+  if (!upstreamResponse.ok || !upstreamResponse.body) {
+    return null;
+  }
+
+  const meta = responseMetaFor(assetPath);
+  const headers: Record<string, string> = {
+    "Content-Type": upstreamResponse.headers.get("content-type") ?? meta.contentType,
+    "Cache-Control": upstreamResponse.headers.get("cache-control") ?? DEFAULT_CACHE_CONTROL
+  };
+
+  const upstreamEncoding = (upstreamResponse.headers.get("content-encoding") ?? "").toLowerCase();
+  if (upstreamEncoding) {
+    headers["Content-Encoding"] = upstreamEncoding;
+    headers["Vary"] = "Accept-Encoding";
+  } else if (assetPath.toLowerCase().endsWith(".gz")) {
+    const looksCompressed = await remoteBodyLooksGzipped(remoteUrl);
+    if (looksCompressed) {
+      headers["Content-Encoding"] = "gzip";
+      headers["Vary"] = "Accept-Encoding";
+    }
+  }
+
+  const upstreamLength = upstreamResponse.headers.get("content-length");
+  if (upstreamLength && !headers["Content-Encoding"]) {
+    headers["Content-Length"] = upstreamLength;
+  }
+
+  return new NextResponse(upstreamResponse.body, {
+    status: upstreamResponse.status,
+    headers
+  });
+}
+
 export async function GET(_request: Request, { params }: RouteContext) {
   const segments = params.assetPath ?? [];
 
@@ -175,17 +272,27 @@ export async function GET(_request: Request, { params }: RouteContext) {
   try {
     stat = await fs.stat(assetPath);
   } catch {
+    const remoteResponse = await serveRemoteAsset(segments, assetPath);
+    if (remoteResponse) {
+      return remoteResponse;
+    }
+
     return NextResponse.json({ error: "Asset not found" }, { status: 404 });
   }
 
   if (!stat.isFile()) {
+    const remoteResponse = await serveRemoteAsset(segments, assetPath);
+    if (remoteResponse) {
+      return remoteResponse;
+    }
+
     return NextResponse.json({ error: "Asset not found" }, { status: 404 });
   }
 
   const meta = responseMetaFor(assetPath);
   const headers: Record<string, string> = {
     "Content-Type": meta.contentType,
-    "Cache-Control": "public, max-age=60, stale-while-revalidate=300"
+    "Cache-Control": DEFAULT_CACHE_CONTROL
   };
 
   if (meta.contentEncoding) {
