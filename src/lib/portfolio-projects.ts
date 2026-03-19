@@ -6,6 +6,7 @@ import type {
   PlaceholderMedia,
   PlaceholderProject,
   PracticeCategory,
+  ProjectAssetsBySection,
   ProjectDocumentationLink
 } from "@/lib/placeholder-data";
 import { placeholderProjects, practiceCategories, projectInCategory } from "@/lib/placeholder-data";
@@ -68,6 +69,7 @@ type ContentProjectRecord = {
   galleryImages?: unknown;
   videos?: unknown;
   assets?: ContentAssets;
+  assetsBySection?: unknown;
   relatedProjects?: unknown;
   links?: unknown;
   demoUrl?: unknown;
@@ -81,6 +83,33 @@ type MappedProject = {
 };
 
 const VIDEO_EXT = new Set([".mp4", ".mov", ".m4v", ".webm", ".mkv"]);
+const SECTION_KEYS = [
+  "thumbnails",
+  "overview",
+  "background",
+  "concept",
+  "the-project",
+  "process",
+  "reflection",
+  "documentation"
+] as const;
+const SECTION_ALIASES: Record<string, (typeof SECTION_KEYS)[number]> = {
+  thumbnail: "thumbnails",
+  thumbnails: "thumbnails",
+  overview: "overview",
+  background: "background",
+  concept: "concept",
+  "the-project": "the-project",
+  "the project": "the-project",
+  theproject: "the-project",
+  project: "the-project",
+  process: "process",
+  reflection: "reflection",
+  impact: "reflection",
+  documentation: "documentation",
+  docs: "documentation",
+  documents: "documentation"
+};
 
 function asRecord(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) return {};
@@ -224,6 +253,74 @@ function toMediaKind(pathValue: string): "image" | "video" {
   const ext = path.extname(pathValue).toLowerCase();
   if (VIDEO_EXT.has(ext)) return "video";
   return "image";
+}
+
+function createAssetsBySection(): ProjectAssetsBySection {
+  return {
+    thumbnails: [],
+    overview: [],
+    background: [],
+    concept: [],
+    "the-project": [],
+    process: [],
+    reflection: [],
+    documentation: []
+  };
+}
+
+function normalizeSectionToken(input: string): (typeof SECTION_KEYS)[number] | null {
+  const normalized = input.toLowerCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  return SECTION_ALIASES[normalized] ?? null;
+}
+
+function inferSectionFromAssetPath(assetPath: string): (typeof SECTION_KEYS)[number] {
+  const normalizedPath = assetPath.replace(/\\/g, "/").replace(/^\/+/, "");
+  const segments = normalizedPath.split("/").filter(Boolean);
+  if (segments.length === 0) return "documentation";
+
+  for (const segment of segments) {
+    const section = normalizeSectionToken(segment);
+    if (section) return section;
+  }
+
+  return "documentation";
+}
+
+function dedupeAndSortBySection(assetsBySection: ProjectAssetsBySection): ProjectAssetsBySection {
+  const output = createAssetsBySection();
+
+  for (const section of SECTION_KEYS) {
+    output[section] = unique(assetsBySection[section]).sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base", numeric: true }));
+  }
+
+  return output;
+}
+
+function buildAssetsBySection(raw: ContentProjectRecord, assetsRecord: Record<string, unknown>, knownAssetPaths: string[]): ProjectAssetsBySection {
+  const bySection = createAssetsBySection();
+  const rawBySection = asRecord(raw.assetsBySection);
+
+  for (const [key, value] of Object.entries(rawBySection)) {
+    const section = normalizeSectionToken(key);
+    if (!section) continue;
+    bySection[section].push(...asStringArray(value));
+  }
+
+  const fallbackAssetPaths = [
+    ...getArrayFromAssets(assetsRecord, "images"),
+    ...getArrayFromAssets(assetsRecord, "videos"),
+    ...getArrayFromAssets(assetsRecord, "scripts"),
+    ...getArrayFromAssets(assetsRecord, "models"),
+    ...getArrayFromAssets(assetsRecord, "documents"),
+    ...knownAssetPaths
+  ];
+
+  for (const assetPath of unique(fallbackAssetPaths.filter(Boolean))) {
+    const section = inferSectionFromAssetPath(assetPath);
+    bySection[section].push(assetPath);
+  }
+
+  return dedupeAndSortBySection(bySection);
 }
 
 function toDemoUrl(record: ContentProjectRecord, scriptAssets: string[]): string | undefined {
@@ -390,6 +487,7 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
     ].filter(Boolean)
   );
   const scriptAssets = getArrayFromAssets(assetsRecord, "scripts");
+  const assetsBySection = buildAssetsBySection(raw, assetsRecord, [...imageAssets, ...videoAssets]);
 
   const heroImagePath = findMedia(
     unique([asString(raw.heroImage), asString(raw.coverImage), asString(raw.cardImage), ...imageAssets].filter(Boolean)),
@@ -458,6 +556,7 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
       reflectionImpact,
       documentation
     },
+    assetsBySection,
     documentationLinks: documentationLinks.length > 0 ? documentationLinks : undefined,
     gallery,
     related

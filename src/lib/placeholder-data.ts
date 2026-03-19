@@ -87,6 +87,18 @@ export type ProjectDocumentationLink = {
   type: "image" | "video" | "script" | "model" | "document" | "demo";
 };
 
+export type ProjectAssetSection =
+  | "thumbnails"
+  | "overview"
+  | "background"
+  | "concept"
+  | "the-project"
+  | "process"
+  | "reflection"
+  | "documentation";
+
+export type ProjectAssetsBySection = Record<ProjectAssetSection, string[]>;
+
 export type PlaceholderProject = {
   slug: string;
   title: string;
@@ -113,6 +125,7 @@ export type PlaceholderProject = {
   demoUrl?: string;
   demoCtaLabel?: string;
   sections: ProjectSections;
+  assetsBySection?: ProjectAssetsBySection;
   documentationLinks?: ProjectDocumentationLink[];
   gallery: PlaceholderMedia[];
   related: string[];
