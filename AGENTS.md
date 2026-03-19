@@ -17,7 +17,7 @@ When asked to process a new project:
 1. Inspect `project-inbox/<project-slug>/`.
 2. Read `project.txt` as the primary narrative source.
 3. Scan all media recursively (even if folder placement is messy).
-4. Move media into `assets-local/<project-slug>/` with normalized folders (`videos`, `images`, `scripts`, `models`, `documents`).
+4. Move media into `assets-local/<project-slug>/` with normalized section folders (`thumbnails`, `overview`, `background`, `concept`, `the-project`, `process`, `reflection`, `documentation`).
 5. If file names are ambiguous, rename deterministically (for example `image-01.jpg`, `image-02.jpg`, `video-01.mp4`).
 6. Identify hero image (`cover`), card image (`card`), and primary video (`demo`) using naming rules + fallback selection.
 7. Upload large media to Blob storage.
@@ -27,10 +27,10 @@ When asked to process a new project:
 11. Ensure the project uses the shared template and design system.
 
 ## MEDIA NAMING CONVENTIONS
-- `images/cover.jpg` -> hero image
-- `images/card.jpg` -> listing thumbnail
-- `videos/demo.mp4` -> primary video
-- `videos/teaser.mp4` -> secondary video
+- `thumbnails/cover.jpg` -> hero image
+- `thumbnails/card.jpg` -> listing thumbnail
+- `the-project/demo.mp4` -> primary video
+- `the-project/teaser.mp4` -> secondary video
 - Ambiguous names should be auto-normalized to deterministic names (for example `image-01.jpg`, `video-01.mp4`).
 
 ## IMAGE NAMING
@@ -44,9 +44,9 @@ Use sequential and descriptive naming:
 Local structure must mirror Blob pathnames.
 
 Example:
-`assets-local/unseen-realities/videos/demo.mp4`
+`assets-local/unseen-realities/the-project/demo.mp4`
 -> Blob pathname
-`unseen-realities/videos/demo.mp4`
+`unseen-realities/the-project/demo.mp4`
 
 ## PROJECT PAGE NARRATIVE STRUCTURE
 All project pages and project JSON should follow this section order:

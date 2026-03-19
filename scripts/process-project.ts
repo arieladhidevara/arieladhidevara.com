@@ -6,7 +6,8 @@ const INBOX_ROOT = path.resolve("project-inbox");
 const ASSETS_ROOT = path.resolve("assets-local");
 const CONTENT_ROOT = path.resolve("content/projects");
 
-const ASSET_FOLDERS = ["videos", "images", "scripts", "models", "documents"] as const;
+const SECTION_FOLDERS = ["thumbnails", "overview", "background", "concept", "the-project", "process", "reflection", "documentation"] as const;
+const LEGACY_ASSET_FOLDERS = ["videos", "images", "scripts", "models", "documents"] as const;
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]);
 const VIDEO_EXT = new Set([".mp4", ".mov", ".mkv", ".webm", ".m4v"]);
 const MODEL_EXT = new Set([".glb", ".gltf", ".obj", ".fbx", ".stl", ".ply", ".3dm", ".step", ".stp"]);
@@ -44,58 +45,82 @@ const FIELD_MAP: Record<string, string> = {
 
 const collator = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
 
-type AssetFolder = (typeof ASSET_FOLDERS)[number];
-type PracticeCategory = (typeof CATEGORIES)[number];
-type AssetKind = "image" | "video" | "script" | "model" | "document" | "other";
-type ProcessOptions = { uploadAssets?: boolean; writeOutput?: boolean };
-type UploadSummary = { attempted: boolean; success: boolean; uploadedCount: number; skippedCount: number; failedReason?: string };
-type ProjectSections = {
-  overview: string;
-  background: string;
-  concept: string;
-  theProject: string;
-  process: string;
-  reflectionImpact: string;
-  documentation: string;
-};
-type ProjectAssets = { videos: string[]; images: string[]; scripts: string[]; models: string[]; documents: string[] };
-type MediaFile = { fileName: string; relative: string; normalized: string };
-type PortfolioProject = {
-  slug: string;
-  title: string;
-  year: number;
-  category: PracticeCategory;
-  type: string;
-  tags: string[];
-  summaryShort: string;
-  summaryMedium: string;
-  summaryLong: string;
-  sections: ProjectSections;
-  roles: string[];
-  tools: string[];
-  heroImage: string;
-  coverImage: string;
-  cardImage: string;
-  primaryVideo: string;
-  primaryMedia: string;
-  gallery: string[];
-  galleryImages: string[];
-  videos: string[];
-  assets: ProjectAssets;
-  relatedProjects: string[];
-  seoTitle: string;
-  seoDescription: string;
-  openGraphImage: string;
-  socialPreviewText: string;
-  featured: boolean;
-  status: "draft" | "published";
-  order: number;
-  source: { projectTxt: string; metaJson: string | null };
-  upload: UploadSummary;
-};
-type ProcessResult = { project: PortfolioProject; report: { slug: string; category: PracticeCategory; outputPath: string; heroImage: string; cardImage: string; primaryVideo: string; gallerySize: number; tags: string[]; relatedProjects: string[] } };
-
-type NamingState = { counters: Record<AssetFolder, number>; reserved: { cover: boolean; card: boolean; demo: boolean; teaser: boolean } };
+type SectionFolder = (typeof SECTION_FOLDERS)[number];
+ type LegacyAssetFolder = (typeof LEGACY_ASSET_FOLDERS)[number];
+ type PracticeCategory = (typeof CATEGORIES)[number];
+ type AssetKind = "image" | "video" | "script" | "model" | "document" | "other";
+ type AssetRole = "cover" | "card" | "demo" | "teaser" | "none";
+ type SequentialNameKey = "image" | "video" | "script" | "model" | "document" | "asset";
+ type ProcessOptions = { uploadAssets?: boolean; writeOutput?: boolean };
+ type UploadSummary = { attempted: boolean; success: boolean; uploadedCount: number; skippedCount: number; failedReason?: string };
+ type ProjectSections = {
+   overview: string;
+   background: string;
+   concept: string;
+   theProject: string;
+   process: string;
+   reflectionImpact: string;
+   documentation: string;
+ };
+ type ProjectAssets = { videos: string[]; images: string[]; scripts: string[]; models: string[]; documents: string[] };
+ type ProjectAssetsBySection = Record<SectionFolder, string[]>;
+ type MediaFile = { fileName: string; relative: string; normalized: string; section: SectionFolder; kind: AssetKind };
+ type PortfolioProject = {
+   slug: string;
+   title: string;
+   year: number;
+   category: PracticeCategory;
+   type: string;
+   tags: string[];
+   summaryShort: string;
+   summaryMedium: string;
+   summaryLong: string;
+   sections: ProjectSections;
+   roles: string[];
+   tools: string[];
+   heroImage: string;
+   coverImage: string;
+   cardImage: string;
+   primaryVideo: string;
+   primaryMedia: string;
+   gallery: string[];
+   galleryImages: string[];
+   videos: string[];
+   assets: ProjectAssets;
+   assetsBySection: ProjectAssetsBySection;
+   relatedProjects: string[];
+   seoTitle: string;
+   seoDescription: string;
+   openGraphImage: string;
+   socialPreviewText: string;
+   featured: boolean;
+   status: "draft" | "published";
+   order: number;
+   source: { projectTxt: string; metaJson: string | null };
+   upload: UploadSummary;
+ };
+ type ProcessResult = { project: PortfolioProject; report: { slug: string; category: PracticeCategory; outputPath: string; heroImage: string; cardImage: string; primaryVideo: string; gallerySize: number; tags: string[]; relatedProjects: string[] } };
+ 
+ type NamingState = { counters: Record<SectionFolder, Record<SequentialNameKey, number>> };
+ 
+ const LEGACY_FOLDER_TO_SECTION: Record<LegacyAssetFolder, SectionFolder> = {
+   videos: "the-project",
+   images: "overview",
+   scripts: "documentation",
+   models: "documentation",
+   documents: "documentation",
+ };
+ 
+ const SECTION_ALIASES: Record<SectionFolder, string[]> = {
+   thumbnails: ["thumbnails", "thumbnail", "thumb", "thumbs", "cover", "card"],
+   overview: ["overview", "intro", "introduction"],
+   background: ["background", "context"],
+   concept: ["concept", "challenge"],
+   "the-project": ["the-project", "the project", "project", "theproject"],
+   process: ["process", "workflow", "development", "iteration"],
+   reflection: ["reflection", "impact", "outcome"],
+   documentation: ["documentation", "documents", "document", "docs", "doc"],
+ };
 
 const norm = (v: string) => v.replace(/\s+/g, " ").trim();
 const sentence = (v: string) => { const x = norm(v); return x ? (/[.!?]$/.test(x) ? x : `${x}.`) : ""; };
@@ -201,55 +226,131 @@ function inferKind(ext: string): AssetKind {
   return "other";
 }
 
-function inferFolder(rel: string, kind: AssetKind): AssetFolder {
-  const parts = toPosix(rel).toLowerCase().split("/").filter(Boolean);
-  const hints: Array<{ folder: AssetFolder; values: string[] }> = [
-    { folder: "images", values: ["images", "image", "gallery", "photo", "photos", "thumb", "thumbnail", "thumbnails", "cover", "hero"] },
-    { folder: "videos", values: ["videos", "video", "clips", "footage", "motion"] },
-    { folder: "scripts", values: ["scripts", "script", "unity", "webgl", "runtime", "build", "source", "code"] },
-    { folder: "models", values: ["models", "model", "3d", "cad", "mesh"] },
-    { folder: "documents", values: ["documents", "document", "docs", "doc", "pdf", "notes"] },
-  ];
-  for (const p of parts) for (const h of hints) if (h.values.includes(p)) return h.folder;
-  if (kind === "image") return "images";
-  if (kind === "video") return "videos";
-  if (kind === "script") return "scripts";
-  if (kind === "model") return "models";
-  return "documents";
-}
-
-function inferRole(stem: string, kind: AssetKind): "cover" | "card" | "demo" | "teaser" | "none" {
-  if (kind === "image") {
-    if (/(^|[-_\s])(cover|hero|key|main)([-_\s]|$)/.test(stem)) return "cover";
-    if (/(^|[-_\s])(card|thumb|thumbnail|listing|preview)([-_\s]|$)/.test(stem)) return "card";
-  }
-  if (kind === "video") {
-    if (/(^|[-_\s])(demo|main)([-_\s]|$)/.test(stem)) return "demo";
-    if (/(^|[-_\s])(teaser|trailer|preview|short)([-_\s]|$)/.test(stem)) return "teaser";
-  }
-  return "none";
-}
-
-function countersDefault(): Record<AssetFolder, number> { return { videos: 1, images: 1, scripts: 1, models: 1, documents: 1 }; }
-function seqBase(folder: AssetFolder, index: number) { const p = String(index).padStart(2, "0"); if (folder === "images") return `image-${p}`; if (folder === "videos") return `video-${p}`; if (folder === "scripts") return `script-${p}`; if (folder === "models") return `model-${p}`; return `document-${p}`; }
-
-async function loadState(destRoot: string): Promise<NamingState> {
-  const state: NamingState = { counters: countersDefault(), reserved: { cover: false, card: false, demo: false, teaser: false } };
-  if (!(await exists(destRoot))) return state;
-  for (const f of await walk(destRoot)) {
-    const rel = toPosix(path.relative(destRoot, f));
-    const [folderPart] = rel.split("/");
-    if (!folderPart || !ASSET_FOLDERS.includes(folderPart as AssetFolder)) continue;
-    const folder = folderPart as AssetFolder;
-    const stem = path.parse(f).name.toLowerCase();
-    if (folder === "images") { if (stem === "cover") state.reserved.cover = true; if (stem === "card") state.reserved.card = true; }
-    if (folder === "videos") { if (stem === "demo") state.reserved.demo = true; if (stem === "teaser") state.reserved.teaser = true; }
-    const m = stem.match(/^(image|video|script|model|document|doc)-(\d+)$/); if (m) { const n = Number(m[2]); if (Number.isFinite(n) && n >= state.counters[folder]) state.counters[folder] = n + 1; }
-  }
-  return state;
-}
-
-const nextName = (folder: AssetFolder, state: NamingState) => { const n = state.counters[folder]; state.counters[folder] += 1; return seqBase(folder, n); };
+const normalizeKey = (v: string) => v.toLowerCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+ 
+ const SECTION_KEY_LOOKUP = (() => {
+   const map = new Map<string, SectionFolder>();
+   for (const section of SECTION_FOLDERS) {
+     map.set(normalizeKey(section), section);
+     for (const alias of SECTION_ALIASES[section]) map.set(normalizeKey(alias), section);
+   }
+   return map;
+ })();
+ 
+ const LEGACY_KEY_LOOKUP = (() => {
+   const map = new Map<string, LegacyAssetFolder>();
+   for (const folder of LEGACY_ASSET_FOLDERS) {
+     map.set(normalizeKey(folder), folder);
+     if (folder.endsWith("s")) map.set(normalizeKey(folder.slice(0, -1)), folder);
+   }
+   return map;
+ })();
+ 
+ function resolveSectionFromSegment(segment: string): SectionFolder | null {
+   return SECTION_KEY_LOOKUP.get(normalizeKey(segment)) ?? null;
+ }
+ 
+ function resolveLegacyFolderFromSegment(segment: string): LegacyAssetFolder | null {
+   return LEGACY_KEY_LOOKUP.get(normalizeKey(segment)) ?? null;
+ }
+ 
+ function inferSection(rel: string, kind: AssetKind, role: AssetRole): SectionFolder {
+   const segments = toPosix(rel).split("/").filter(Boolean);
+ 
+   for (let i = 0; i < segments.length; i += 1) {
+     if (normalizeKey(segments[i]) !== "assets") continue;
+     const nestedSection = segments[i + 1] ? resolveSectionFromSegment(segments[i + 1]) : null;
+     if (nestedSection) return nestedSection;
+   }
+ 
+   for (const segment of segments) {
+     const section = resolveSectionFromSegment(segment);
+     if (section) return section;
+   }
+ 
+   for (const segment of segments) {
+     const legacyFolder = resolveLegacyFolderFromSegment(segment);
+     if (!legacyFolder) continue;
+     if (role === "cover" || role === "card") return "thumbnails";
+     return LEGACY_FOLDER_TO_SECTION[legacyFolder];
+   }
+ 
+   if (role === "cover" || role === "card") return "thumbnails";
+   if (role === "demo" || role === "teaser") return "the-project";
+   if (kind === "image") return "overview";
+   if (kind === "video") return "the-project";
+   return "documentation";
+ }
+ 
+ function inferRole(stem: string, kind: AssetKind): AssetRole {
+   if (kind === "image") {
+     if (/(^|[-_\s])(cover|hero|key|main)([-_\s]|$)/.test(stem)) return "cover";
+     if (/(^|[-_\s])(card|thumb|thumbnail|listing|preview)([-_\s]|$)/.test(stem)) return "card";
+   }
+   if (kind === "video") {
+     if (/(^|[-_\s])(demo|main)([-_\s]|$)/.test(stem)) return "demo";
+     if (/(^|[-_\s])(teaser|trailer|preview|short)([-_\s]|$)/.test(stem)) return "teaser";
+   }
+   return "none";
+ }
+ 
+ function countersDefault(): Record<SectionFolder, Record<SequentialNameKey, number>> {
+   const counters = {} as Record<SectionFolder, Record<SequentialNameKey, number>>;
+   for (const section of SECTION_FOLDERS) {
+     counters[section] = { image: 1, video: 1, script: 1, model: 1, document: 1, asset: 1 };
+   }
+   return counters;
+ }
+ 
+ function seqBase(kind: SequentialNameKey, index: number): string {
+   const padded = String(index).padStart(2, "0");
+   if (kind === "image") return "image-" + padded;
+   if (kind === "video") return "video-" + padded;
+   if (kind === "script") return "script-" + padded;
+   if (kind === "model") return "model-" + padded;
+   if (kind === "document") return "document-" + padded;
+   return "asset-" + padded;
+ }
+ 
+ function keyForKind(kind: AssetKind): SequentialNameKey {
+   if (kind === "image") return "image";
+   if (kind === "video") return "video";
+   if (kind === "script") return "script";
+   if (kind === "model") return "model";
+   if (kind === "document") return "document";
+   return "asset";
+ }
+ 
+ async function loadState(destRoot: string): Promise<NamingState> {
+   const state: NamingState = { counters: countersDefault() };
+   if (!(await exists(destRoot))) return state;
+ 
+   for (const filePath of await walk(destRoot)) {
+     const rel = toPosix(path.relative(destRoot, filePath));
+     const [first] = rel.split("/");
+     const section = first ? resolveSectionFromSegment(first) : null;
+     if (!section) continue;
+ 
+     const stem = path.parse(filePath).name.toLowerCase();
+     const match = stem.match(/^(image|video|script|model|document|asset)-(\d+)$/);
+     if (!match) continue;
+ 
+     const kind = match[1] as SequentialNameKey;
+     const value = Number(match[2]);
+     if (!Number.isFinite(value)) continue;
+     if (value >= state.counters[section][kind]) {
+       state.counters[section][kind] = value + 1;
+     }
+   }
+ 
+   return state;
+ }
+ 
+ const nextName = (section: SectionFolder, kind: SequentialNameKey, state: NamingState) => {
+   const current = state.counters[section][kind];
+   state.counters[section][kind] += 1;
+   return seqBase(kind, current);
+ };
 
 async function listInboxFiles(projectDir: string): Promise<string[]> {
   return (await walk(projectDir))
@@ -263,7 +364,7 @@ async function listInboxFiles(projectDir: string): Promise<string[]> {
     .sort((a, b) => collator.compare(toPosix(path.relative(projectDir, a)), toPosix(path.relative(projectDir, b))));
 }
 
-async function resolvePath(destRoot: string, folder: AssetFolder, baseName: string, ext: string, replaceIfExists: boolean): Promise<string> {
+async function resolvePath(destRoot: string, folder: SectionFolder, baseName: string, ext: string, replaceIfExists: boolean): Promise<string> {
   const out = path.join(destRoot, folder, `${baseName}${ext || ".bin"}`);
   await fs.mkdir(path.dirname(out), { recursive: true });
 
@@ -286,7 +387,106 @@ async function resolvePath(destRoot: string, folder: AssetFolder, baseName: stri
   }
 }
 
-async function moveFile(src: string, dst: string): Promise<void> {
+function sanitizePathSegment(value: string): string {
+   const cleaned = value.replace(/[<>:"|?*]/g, "").trim();
+   return cleaned || "asset";
+ }
+ 
+ function extractTailSegments(rel: string, section: SectionFolder): string[] {
+   const segments = toPosix(rel).split("/").filter(Boolean);
+   if (segments.length === 0) return [];
+ 
+   for (let i = 0; i < segments.length; i += 1) {
+     if (normalizeKey(segments[i]) !== "assets") continue;
+     const nestedSection = segments[i + 1] ? resolveSectionFromSegment(segments[i + 1]) : null;
+     if (nestedSection === section) return segments.slice(i + 2);
+   }
+ 
+   for (let i = 0; i < segments.length; i += 1) {
+     const directSection = resolveSectionFromSegment(segments[i]);
+     if (directSection === section) return segments.slice(i + 1);
+   }
+ 
+   if (normalizeKey(segments[0]) === "assets" && segments[1]) {
+     const nestedLegacy = resolveLegacyFolderFromSegment(segments[1]);
+     if (nestedLegacy) return segments.slice(2);
+   }
+ 
+   const legacyRoot = resolveLegacyFolderFromSegment(segments[0]);
+   if (legacyRoot) return segments.slice(1);
+ 
+   return [segments[segments.length - 1]];
+ }
+ 
+ async function resolveNestedPath(destRoot: string, section: SectionFolder, tailSegments: string[], replaceIfExists: boolean): Promise<string> {
+   const sanitizedTail = tailSegments.map((segment) => sanitizePathSegment(segment)).filter(Boolean);
+   const candidateFile = sanitizedTail.pop() ?? "asset.bin";
+   const parsed = path.parse(candidateFile);
+   const fileBase = sanitizePathSegment(parsed.name || "asset");
+   const ext = parsed.ext || ".bin";
+   const dir = path.join(destRoot, section, ...sanitizedTail);
+   await fs.mkdir(dir, { recursive: true });
+ 
+   if (replaceIfExists) {
+     const entries = await fs.readdir(dir, { withFileTypes: true });
+     for (const entry of entries) {
+       if (!entry.isFile()) continue;
+       if (path.parse(entry.name).name.toLowerCase() !== fileBase.toLowerCase()) continue;
+       await fs.rm(path.join(dir, entry.name), { force: true });
+     }
+     return path.join(dir, fileBase + ext);
+   }
+ 
+   const preferred = path.join(dir, fileBase + ext);
+   if (!(await exists(preferred))) return preferred;
+ 
+   let suffix = 2;
+   while (true) {
+     const collisionSafe = path.join(dir, fileBase + "-" + String(suffix).padStart(2, "0") + ext);
+     if (!(await exists(collisionSafe))) return collisionSafe;
+     suffix += 1;
+   }
+ }
+ 
+ function documentationBucket(kind: AssetKind): string {
+   if (kind === "script") return "scripts";
+   if (kind === "model") return "models";
+   return "documents";
+ }
+ 
+ async function migrateLegacyAssetsToSections(destRoot: string): Promise<void> {
+   for (const legacyFolder of LEGACY_ASSET_FOLDERS) {
+     const legacyRoot = path.join(destRoot, legacyFolder);
+     if (!(await exists(legacyRoot))) continue;
+ 
+     const legacyFiles = (await walk(legacyRoot)).sort((a, b) => collator.compare(toPosix(a), toPosix(b)));
+     for (const sourcePath of legacyFiles) {
+       const relInLegacy = toPosix(path.relative(legacyRoot, sourcePath));
+       const ext = path.extname(sourcePath).toLowerCase();
+       const stem = path.parse(sourcePath).name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "asset";
+       const kind = inferKind(ext);
+       const role = inferRole(stem, kind);
+       const defaultSection = LEGACY_FOLDER_TO_SECTION[legacyFolder];
+ 
+       let destination = "";
+       if (role === "cover" || role === "card") {
+         destination = await resolvePath(destRoot, "thumbnails", role, ext, true);
+       } else if (role === "demo" || role === "teaser") {
+         destination = await resolvePath(destRoot, "the-project", role, ext, true);
+       } else if (legacyFolder === "scripts" || legacyFolder === "models" || legacyFolder === "documents") {
+         destination = await resolveNestedPath(destRoot, defaultSection, [legacyFolder, ...relInLegacy.split("/").filter(Boolean)], false);
+       } else {
+         destination = await resolveNestedPath(destRoot, defaultSection, relInLegacy.split("/").filter(Boolean), false);
+       }
+ 
+       await moveFile(sourcePath, destination);
+     }
+ 
+     await fs.rm(legacyRoot, { recursive: true, force: true });
+   }
+ }
+ 
+ async function moveFile(src: string, dst: string): Promise<void> {
   if (path.resolve(src).toLowerCase() === path.resolve(dst).toLowerCase()) return;
   await fs.mkdir(path.dirname(dst), { recursive: true });
   try { await fs.rename(src, dst); } catch (error) {
@@ -314,75 +514,113 @@ async function cleanupEmptyDirs(rootDir: string, current: string = rootDir): Pro
 }
 
 async function syncToAssetsLocal(slug: string, projectDir: string): Promise<void> {
-  const destRoot = path.join(ASSETS_ROOT, slug);
-  await fs.mkdir(destRoot, { recursive: true });
-  const state = await loadState(destRoot);
-
-  for (const sourcePath of await listInboxFiles(projectDir)) {
-    const rel = toPosix(path.relative(projectDir, sourcePath));
-    const ext = path.extname(sourcePath).toLowerCase();
-    const stem = path.parse(sourcePath).name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "asset";
-    const kind = inferKind(ext);
-    const inferred = inferFolder(rel, kind);
-    const role = inferRole(stem, kind);
-
-    let folder: AssetFolder = inferred;
-    let baseName = "";
-    let replace = false;
-
-    if (kind === "image") {
-      folder = "images";
-      if (role === "cover") { baseName = "cover"; replace = true; state.reserved.cover = true; }
-      else if (role === "card") { baseName = "card"; replace = true; state.reserved.card = true; }
-      else { baseName = nextName("images", state); }
-    } else if (kind === "video") {
-      folder = "videos";
-      if (role === "demo") { baseName = "demo"; replace = true; state.reserved.demo = true; }
-      else if (role === "teaser") { baseName = "teaser"; replace = true; state.reserved.teaser = true; }
-      else { baseName = nextName("videos", state); }
-    } else if (kind === "model") {
-      folder = "models";
-      baseName = nextName("models", state);
-    } else if (kind === "script" || inferred === "scripts") {
-      folder = "scripts";
-      baseName = nextName("scripts", state);
-    } else {
-      folder = "documents";
-      baseName = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(stem) ? stem : nextName("documents", state);
-    }
-
-    const destination = await resolvePath(destRoot, folder, baseName, ext, replace);
-    await moveFile(sourcePath, destination);
-  }
-
-  await cleanupEmptyDirs(projectDir);
-}
-
-async function scanAssets(slug: string): Promise<{ images: MediaFile[]; videos: MediaFile[]; assets: ProjectAssets }> {
-  const projectDir = path.join(ASSETS_ROOT, slug);
-  const images: MediaFile[] = [];
-  const videos: MediaFile[] = [];
-  const assets: ProjectAssets = { videos: [], images: [], scripts: [], models: [], documents: [] };
-  if (!(await exists(projectDir))) return { images, videos, assets };
-
-  for (const f of await walk(projectDir)) {
-    const rel = toPosix(path.relative(projectDir, f));
-    const [folderPart] = rel.split("/");
-    if (!folderPart || !ASSET_FOLDERS.includes(folderPart as AssetFolder)) continue;
-    const folder = folderPart as AssetFolder;
-    const normalized = mediaPath(slug, rel);
-    assets[folder].push(normalized);
-    const ext = path.extname(f).toLowerCase();
-    const m: MediaFile = { fileName: path.basename(f), relative: rel, normalized };
-    if (folder === "images" && IMAGE_EXT.has(ext)) images.push(m);
-    if (folder === "videos" && VIDEO_EXT.has(ext)) videos.push(m);
-  }
-
-  images.sort((a, b) => collator.compare(a.relative, b.relative));
-  videos.sort((a, b) => collator.compare(a.relative, b.relative));
-  for (const folder of ASSET_FOLDERS) assets[folder].sort((a, b) => collator.compare(a, b));
-  return { images, videos, assets };
-}
+   const destRoot = path.join(ASSETS_ROOT, slug);
+   await fs.mkdir(destRoot, { recursive: true });
+   await migrateLegacyAssetsToSections(destRoot);
+   const state = await loadState(destRoot);
+ 
+   for (const sourcePath of await listInboxFiles(projectDir)) {
+     const rel = toPosix(path.relative(projectDir, sourcePath));
+     const ext = path.extname(sourcePath).toLowerCase();
+     const stem = path.parse(sourcePath).name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "asset";
+     const kind = inferKind(ext);
+     const role = inferRole(stem, kind);
+     const inferredSection = inferSection(rel, kind, role);
+ 
+     let destination = "";
+ 
+     if (role === "cover" || role === "card") {
+       destination = await resolvePath(destRoot, "thumbnails", role, ext, true);
+     } else if (role === "demo" || role === "teaser") {
+       const targetSection = inferredSection === "thumbnails" ? "the-project" : inferredSection;
+       destination = await resolvePath(destRoot, targetSection, role, ext, true);
+     } else if (kind === "script" || kind === "model" || kind === "document") {
+       const tail = extractTailSegments(rel, inferredSection);
+       const resolvedTail = tail.length > 0 ? tail : [path.basename(sourcePath)];
+       if (inferredSection === "documentation") {
+         const bucket = documentationBucket(kind);
+         const firstTail = resolvedTail[0] ? normalizeKey(resolvedTail[0]) : "";
+         if (firstTail !== normalizeKey(bucket)) {
+           resolvedTail.unshift(bucket);
+         }
+       }
+       destination = await resolveNestedPath(destRoot, inferredSection, resolvedTail, false);
+     } else {
+       const baseName = nextName(inferredSection, keyForKind(kind), state);
+       destination = await resolvePath(destRoot, inferredSection, baseName, ext, false);
+     }
+ 
+     await moveFile(sourcePath, destination);
+   }
+ 
+   await cleanupEmptyDirs(projectDir);
+ }
+ 
+ function assetBucketFromPath(rel: string, kind: AssetKind): keyof ProjectAssets {
+   const lower = rel.toLowerCase();
+   if (/(^|\/)documentation\/scripts(\/|$)/.test(lower) || /(^|\/)scripts(\/|$)/.test(lower)) return "scripts";
+   if (/(^|\/)documentation\/models(\/|$)/.test(lower) || /(^|\/)models(\/|$)/.test(lower)) return "models";
+   if (/(^|\/)documentation\/(documents|docs)(\/|$)/.test(lower) || /(^|\/)(documents|docs)(\/|$)/.test(lower)) return "documents";
+   if (kind === "image") return "images";
+   if (kind === "video") return "videos";
+   if (kind === "script") return "scripts";
+   if (kind === "model") return "models";
+   return "documents";
+ }
+ 
+ function createSectionAssets(): ProjectAssetsBySection {
+   const bySection = {} as ProjectAssetsBySection;
+   for (const section of SECTION_FOLDERS) bySection[section] = [];
+   return bySection;
+ }
+ 
+ async function scanAssets(slug: string): Promise<{ images: MediaFile[]; videos: MediaFile[]; assets: ProjectAssets; assetsBySection: ProjectAssetsBySection }> {
+   const projectDir = path.join(ASSETS_ROOT, slug);
+   const images: MediaFile[] = [];
+   const videos: MediaFile[] = [];
+   const assets: ProjectAssets = { videos: [], images: [], scripts: [], models: [], documents: [] };
+   const assetsBySection = createSectionAssets();
+   if (!(await exists(projectDir))) return { images, videos, assets, assetsBySection };
+ 
+   for (const filePath of await walk(projectDir)) {
+     const rel = toPosix(path.relative(projectDir, filePath));
+     const base = path.basename(rel).toLowerCase();
+     if (IGNORE_FILES.has(base)) continue;
+ 
+     const ext = path.extname(filePath).toLowerCase();
+     const kind = inferKind(ext);
+     const stem = path.parse(filePath).name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "asset";
+     const role = inferRole(stem, kind);
+     const section = inferSection(rel, kind, role);
+     const normalized = mediaPath(slug, rel);
+     const bucket = assetBucketFromPath(rel, kind);
+ 
+     assetsBySection[section].push(normalized);
+     assets[bucket].push(normalized);
+ 
+     const mediaFile: MediaFile = { fileName: path.basename(filePath), relative: rel, normalized, section, kind };
+ 
+     if (bucket === "images") {
+       images.push(mediaFile);
+       continue;
+     }
+     if (bucket === "videos") {
+       videos.push(mediaFile);
+       continue;
+     }
+   }
+ 
+   images.sort((a, b) => collator.compare(a.relative, b.relative));
+   videos.sort((a, b) => collator.compare(a.relative, b.relative));
+   assets.videos.sort((a, b) => collator.compare(a, b));
+   assets.images.sort((a, b) => collator.compare(a, b));
+   assets.scripts.sort((a, b) => collator.compare(a, b));
+   assets.models.sort((a, b) => collator.compare(a, b));
+   assets.documents.sort((a, b) => collator.compare(a, b));
+   for (const section of SECTION_FOLDERS) assetsBySection[section].sort((a, b) => collator.compare(a, b));
+ 
+   return { images, videos, assets, assetsBySection };
+ }
 
 function chooseByPriority(files: MediaFile[], priorities: string[]): MediaFile | null {
   for (const p of priorities) {
@@ -395,10 +633,13 @@ function chooseByPriority(files: MediaFile[], priorities: string[]): MediaFile |
   return null;
 }
 
-const pickHero = (images: MediaFile[]) => chooseByPriority(images, ["images/cover", "images/hero", "images/image-01"])?.normalized ?? images[0]?.normalized ?? "";
-const pickCard = (images: MediaFile[]) => chooseByPriority(images, ["images/card", "images/cover"])?.normalized ?? images[0]?.normalized ?? "";
-const pickDemo = (videos: MediaFile[]) => chooseByPriority(videos, ["videos/demo", "videos/teaser"])?.normalized ?? videos[0]?.normalized ?? "";
-const buildGallery = (images: MediaFile[]) => images.filter((i) => !/^images\/(cover|card)\.[^/]+$/i.test(i.relative)).map((i) => i.normalized);
+const pickHero = (images: MediaFile[]) => chooseByPriority(images, ["thumbnails/cover", "thumbnails/hero", "overview/cover", "images/cover", "overview/image-01", "images/image-01"])?.normalized ?? images[0]?.normalized ?? "";
+const pickCard = (images: MediaFile[]) => chooseByPriority(images, ["thumbnails/card", "thumbnails/cover", "images/card", "images/cover"])?.normalized ?? images[0]?.normalized ?? "";
+const pickDemo = (videos: MediaFile[]) => chooseByPriority(videos, ["the-project/demo", "overview/demo", "videos/demo", "the-project/teaser", "videos/teaser", "the-project/video-01", "videos/video-01"])?.normalized ?? videos[0]?.normalized ?? "";
+const buildGallery = (images: MediaFile[]) =>
+  images
+    .filter((item) => !/(^|\/)(thumbnails|images)\/(cover|card)\.[^\/]+$/i.test(item.relative))
+    .map((item) => item.normalized);
 
 function buildSections(params: {
   title: string; oneLiner: string; summary: string; overview: string; background: string; concept: string; theProject: string; process: string; reflectionImpact: string; documentation: string; narrative: string; roles: string[]; tools: string[];
@@ -582,6 +823,7 @@ export async function processProject(input: string, options: ProcessOptions = {}
     galleryImages: gallery,
     videos: scanned.assets.videos,
     assets: scanned.assets,
+    assetsBySection: scanned.assetsBySection,
     relatedProjects,
     seoTitle: `${title} (${year}) | Ariel Adhidevara`,
     seoDescription: trunc(summaries.summaryShort, 155),

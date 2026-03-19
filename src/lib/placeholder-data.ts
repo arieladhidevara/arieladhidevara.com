@@ -92,6 +92,7 @@ export type PlaceholderProject = {
   title: string;
   year: number;
   category: PracticeCategory;
+  categories?: PracticeCategory[];
   type: string;
   team?: string;
   timeline?: string;
@@ -126,6 +127,8 @@ export const practiceCategories: PracticeCategory[] = [
   "Visual & Media"
 ];
 
+const practiceCategorySet = new Set<PracticeCategory>(practiceCategories);
+
 export const categoryDescriptions: Record<PracticeCategory, string> = {
   "Interactive Systems": "Sensor-driven installations, projection mapping, and embodied interaction in physical space.",
   "AI & Software": "AI products, web applications, and computational systems that translate complexity into usable tools.",
@@ -152,14 +155,43 @@ export const featuredProjectSlugs = new Set([
 
 export const capabilityDomains = practiceCategories;
 
+export function isPracticeCategory(value: string): value is PracticeCategory {
+  return practiceCategorySet.has(value as PracticeCategory);
+}
+
+export function getProjectCategories(project: Pick<PlaceholderProject, "category" | "categories">): PracticeCategory[] {
+  const resolved: PracticeCategory[] = [];
+
+  if (Array.isArray(project.categories)) {
+    for (const category of project.categories) {
+      if (!practiceCategorySet.has(category)) continue;
+      if (resolved.includes(category)) continue;
+      resolved.push(category);
+    }
+  }
+
+  if (practiceCategorySet.has(project.category) && !resolved.includes(project.category)) {
+    resolved.unshift(project.category);
+  }
+
+  return resolved.length > 0 ? resolved : [project.category];
+}
+
+export function projectInCategory(
+  project: Pick<PlaceholderProject, "category" | "categories">,
+  category: PracticeCategory
+): boolean {
+  return getProjectCategories(project).includes(category);
+}
+
 type ProjectSeed = Omit<PlaceholderProject, "heroLabel" | "gallery" | "related" | "sections" | "documentationLinks">;
 
 const inMySkinAssets = {
-  cover: "inmyskin/images/cover.jpg",
-  card: "inmyskin/images/card.jpg",
-  detail: "inmyskin/images/setup-01.png",
-  demoVideo: "inmyskin/videos/demo.mov",
-  demoBuild: "inmyskin/scripts/webgl-demo/inmyskin-webgl/index.html"
+  cover: "inmyskin/thumbnails/cover.jpg",
+  card: "inmyskin/thumbnails/card.jpg",
+  detail: "inmyskin/overview/setup-01.png",
+  demoVideo: "inmyskin/the-project/demo.mov",
+  demoBuild: "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/index.html"
 } as const;
 
 const inMySkinDemoUrl = `/api/assets/${inMySkinAssets.demoBuild}`;
@@ -705,7 +737,7 @@ const baseProjects: PlaceholderProject[] = projectSeeds.map((seed) => ({
 export const placeholderProjects: PlaceholderProject[] = baseProjects.map((project) => ({
   ...project,
   related: baseProjects
-    .filter((entry) => entry.category === project.category && entry.slug !== project.slug)
+    .filter((entry) => projectInCategory(entry, project.category) && entry.slug !== project.slug)
     .slice(0, 2)
     .map((entry) => entry.slug)
 }));
@@ -715,7 +747,7 @@ export function getPlaceholderProjectBySlug(slug: string): PlaceholderProject | 
 }
 
 export function getProjectsByCategory(category: PracticeCategory): PlaceholderProject[] {
-  return placeholderProjects.filter((project) => project.category === category);
+  return placeholderProjects.filter((project) => projectInCategory(project, category));
 }
 
 export function isFeaturedProject(project: Pick<PlaceholderProject, "slug" | "category">): boolean {

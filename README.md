@@ -50,10 +50,9 @@ ARIELADHIDEVARA.com/
 1. Create a folder in `project-inbox/` named with a project slug.
 2. Add a `project.txt` file using `templates/project-template.txt`.
 3. Add media inside subfolders:
-   - `thumbnails/` for `cover.jpg` and `card.jpg`
-   - `images/` for gallery images
-   - `videos/` for `demo.mp4` or `teaser.mp4`
-   - `docs/` for supporting PDFs or notes
+   - `Thumbnails/` for `cover.jpg` and `card.jpg`
+   - `Overview/`, `Background/`, `Concept/`, `The Project/`, `Process/`, `Reflection/`, `Documentation/` to group media by narrative section
+   - Place technical runtime assets in `Documentation/scripts/`, `Documentation/models/`, and `Documentation/documents/`
 4. Run `ts-node scripts/process-project.ts <project-slug>` to process ingestion and generate JSON.
 5. Optionally run `ts-node scripts/process-project.ts <project-slug> --upload` to upload media to Blob after local sync.
 

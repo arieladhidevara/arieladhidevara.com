@@ -8,16 +8,20 @@ import type {
   PracticeCategory,
   ProjectDocumentationLink
 } from "@/lib/placeholder-data";
-import { placeholderProjects, practiceCategories } from "@/lib/placeholder-data";
+import { placeholderProjects, practiceCategories, projectInCategory } from "@/lib/placeholder-data";
 
 const CONTENT_ROOT = path.resolve(process.cwd(), "content/projects");
 const CATEGORY_ALIASES: Record<string, PracticeCategory> = {
   "interactive systems": "Interactive Systems",
   "ai & software": "AI & Software",
+  "ai and software": "AI & Software",
   "spatial & architecture design": "Spatial & Architectural Design",
   "spatial & architectural design": "Spatial & Architectural Design",
+  "spatial and architectural design": "Spatial & Architectural Design",
   "objects & products": "Objects & Product",
   "objects & product": "Objects & Product",
+  "object & product": "Objects & Product",
+  "objects and product": "Objects & Product",
   "visual & media": "Visual & Media"
 };
 
@@ -46,6 +50,7 @@ type ContentProjectRecord = {
   institutionYear?: unknown;
   contributors?: unknown;
   category?: unknown;
+  categories?: unknown;
   type?: unknown;
   tags?: unknown;
   oneLiner?: unknown;
@@ -155,22 +160,7 @@ function parseYear(record: ContentProjectRecord, textBlob: string): number {
   return new Date().getFullYear();
 }
 
-function normalizeCategory(explicit: string, textBlob: string): PracticeCategory {
-  const normalized = explicit.toLowerCase().trim();
-  if (CATEGORY_ALIASES[normalized]) return CATEGORY_ALIASES[normalized];
-
-  const explicitCandidates = unique(
-    explicit
-      .split(/[,;]/g)
-      .map((entry) => entry.trim())
-      .filter(Boolean)
-  );
-
-  for (const candidate of explicitCandidates) {
-    const alias = CATEGORY_ALIASES[candidate.toLowerCase()];
-    if (alias) return alias;
-  }
-
+function inferCategoryFromText(textBlob: string): PracticeCategory {
   const haystack = textBlob.toLowerCase();
   if (/(interactive|sensor|projection|embodied|vr|ar|xr|gesture|installation)/.test(haystack)) {
     return "Interactive Systems";
@@ -185,6 +175,35 @@ function normalizeCategory(explicit: string, textBlob: string): PracticeCategory
     return "Objects & Product";
   }
   return "Visual & Media";
+}
+
+function normalizeCategoryCandidate(candidate: string): PracticeCategory | null {
+  const normalized = candidate.toLowerCase().trim();
+  if (!normalized) return null;
+  if (CATEGORY_ALIASES[normalized]) return CATEGORY_ALIASES[normalized];
+
+  const exact = practiceCategories.find((category) => category.toLowerCase() === normalized);
+  return exact ?? null;
+}
+
+function normalizeCategories(explicitValues: string[], textBlob: string): PracticeCategory[] {
+  const candidates = unique(
+    explicitValues
+      .flatMap((value) => value.split(/[,;|\n]/g))
+      .map((value) => value.trim())
+      .filter(Boolean)
+  );
+
+  const resolved: PracticeCategory[] = [];
+  for (const candidate of candidates) {
+    const normalized = normalizeCategoryCandidate(candidate);
+    if (!normalized) continue;
+    if (resolved.includes(normalized)) continue;
+    resolved.push(normalized);
+  }
+
+  if (resolved.length > 0) return resolved;
+  return [inferCategoryFromText(textBlob)];
 }
 
 function findMedia(paths: string[], priorities: string[]): string {
@@ -374,15 +393,15 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
 
   const heroImagePath = findMedia(
     unique([asString(raw.heroImage), asString(raw.coverImage), asString(raw.cardImage), ...imageAssets].filter(Boolean)),
-    ["images/cover", "images/card", "images/image-01"]
+    ["thumbnails/cover", "thumbnails/card", "overview/cover", "images/cover", "overview/image-01", "images/image-01"]
   );
   const cardImagePath = findMedia(
     unique([asString(raw.cardImage), asString(raw.coverImage), heroImagePath, ...imageAssets].filter(Boolean)),
-    ["images/card", "images/cover", "images/image-01"]
+    ["thumbnails/card", "thumbnails/cover", "images/card", "images/cover", "overview/image-01", "images/image-01"]
   );
   const primaryVideoPath = findMedia(
     unique([asString(raw.primaryVideo), asString(raw.primaryMedia), ...videoAssets].filter(Boolean)),
-    ["videos/demo", "videos/teaser", "videos/video-01"]
+    ["the-project/demo", "overview/demo", "videos/demo", "the-project/teaser", "videos/teaser", "the-project/video-01", "videos/video-01"]
   );
 
   const mediaKind = heroImagePath ? "image" : primaryVideoPath ? toMediaKind(primaryVideoPath) : "image";
@@ -392,7 +411,11 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
 
   const textBlob = [title, oneLiner, overview, background, concept, process, tools.join(" "), tags.join(" ")].join(" ");
   const year = parseYear(raw, textBlob);
-  const category = normalizeCategory(asString(raw.category), textBlob);
+  const categories = normalizeCategories(
+    unique([asString(raw.category), ...asStringArray(raw.categories)].filter(Boolean)),
+    textBlob
+  );
+  const category = categories[0];
   const type = asString(raw.type) || "Project";
   const summary = withSentenceEnding(summaryMedium, summaryShort || overview);
 
@@ -406,6 +429,7 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
     title,
     year,
     category,
+    categories,
     type,
     team: contributors || undefined,
     timeline: timeline || undefined,
@@ -494,7 +518,12 @@ export const loadPortfolioProjects = cache(async (): Promise<PlaceholderProject[
     }
 
     project.related = projects
-      .filter((candidate) => candidate.slug !== project.slug && candidate.category === project.category)
+      .filter((candidate) => {
+        if (candidate.slug === project.slug) return false;
+        return practiceCategories.some(
+          (category) => projectInCategory(project, category) && projectInCategory(candidate, category)
+        );
+      })
       .slice(0, 4)
       .map((candidate) => candidate.slug);
   }
@@ -508,6 +537,7 @@ export const loadPortfolioProjectBySlug = cache(async (slug: string): Promise<Pl
 });
 
 export function categoriesForProjects(projects: PlaceholderProject[]): string[] {
-  const available = practiceCategories.filter((category) => projects.some((project) => project.category === category));
-  return ["All Works", ...available];
+  const available = practiceCategories.filter((category) => projects.some((project) => projectInCategory(project, category)));
+  const missing = practiceCategories.filter((category) => !available.includes(category));
+  return ["All Works", ...available, ...missing];
 }
