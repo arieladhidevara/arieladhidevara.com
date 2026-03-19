@@ -75,7 +75,6 @@ type MappedProject = {
   order: number;
 };
 
-const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".svg"]);
 const VIDEO_EXT = new Set([".mp4", ".mov", ".m4v", ".webm", ".mkv"]);
 
 function asRecord(value: unknown): Record<string, unknown> {
@@ -94,10 +93,6 @@ function asNumber(value: unknown): number | null {
     if (Number.isFinite(parsed)) return Math.floor(parsed);
   }
   return null;
-}
-
-function asBoolean(value: unknown): boolean {
-  return value === true;
 }
 
 function asStringArray(value: unknown): string[] {
