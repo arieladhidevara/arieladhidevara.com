@@ -5,19 +5,23 @@ import { PlaceholderProject } from "@/lib/placeholder-data";
 import { MediaBlock } from "@/components/ui/media-block";
 import { TagList } from "@/components/ui/tag-list";
 import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
+import { getProjectCardImageSrc } from "@/lib/project-media";
 
 type FeaturedProjectBlockProps = {
   project: PlaceholderProject;
+  projectPool?: PlaceholderProject[];
 };
 
-export function FeaturedProjectBlock({ project }: FeaturedProjectBlockProps) {
+export function FeaturedProjectBlock({ project, projectPool }: FeaturedProjectBlockProps) {
+  const cardImageSrc = getProjectCardImageSrc(project);
+
   return (
     <motion.article
       whileHover={{ y: -4 }}
       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
       className="surface-panel rounded-card p-5 md:p-7"
     >
-      <ProjectPreviewLink project={project} className="grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-end">
+      <ProjectPreviewLink project={project} allProjects={projectPool} className="grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-end">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <p className="kicker">Featured Project</p>
@@ -34,10 +38,9 @@ export function FeaturedProjectBlock({ project }: FeaturedProjectBlockProps) {
 
         <MediaBlock
           label={project.heroLabel}
-          kind={project.heroMediaKind ?? "image"}
+          kind="image"
           ratio="wide"
-          src={project.heroMediaSrc}
-          poster={project.heroMediaPoster}
+          src={cardImageSrc}
         />
       </ProjectPreviewLink>
     </motion.article>

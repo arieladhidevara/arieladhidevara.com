@@ -1,0 +1,101 @@
+﻿{
+    "slug":  "buildsnap",
+    "title":  "BuildSnap",
+    "year":  2026,
+    "institutionYear":  "",
+    "contributors":  "Feryandi Nurdiantoro",
+    "category":  "AI \u0026 Software",
+    "type":  "Professional",
+    "tags":  [
+                 "Mobile App",
+                 "Architectural"
+             ],
+    "oneLiner":  "Mobile App for Architectural Design and Site Management.",
+    "summaryShort":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers.",
+    "summaryMedium":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation. Site documentation is often inefficient, relying on disconnected photos, notes, and reports that are difficult to organize and reference. This fragmentation leads to miscommunication, delays, and loss of critical context during construction and property management workflows. BuildSnap was developed to address this issue by integrating visual data directly with spatial information, ensuring that every observation is tied to its exact location.",
+    "summaryLong":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation. Site documentation is often inefficient, relying on disconnected photos, notes, and reports that are difficult to organize and reference. This fragmentation leads to miscommunication, delays, and loss of critical context during construction and property management workflows. BuildSnap was developed to address this issue by integrating visual data directly with spatial information, ensuring that every observation is tied to its exact location. The project rethinks documentation as a spatial interface rather than a linear report. Instead of browsing through folders of images, users interact with a floor plan as the central index—where each photo is anchored to a specific point in space. This transforms documentation into a navigable map of conditions, enabling faster understanding, clearer communication, and more efficient collaboration across teams. BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation. BuildSnap was developed as a cross-platform mobile application using Flutter, enabling deployment on both iOS and Android. The system integrates camera functionality with a floor plan interface, allowing users to capture images on-site and tag them in real time. A backend structure organizes metadata, spatial coordinates, and image data to generate structured reports automatically. Iterations focused on user experience, ensuring quick capture workflows, intuitive tagging, and seamless report generation for professional use in the field.",
+    "sections":  {
+                     "overview":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation.",
+                     "background":  "Site documentation is often inefficient, relying on disconnected photos, notes, and reports that are difficult to organize and reference. This fragmentation leads to miscommunication, delays, and loss of critical context during construction and property management workflows. BuildSnap was developed to address this issue by integrating visual data directly with spatial information, ensuring that every observation is tied to its exact location.",
+                     "concept":  "The project rethinks documentation as a spatial interface rather than a linear report. Instead of browsing through folders of images, users interact with a floor plan as the central index—where each photo is anchored to a specific point in space. This transforms documentation into a navigable map of conditions, enabling faster understanding, clearer communication, and more efficient collaboration across teams.",
+                     "theProject":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation.",
+                     "process":  "BuildSnap was developed as a cross-platform mobile application using Flutter, enabling deployment on both iOS and Android. The system integrates camera functionality with a floor plan interface, allowing users to capture images on-site and tag them in real time. A backend structure organizes metadata, spatial coordinates, and image data to generate structured reports automatically. Iterations focused on user experience, ensuring quick capture workflows, intuitive tagging, and seamless report generation for professional use in the field.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Feryandi Nurdiantoro. Role: Conceptor. Tools: Flutter."
+                 },
+    "roles":  [
+                  "Conceptor"
+              ],
+    "tools":  [
+                  "Flutter"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "hivee",
+                            "altereal",
+                            "emotional-decision-making-algorithm",
+                            "seedifferent"
+                        ],
+    "seoTitle":  "BuildSnap (2026) | Ariel Adhidevara",
+    "seoDescription":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "BuildSnap is a mobile application designed to streamline on-site documentation for architects, engineers, and property managers. By allowing users to capture photos and pin them directly onto floor plans, the app transforms fragmented site data into a spatially organized and easily navigable system. It bridges the gap between field conditions and digital documentation. Site documentation is often inefficient, relying on disconnected photos, notes, and reports that are difficult to organize and reference. This fragmentation leads to miscommunication, delays, and loss of critical context during construction and property management workflows. BuildSnap was developed to address this issue by integrating visual data directly with spatial information, ensuring that every observation is tied to its exact location.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/BuildSnap/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

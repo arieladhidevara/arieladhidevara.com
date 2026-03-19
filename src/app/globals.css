@@ -163,6 +163,11 @@ p {
   backdrop-filter: blur(12px) saturate(1.14);
 }
 
+.project-glass.physicad-theme p:not(.kicker) {
+  color: #0a0f14 !important;
+  -webkit-text-fill-color: #0a0f14;
+}
+
 ::selection {
   background: color-mix(in oklab, var(--color-accent) 35%, transparent);
   color: var(--color-text);

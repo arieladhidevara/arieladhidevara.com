@@ -5,18 +5,17 @@ import { PlaceholderProject, isFeaturedProject } from "@/lib/placeholder-data";
 import { TagList } from "@/components/ui/tag-list";
 import { MediaBlock } from "@/components/ui/media-block";
 import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
+import { getProjectCardImageSrc } from "@/lib/project-media";
 
 type ProjectCardProps = {
   project: PlaceholderProject;
   compact?: boolean;
+  projectPool?: PlaceholderProject[];
 };
 
-export function ProjectCard({ project, compact = false }: ProjectCardProps) {
+export function ProjectCard({ project, compact = false, projectPool }: ProjectCardProps) {
   const featured = isFeaturedProject(project);
-  const cardImageSrc =
-    project.heroMediaKind === "image" && project.heroMediaSrc
-      ? project.heroMediaSrc
-      : project.cardMediaSrc ?? project.heroMediaSrc;
+  const cardImageSrc = getProjectCardImageSrc(project);
 
   return (
     <motion.article
@@ -24,7 +23,7 @@ export function ProjectCard({ project, compact = false }: ProjectCardProps) {
       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
       className="group h-full rounded-card p-3 md:p-4"
     >
-      <ProjectPreviewLink project={project} className="h-full space-y-5">
+      <ProjectPreviewLink project={project} allProjects={projectPool} className="h-full space-y-5">
         <MediaBlock
           label={project.heroLabel}
           kind="image"

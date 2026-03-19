@@ -10,11 +10,12 @@ import { MediaBlock } from "@/components/ui/media-block";
 import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
 import {
   categoryDescriptions,
-  featuredProjectByCategory,
-  getProjectsByCategory,
   practiceCategories
 } from "@/lib/placeholder-data";
 import type { PracticeCategory, PlaceholderProject } from "@/lib/placeholder-data";
+import { featuredProjectByCategory } from "@/lib/placeholder-data";
+import { loadPortfolioProjects } from "@/lib/portfolio-projects";
+import { getProjectCardImageSrc } from "@/lib/project-media";
 
 type CategoryShowcase = {
   category: PracticeCategory;
@@ -22,31 +23,28 @@ type CategoryShowcase = {
   others: PlaceholderProject[];
 };
 
-const categoryShowcases: CategoryShowcase[] = practiceCategories
-  .map((category) => {
-    const projects = getProjectsByCategory(category);
-    const featuredSlug = featuredProjectByCategory[category];
-    const orderedProjects = [...projects].sort((a, b) => {
-      if (a.slug === featuredSlug) return -1;
-      if (b.slug === featuredSlug) return 1;
-      return 0;
-    });
-    const featured = orderedProjects[0];
-    const others = orderedProjects.slice(1, 5);
+export default async function HomePage() {
+  const projects = await loadPortfolioProjects();
 
-    if (!featured || others.length < 4) {
-      return null;
-    }
+  const categoryShowcases: CategoryShowcase[] = practiceCategories
+    .map((category) => {
+      const projectsByCategory = projects.filter((project) => project.category === category);
+      if (projectsByCategory.length === 0) return null;
 
-    return {
-      category,
-      featured,
-      others
-    };
-  })
-  .filter((entry): entry is CategoryShowcase => Boolean(entry));
+      const featuredSlug = featuredProjectByCategory[category];
+      const featured = projects.find((project) => project.slug === featuredSlug) ?? projectsByCategory[0];
+      if (!featured) return null;
 
-export default function HomePage() {
+      const others = projectsByCategory.filter((project) => project.slug !== featured.slug).slice(0, 4);
+
+      return {
+        category,
+        featured,
+        others
+      };
+    })
+    .filter((entry): entry is CategoryShowcase => Boolean(entry));
+
   return (
     <main className="relative">
       <ScrollRainbowBackdrop targetId="practice-focus-anchor" />
@@ -111,7 +109,7 @@ export default function HomePage() {
                 </FadeIn>
 
                 <FadeIn delay={0.04}>
-                  <FeaturedProjectBlock project={featured} />
+                  <FeaturedProjectBlock project={featured} projectPool={projects} />
                 </FadeIn>
 
                 <div className="overflow-x-auto pb-2">
@@ -120,15 +118,16 @@ export default function HomePage() {
                       <FadeIn key={project.slug} delay={index * 0.04} className="flex w-[15.25rem] shrink-0">
                         <ProjectPreviewLink
                           project={project}
+                          allProjects={projects}
                           className="group flex h-full flex-col rounded-soft bg-black/[0.03] p-3.5 transition-colors hover:bg-black/[0.06]"
                         >
-                          <MediaBlock
-                            label={project.heroLabel}
-                            kind="image"
-                            ratio="wide"
-                            className="rounded-soft"
-                            src={project.cardMediaSrc ?? project.heroMediaSrc}
-                          />
+                            <MediaBlock
+                              label={project.heroLabel}
+                              kind="image"
+                              ratio="wide"
+                              className="rounded-soft"
+                              src={getProjectCardImageSrc(project)}
+                            />
                           <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
                             <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                               {project.title}
@@ -155,7 +154,15 @@ export default function HomePage() {
         </Section>
 
         <Section id="cv-system" noContainer className="py-0 md:py-0">
-          <CvPreviewSection />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_bottom,rgba(241,242,244,0.05)_0%,rgba(244,246,249,0.16)_24%,rgba(246,248,251,0.22)_50%,rgba(244,246,249,0.16)_76%,rgba(241,242,244,0.05)_100%)]"
+          />
+          <div
+            className="relative z-10 [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          >
+            <CvPreviewSection />
+          </div>
         </Section>
 
         <Section id="contact" className="pt-10">

@@ -11,6 +11,7 @@ import { TagList } from "@/components/ui/tag-list";
 
 type ProjectPreviewLinkProps = {
   project: PlaceholderProject;
+  allProjects?: PlaceholderProject[];
   children: ReactNode;
   className?: string;
   href?: string;
@@ -29,6 +30,7 @@ function clamp(value: number, min: number, max: number) {
 
 export function ProjectPreviewLink({
   project,
+  allProjects,
   children,
   className,
   href = `/work/${project.slug}`
@@ -108,17 +110,18 @@ export function ProjectPreviewLink({
     setOpen(true);
   };
 
-  const activeIndex = placeholderProjects.findIndex((item) => item.slug === activeProject.slug);
-  const totalProjects = placeholderProjects.length;
+  const projectPool = allProjects && allProjects.length > 0 ? allProjects : placeholderProjects;
+  const activeIndex = projectPool.findIndex((item) => item.slug === activeProject.slug);
+  const totalProjects = projectPool.length;
   const canNavigate = totalProjects > 1 && activeIndex >= 0;
-  const previousProject = canNavigate ? placeholderProjects[(activeIndex - 1 + totalProjects) % totalProjects] : null;
-  const nextProject = canNavigate ? placeholderProjects[(activeIndex + 1) % totalProjects] : null;
+  const previousProject = canNavigate ? projectPool[(activeIndex - 1 + totalProjects) % totalProjects] : null;
+  const nextProject = canNavigate ? projectPool[(activeIndex + 1) % totalProjects] : null;
   const previewHref = `/work/${activeProject.slug}`;
 
   const navigatePreview = (direction: -1 | 1) => {
     if (!canNavigate) return;
     const nextIndex = (activeIndex + direction + totalProjects) % totalProjects;
-    setActiveProject(placeholderProjects[nextIndex]);
+    setActiveProject(projectPool[nextIndex]);
   };
 
   const viewportCenterX = typeof window === "undefined" ? 0 : window.innerWidth / 2;

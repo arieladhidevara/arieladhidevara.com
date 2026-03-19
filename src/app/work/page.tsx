@@ -1,7 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { FadeIn } from "@/components/motion/fade-in";
 import { WorkLibrary } from "@/components/work/work-library";
-import { allCategories, placeholderProjects } from "@/lib/placeholder-data";
+import { categoriesForProjects, loadPortfolioProjects } from "@/lib/portfolio-projects";
 
 type WorkIndexPageProps = {
   searchParams?: {
@@ -9,8 +9,9 @@ type WorkIndexPageProps = {
   };
 };
 
-export default function WorkIndexPage({ searchParams }: WorkIndexPageProps) {
-  const categories = allCategories();
+export default async function WorkIndexPage({ searchParams }: WorkIndexPageProps) {
+  const projects = await loadPortfolioProjects();
+  const categories = categoriesForProjects(projects);
   const requestedCategory = Array.isArray(searchParams?.category)
     ? searchParams?.category[0]
     : searchParams?.category;
@@ -30,7 +31,7 @@ export default function WorkIndexPage({ searchParams }: WorkIndexPageProps) {
       </Section>
 
       <Section className="pt-0">
-        <WorkLibrary projects={placeholderProjects} categories={categories} initialCategory={initialCategory} />
+        <WorkLibrary projects={projects} categories={categories} initialCategory={initialCategory} />
       </Section>
     </main>
   );

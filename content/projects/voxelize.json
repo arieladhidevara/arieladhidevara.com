@@ -1,0 +1,100 @@
+﻿{
+    "slug":  "voxelize",
+    "title":  "Voxelize",
+    "year":  2023,
+    "institutionYear":  "Harvard University - Graduate School of Design 2023",
+    "contributors":  "Ben Kazer, Joe Tu",
+    "category":  "Objects \u0026 Product",
+    "type":  "Academics",
+    "tags":  [
+                 "Photogrammetry",
+                 "Voxelization"
+             ],
+    "oneLiner":  "Photogrammetry Voxelization.",
+    "summaryShort":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure.",
+    "summaryMedium":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized. Human existence is often experienced as complex, layered, and at times overwhelming—especially when engaging with abstract or philosophical thought. This project emerges from that tension, imagining a desire to simplify oneself by translating the richness of the human form into a more manageable, digital abstraction. It reflects on how contemporary tools allow us to reinterpret reality, not as continuous and fluid, but as something that can be sampled, reduced, and reconstructed.",
+    "summaryLong":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized. Human existence is often experienced as complex, layered, and at times overwhelming—especially when engaging with abstract or philosophical thought. This project emerges from that tension, imagining a desire to simplify oneself by translating the richness of the human form into a more manageable, digital abstraction. It reflects on how contemporary tools allow us to reinterpret reality, not as continuous and fluid, but as something that can be sampled, reduced, and reconstructed. The core idea is the transformation of the organic into the computational. By voxelizing the human body, the project reframes identity as a collection of discrete units rather than a continuous surface. This process strips away detail while preserving essence, creating a balance between loss and clarity. The voxel becomes both a constraint and a liberation—reducing complexity while offering a new way to perceive structure, form, and presence. Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized. The workflow begins with 3D photogrammetry to capture a detailed scan of the subject, producing a dense point cloud and mesh. This data is then manipulated and resampled into a voxel grid, where spatial coordinates are discretized into uniform units. Color information from the original scan is mapped onto each voxel, preserving visual identity within the simplified structure. Iterations focused on resolution, voxel density, and color fidelity to achieve a balance between abstraction and recognizability, resulting in a structured yet expressive digital reconstruction of the human form.",
+    "sections":  {
+                     "overview":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized.",
+                     "background":  "Human existence is often experienced as complex, layered, and at times overwhelming—especially when engaging with abstract or philosophical thought. This project emerges from that tension, imagining a desire to simplify oneself by translating the richness of the human form into a more manageable, digital abstraction. It reflects on how contemporary tools allow us to reinterpret reality, not as continuous and fluid, but as something that can be sampled, reduced, and reconstructed.",
+                     "concept":  "The core idea is the transformation of the organic into the computational. By voxelizing the human body, the project reframes identity as a collection of discrete units rather than a continuous surface. This process strips away detail while preserving essence, creating a balance between loss and clarity. The voxel becomes both a constraint and a liberation—reducing complexity while offering a new way to perceive structure, form, and presence.",
+                     "theProject":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized.",
+                     "process":  "The workflow begins with 3D photogrammetry to capture a detailed scan of the subject, producing a dense point cloud and mesh. This data is then manipulated and resampled into a voxel grid, where spatial coordinates are discretized into uniform units. Color information from the original scan is mapped onto each voxel, preserving visual identity within the simplified structure. Iterations focused on resolution, voxel density, and color fidelity to achieve a balance between abstraction and recognizability, resulting in a structured yet expressive digital reconstruction of the human form.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Ben Kazer, Joe Tu. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#."
+                 },
+    "roles":  [
+                  "Interaction \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "Grasshopper",
+                  "C#"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "hidden-self",
+                            "artifacts-of-identity"
+                        ],
+    "seoTitle":  "Voxelize (2023) | Ariel Adhidevara",
+    "seoDescription":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "Voxelize is a project that explores the reduction of human identity into a simplified digital structure. Using 3D photogrammetry, the human form is captured and transformed into a voxel-based representation—converting organic complexity into a structured, pixel-like geometry. The result is a reinterpretation of the self as something computational, modular, and discretized. Human existence is often experienced as complex, layered, and at times overwhelming—especially when engaging with abstract or philosophical thought. This project emerges from that tension, imagining a desire to simplify oneself by translating the richness of the human form into a more manageable, digital abstraction. It reflects on how contemporary tools allow us to reinterpret reality, not as continuous and fluid, but as something that can be sampled, reduced, and reconstructed.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Voxelize/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

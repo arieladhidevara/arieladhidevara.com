@@ -136,12 +136,19 @@ export const categoryDescriptions: Record<PracticeCategory, string> = {
 
 // Featured is a lightweight editorial label only; update these slugs anytime.
 export const featuredProjectByCategory: Record<PracticeCategory, string> = {
-  "Interactive Systems": "mnemonic-mixology",
-  "AI & Software": "trend-radar",
-  "Spatial & Architectural Design": "urban-memory-pavilion",
-  "Objects & Product": "flashsight",
-  "Visual & Media": "index-of-light"
+  "Interactive Systems": "physicad",
+  "AI & Software": "ephemera-of-existence",
+  "Spatial & Architectural Design": "unseen-realities",
+  "Objects & Product": "mnemonic-mixology",
+  "Visual & Media": "ephemera-of-existence"
 };
+
+export const featuredProjectSlugs = new Set([
+  "physicad",
+  "unseen-realities",
+  "mnemonic-mixology",
+  "ephemera-of-existence"
+]);
 
 export const capabilityDomains = practiceCategories;
 
@@ -712,7 +719,7 @@ export function getProjectsByCategory(category: PracticeCategory): PlaceholderPr
 }
 
 export function isFeaturedProject(project: Pick<PlaceholderProject, "slug" | "category">): boolean {
-  return featuredProjectByCategory[project.category] === project.slug;
+  return featuredProjectSlugs.has(project.slug);
 }
 
 export function allCategories(): string[] {

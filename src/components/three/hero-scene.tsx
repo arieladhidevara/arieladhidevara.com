@@ -30,6 +30,7 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number | null>(null);
   const rewindProgressRef = useRef(0);
+  const rewindStartTimeRef = useRef(0);
   const overlayProgressRef = useRef(0);
   const interactionUnlockedRef = useRef(false);
   const autoRewindRef = useRef(false);
@@ -61,6 +62,7 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
       interactionUnlockedRef.current = false;
       autoRewindRef.current = false;
       rewindProgressRef.current = 0;
+      rewindStartTimeRef.current = 0;
       overlayProgressRef.current = 0;
       setOverlayProgress(0);
       return;
@@ -91,6 +93,7 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
         playPromise.catch(() => {
           video.pause();
           video.currentTime = endFrameTime;
+          rewindStartTimeRef.current = endFrameTime;
           setPhase("rewind");
         });
       }
@@ -98,9 +101,9 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
 
     const handleEnded = () => {
       video.pause();
-      if (lastFrameTime > 0) {
-        video.currentTime = lastFrameTime;
-      }
+      const endedFrameTime = Math.max(lastFrameTime, video.currentTime, 0);
+      rewindStartTimeRef.current = endedFrameTime;
+      video.currentTime = endedFrameTime;
       if (rewindProgressRef.current <= 0.001) {
         completeSequence();
         return;
@@ -146,10 +149,10 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
 
       if (phase === "intro") {
         interactionUnlockedRef.current = false;
+        const rewindStartTime = clamp(video.currentTime, 0, Math.max(lastFrameTime, video.currentTime, 0));
+        rewindStartTimeRef.current = rewindStartTime;
         video.pause();
-        if (lastFrameTime > 0) {
-          video.currentTime = lastFrameTime;
-        }
+        video.currentTime = rewindStartTime;
         setPhase("rewind");
         const seededOverlayProgress = Math.max(overlayProgressRef.current, 0.01);
         overlayProgressRef.current = seededOverlayProgress;
@@ -261,7 +264,8 @@ export function HeroScene({ onOverlayProgress }: HeroSceneProps) {
       const nextOverlayProgress = clamp(progress / REWIND_THRESHOLD);
       overlayProgressRef.current = nextOverlayProgress;
       setOverlayProgress((prev) => (Math.abs(prev - nextOverlayProgress) > 0.001 ? nextOverlayProgress : prev));
-      const targetTime = lastFrameTime * (1 - progress);
+      const rewindStartTime = Math.max(rewindStartTimeRef.current, 0);
+      const targetTime = rewindStartTime * (1 - nextOverlayProgress);
       const maxStep = clamp((deltaMs / 1000) * 1.25, MIN_REWIND_STEP_SECONDS, MAX_REWIND_STEP_SECONDS);
       const deltaTime = targetTime - video.currentTime;
       const nextTime =

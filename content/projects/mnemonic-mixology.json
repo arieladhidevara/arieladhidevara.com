@@ -1,0 +1,107 @@
+﻿{
+    "slug":  "mnemonic-mixology",
+    "title":  "Mnemonic Mixology",
+    "year":  2025,
+    "institutionYear":  "MIT - Media Lab 2025",
+    "contributors":  "Sebastian Guo, Riddhi Kasar, Xiaoyang Wu, Abby Wen, Brittany Liu",
+    "category":  "Interactive Systems",
+    "type":  "Academics",
+    "tags":  [
+                 "AI",
+                 "Arduino",
+                 "Product Design",
+                 "Industrial Design",
+                 "Emotional Recognition"
+             ],
+    "oneLiner":  "An AI-driven system that turns stories into personalized drinks, translating memory and emotion into taste.",
+    "summaryShort":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences.",
+    "summaryMedium":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body. Most contemporary memory systems rely on visual media—images, videos, and text—reducing lived experiences into static representations. However, memory is inherently multi-sensory, with taste and smell playing a powerful role in recall, often referred to as the Proustian phenomenon. This project challenges the dominance of visual archives by exploring data physicalization through gustatory experience, proposing that memories can be reactivated through embodied, sensory interaction rather than passive observation.",
+    "summaryLong":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body. Most contemporary memory systems rely on visual media—images, videos, and text—reducing lived experiences into static representations. However, memory is inherently multi-sensory, with taste and smell playing a powerful role in recall, often referred to as the Proustian phenomenon. This project challenges the dominance of visual archives by exploring data physicalization through gustatory experience, proposing that memories can be reactivated through embodied, sensory interaction rather than passive observation. The project reframes memory as something ephemeral, embodied, and consumable. Instead of storing memories as permanent artifacts, Mnemonic Mixology translates them into transient experiences that are internalized through ingestion. Using AI, subjective narratives are interpreted into emotional vectors, which are then mapped into flavor profiles. The resulting drink becomes a physical manifestation of memory—one that is experienced, metabolized, and ultimately disappears, mirroring the fluid and impermanent nature of human recollection. Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body. The system integrates voice input, AI-based semantic analysis, and a robotic mixing mechanism. Users begin by narrating a personal memory, which is processed by a large language model to extract emotional and contextual features. These are translated into a structured flavor profile through a generative mapping algorithm, determining the composition of the drink. A hardware system—powered by Arduino, Raspberry Pi, and a multi-pump setup—then executes the recipe in real time, dispensing precise liquid combinations. A feedback loop allows users to rate and refine the output, enabling the system to learn individual taste preferences over time. The full interaction forms a closed loop from narrative input to embodied consumption, bridging digital interpretation with physical experience.",
+    "sections":  {
+                     "overview":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body.",
+                     "background":  "Most contemporary memory systems rely on visual media—images, videos, and text—reducing lived experiences into static representations. However, memory is inherently multi-sensory, with taste and smell playing a powerful role in recall, often referred to as the Proustian phenomenon. This project challenges the dominance of visual archives by exploring data physicalization through gustatory experience, proposing that memories can be reactivated through embodied, sensory interaction rather than passive observation.",
+                     "concept":  "The project reframes memory as something ephemeral, embodied, and consumable. Instead of storing memories as permanent artifacts, Mnemonic Mixology translates them into transient experiences that are internalized through ingestion. Using AI, subjective narratives are interpreted into emotional vectors, which are then mapped into flavor profiles. The resulting drink becomes a physical manifestation of memory—one that is experienced, metabolized, and ultimately disappears, mirroring the fluid and impermanent nature of human recollection.",
+                     "theProject":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body.",
+                     "process":  "The system integrates voice input, AI-based semantic analysis, and a robotic mixing mechanism. Users begin by narrating a personal memory, which is processed by a large language model to extract emotional and contextual features. These are translated into a structured flavor profile through a generative mapping algorithm, determining the composition of the drink. A hardware system—powered by Arduino, Raspberry Pi, and a multi-pump setup—then executes the recipe in real time, dispensing precise liquid combinations. A feedback loop allows users to rate and refine the output, enabling the system to learn individual taste preferences over time. The full interaction forms a closed loop from narrative input to embodied consumption, bridging digital interpretation with physical experience.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Sebastian Guo, Riddhi Kasar, Xiaoyang Wu, Abby Wen, Brittany Liu. Role: Software \u0026 Design. Tools: Arduino, RaspberryPi, Python, Next.js."
+                 },
+    "roles":  [
+                  "Software \u0026 Design"
+              ],
+    "tools":  [
+                  "Arduino",
+                  "RaspberryPi",
+                  "Python",
+                  "Next.js"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "algorithm-prison-experiment",
+                            "example-project",
+                            "flashsight",
+                            "inmyskin"
+                        ],
+    "seoTitle":  "Mnemonic Mixology (2025) | Ariel Adhidevara",
+    "seoDescription":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "Mnemonic Mixology is an AI-driven system that transforms personal memories into consumable experiences. By analyzing users’ spoken narratives and translating them into flavor compositions, the system generates and physically produces a cocktail that embodies the emotional essence of the memory. It redefines memory not as something to be viewed, but something to be tasted and experienced through the body. Most contemporary memory systems rely on visual media—images, videos, and text—reducing lived experiences into static representations. However, memory is inherently multi-sensory, with taste and smell playing a powerful role in recall, often referred to as the Proustian phenomenon. This project challenges the dominance of visual archives by exploring data physicalization through gustatory experience, proposing that memories can be reactivated through embodied, sensory interaction rather than passive observation.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Mnemonic Mixology/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

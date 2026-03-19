@@ -1,0 +1,104 @@
+﻿{
+    "slug":  "altereal",
+    "title":  "AlteReal",
+    "year":  2024,
+    "institutionYear":  "Harvard University - Graduate School of Design 2024",
+    "contributors":  "Yetong Xin",
+    "category":  "AI \u0026 Software",
+    "type":  "Academics",
+    "tags":  [
+                 "Software",
+                 "Real-Time Editing",
+                 "Projection Mapping"
+             ],
+    "oneLiner":  "Software for Real-Time Editing of Physical Spaces Using Image Processing and Projection Mapping.",
+    "summaryShort":  "AlteReal is a real-time system that transforms physical space into an editable visual interface.",
+    "summaryMedium":  "AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time. The project draws from Jean Baudrillard’s concept of hyperreality, where distinctions between the real and the simulated collapse. Today, digital tools allow us to endlessly manipulate images, yet these transformations remain confined to screens. AlteReal emerges from the question: what happens when these tools are no longer applied to representations of reality, but to reality itself? It challenges the boundary between physical and digital by bringing image manipulation into lived space.",
+    "summaryLong":  "AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time. The project draws from Jean Baudrillard’s concept of hyperreality, where distinctions between the real and the simulated collapse. Today, digital tools allow us to endlessly manipulate images, yet these transformations remain confined to screens. AlteReal emerges from the question: what happens when these tools are no longer applied to representations of reality, but to reality itself? It challenges the boundary between physical and digital by bringing image manipulation into lived space. The core idea is to treat reality as an editable medium. By merging camera and projector into a single system, the project creates a spatial interface where visual effects—such as blurring, edge detection, painting, and motion-based distortions—are applied directly onto the environment. This produces a layered condition where the physical and the augmented coexist, constantly influencing one another. Reality is no longer fixed, but continuously rewritten through computational perception. AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time. The system captures live video input of a physical environment, processes it through a series of image manipulation techniques, and projects the altered output back onto the same space using projection mapping. The workflow integrates computer vision methods such as motion detection and edge extraction with generative visual effects, enabling dynamic and responsive transformations. Iterations focused on calibration between camera and projector, latency reduction, and spatial alignment to ensure seamless integration between input and output. The result is a hybrid interface that bridges digital manipulation with physical reality in real time.",
+    "sections":  {
+                     "overview":  "AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time.",
+                     "background":  "The project draws from Jean Baudrillard’s concept of hyperreality, where distinctions between the real and the simulated collapse. Today, digital tools allow us to endlessly manipulate images, yet these transformations remain confined to screens. AlteReal emerges from the question: what happens when these tools are no longer applied to representations of reality, but to reality itself? It challenges the boundary between physical and digital by bringing image manipulation into lived space.",
+                     "concept":  "The core idea is to treat reality as an editable medium. By merging camera and projector into a single system, the project creates a spatial interface where visual effects—such as blurring, edge detection, painting, and motion-based distortions—are applied directly onto the environment. This produces a layered condition where the physical and the augmented coexist, constantly influencing one another. Reality is no longer fixed, but continuously rewritten through computational perception.",
+                     "theProject":  "AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time.",
+                     "process":  "The system captures live video input of a physical environment, processes it through a series of image manipulation techniques, and projects the altered output back onto the same space using projection mapping. The workflow integrates computer vision methods such as motion detection and edge extraction with generative visual effects, enabling dynamic and responsive transformations. Iterations focused on calibration between camera and projector, latency reduction, and spatial alignment to ensure seamless integration between input and output. The result is a hybrid interface that bridges digital manipulation with physical reality in real time.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Yetong Xin. Role: Conceptor \u0026 Technical Lead. Tools: HTML, CSS, Javascript (p5)."
+                 },
+    "roles":  [
+                  "Conceptor \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "HTML",
+                  "CSS",
+                  "Javascript (p5)"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "buildsnap",
+                            "hivee",
+                            "emotional-decision-making-algorithm",
+                            "seedifferent"
+                        ],
+    "seoTitle":  "AlteReal (2024) | Ariel Adhidevara",
+    "seoDescription":  "AlteReal is a real-time system that transforms physical space into an editable visual interface.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "AlteReal is a real-time system that transforms physical space into an editable visual interface. By combining camera input with projection mapping, the project allows users to manipulate reality as if it were a live Photoshop canvas—applying filters, distortions, and visual operations directly onto the world. It creates a continuous feedback loop where reality is captured, processed, and reprojected in real time. The project draws from Jean Baudrillard’s concept of hyperreality, where distinctions between the real and the simulated collapse. Today, digital tools allow us to endlessly manipulate images, yet these transformations remain confined to screens. AlteReal emerges from the question: what happens when these tools are no longer applied to representations of reality, but to reality itself? It challenges the boundary between physical and digital by bringing image manipulation into lived space.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/AlteReal/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

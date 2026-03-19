@@ -1,0 +1,104 @@
+﻿{
+    "slug":  "emotional-decision-making-algorithm",
+    "title":  "Emotional Decision Making Algorithm",
+    "year":  2024,
+    "institutionYear":  "MIT - Media Lab 2024",
+    "contributors":  "Erick Oduniyi, Riley Sandberg",
+    "category":  "AI \u0026 Software",
+    "type":  "Academics",
+    "tags":  [
+                 "AI/ML",
+                 "Biometrics",
+                 "Facial Recognition",
+                 "Research"
+             ],
+    "oneLiner":  "Affect and Decision Prediction Model using biometrics and facial recognition analysis.",
+    "summaryShort":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT).",
+    "summaryMedium":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it. Decision-making under uncertainty is shaped by a complex interplay between cognition and emotion. While prior research has relied on physiological signals such as heart rate or skin conductivity, less attention has been given to facial expressions as a continuous and accessible source of emotional data. This project builds on that gap, exploring whether facial emotion recognition can provide meaningful insights into behavioral outcomes. It also engages with the broader question of whether awareness of one’s emotional state could enable more informed and intentional decisions.",
+    "summaryLong":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it. Decision-making under uncertainty is shaped by a complex interplay between cognition and emotion. While prior research has relied on physiological signals such as heart rate or skin conductivity, less attention has been given to facial expressions as a continuous and accessible source of emotional data. This project builds on that gap, exploring whether facial emotion recognition can provide meaningful insights into behavioral outcomes. It also engages with the broader question of whether awareness of one’s emotional state could enable more informed and intentional decisions. The core idea is to externalize and quantify emotion at the exact moment of decision-making. By synchronizing facial expression data with behavioral choices, the project reframes decision-making as a temporally embedded process—where each choice is influenced by a dynamic emotional context. Rather than treating decisions as purely rational, the system reveals patterns where emotions such as sadness and anger correlate with poorer outcomes, while surprise is linked to more advantageous decisions. This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it. Participants completed a modified version of the Iowa Gambling Task under different emotional conditions while their facial expressions were recorded. Facial data was analyzed using FaceReader software, which classifies emotions and provides continuous measures such as valence and arousal. A custom Python pipeline was developed to synchronize timestamps between the behavioral data (IGT) and emotion data (FER), allowing each decision to be paired with corresponding emotional states. Statistical analysis, including logistic regression, was then used to identify relationships between specific emotions and decision outcomes. The results demonstrate that integrating FER with behavioral data can uncover meaningful patterns in how emotion shapes decision-making.",
+    "sections":  {
+                     "overview":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it.",
+                     "background":  "Decision-making under uncertainty is shaped by a complex interplay between cognition and emotion. While prior research has relied on physiological signals such as heart rate or skin conductivity, less attention has been given to facial expressions as a continuous and accessible source of emotional data. This project builds on that gap, exploring whether facial emotion recognition can provide meaningful insights into behavioral outcomes. It also engages with the broader question of whether awareness of one’s emotional state could enable more informed and intentional decisions.",
+                     "concept":  "The core idea is to externalize and quantify emotion at the exact moment of decision-making. By synchronizing facial expression data with behavioral choices, the project reframes decision-making as a temporally embedded process—where each choice is influenced by a dynamic emotional context. Rather than treating decisions as purely rational, the system reveals patterns where emotions such as sadness and anger correlate with poorer outcomes, while surprise is linked to more advantageous decisions.",
+                     "theProject":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it.",
+                     "process":  "Participants completed a modified version of the Iowa Gambling Task under different emotional conditions while their facial expressions were recorded. Facial data was analyzed using FaceReader software, which classifies emotions and provides continuous measures such as valence and arousal. A custom Python pipeline was developed to synchronize timestamps between the behavioral data (IGT) and emotion data (FER), allowing each decision to be paired with corresponding emotional states. Statistical analysis, including logistic regression, was then used to identify relationships between specific emotions and decision outcomes. The results demonstrate that integrating FER with behavioral data can uncover meaningful patterns in how emotion shapes decision-making.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Erick Oduniyi, Riley Sandberg. Role: Technical Lead. Tools: PsychoPy, Python."
+                 },
+    "roles":  [
+                  "Technical Lead"
+              ],
+    "tools":  [
+                  "PsychoPy",
+                  "Python"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "buildsnap",
+                            "hivee",
+                            "altereal",
+                            "seedifferent"
+                        ],
+    "seoTitle":  "Emotional Decision Making Algorithm (2024) | Ariel Adhidevara",
+    "seoDescription":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT).",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "This project investigates how emotional states influence decision-making by combining facial emotion recognition (FER) with the Iowa Gambling Task (IGT). By capturing real-time facial expressions and aligning them with decision points, the system reveals how subtle emotional shifts correlate with risk-taking behavior. The work positions emotion not as a byproduct of decision-making, but as an active and measurable driver of it. Decision-making under uncertainty is shaped by a complex interplay between cognition and emotion. While prior research has relied on physiological signals such as heart rate or skin conductivity, less attention has been given to facial expressions as a continuous and accessible source of emotional data. This project builds on that gap, exploring whether facial emotion recognition can provide meaningful insights into behavioral outcomes. It also engages with the broader question of whether awareness of one’s emotional state could enable more informed and intentional decisions.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Emotional Decision Making Algorithm/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

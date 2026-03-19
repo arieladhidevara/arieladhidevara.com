@@ -1,0 +1,101 @@
+﻿{
+    "slug":  "pixelpunk",
+    "title":  "PixelPunk",
+    "year":  2023,
+    "institutionYear":  "Harvard University - Graduate School of Design 2023",
+    "contributors":  "Ben Kazer, Joe Tu",
+    "category":  "Interactive Systems",
+    "type":  "Academics",
+    "tags":  [
+                 "Augmented Reality"
+             ],
+    "oneLiner":  "Augmented Reality Spray Paint.",
+    "summaryShort":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression.",
+    "summaryMedium":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments. Graffiti has long existed in tension between artistic expression and public disruption. While often labeled as vandalism, it also represents a powerful voice within urban culture, reflecting identity, resistance, and creativity. This project builds on that duality, questioning whether the essence of graffiti can be preserved while removing its destructive implications. It responds to the need for new mediums where spontaneous, expressive acts can exist without conflict with architectural or civic space.",
+    "summaryLong":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments. Graffiti has long existed in tension between artistic expression and public disruption. While often labeled as vandalism, it also represents a powerful voice within urban culture, reflecting identity, resistance, and creativity. This project builds on that duality, questioning whether the essence of graffiti can be preserved while removing its destructive implications. It responds to the need for new mediums where spontaneous, expressive acts can exist without conflict with architectural or civic space. The core idea is to liberate graffiti from surfaces and extend it into space. Instead of drawing on walls, users “spray” directly into the air, creating three-dimensional strokes that can be experienced from multiple perspectives. This shifts graffiti from an act of marking territory into an act of spatial composition. The project reframes graffiti as an interaction between body movement, space, and digital matter—where gestures become sculptural traces. This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments. The system was developed using Grasshopper and the Fologram plugin to bridge parametric modeling with real-time mobile interaction. Users interact through their phones, using spatial tracking to position and generate spray strokes in 3D space. The workflow translates hand movement into dynamic geometry, allowing continuous, fluid drawing in mid-air. Iterations focused on refining gesture responsiveness, stroke behavior, and spatial feedback to create an intuitive and expressive user experience.",
+    "sections":  {
+                     "overview":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments.",
+                     "background":  "Graffiti has long existed in tension between artistic expression and public disruption. While often labeled as vandalism, it also represents a powerful voice within urban culture, reflecting identity, resistance, and creativity. This project builds on that duality, questioning whether the essence of graffiti can be preserved while removing its destructive implications. It responds to the need for new mediums where spontaneous, expressive acts can exist without conflict with architectural or civic space.",
+                     "concept":  "The core idea is to liberate graffiti from surfaces and extend it into space. Instead of drawing on walls, users “spray” directly into the air, creating three-dimensional strokes that can be experienced from multiple perspectives. This shifts graffiti from an act of marking territory into an act of spatial composition. The project reframes graffiti as an interaction between body movement, space, and digital matter—where gestures become sculptural traces.",
+                     "theProject":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments.",
+                     "process":  "The system was developed using Grasshopper and the Fologram plugin to bridge parametric modeling with real-time mobile interaction. Users interact through their phones, using spatial tracking to position and generate spray strokes in 3D space. The workflow translates hand movement into dynamic geometry, allowing continuous, fluid drawing in mid-air. Iterations focused on refining gesture responsiveness, stroke behavior, and spatial feedback to create an intuitive and expressive user experience.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Ben Kazer, Joe Tu. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#."
+                 },
+    "roles":  [
+                  "Interaction \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "Grasshopper",
+                  "C#"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "algorithm-prison-experiment",
+                            "example-project",
+                            "flashsight",
+                            "inmyskin"
+                        ],
+    "seoTitle":  "PixelPunk (2023) | Ariel Adhidevara",
+    "seoDescription":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "This project explores graffiti as a spatial and immersive medium rather than a flat, surface-based expression. Through a mobile application, users can create spray-painted marks directly in 3D space, transforming graffiti from a 2D act of defacement into a volumetric form of expression. By shifting the canvas into the virtual realm, the project repositions graffiti as a tool for creative exploration while preserving the integrity of physical environments. Graffiti has long existed in tension between artistic expression and public disruption. While often labeled as vandalism, it also represents a powerful voice within urban culture, reflecting identity, resistance, and creativity. This project builds on that duality, questioning whether the essence of graffiti can be preserved while removing its destructive implications. It responds to the need for new mediums where spontaneous, expressive acts can exist without conflict with architectural or civic space.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/PixelPunk/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

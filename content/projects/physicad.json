@@ -1,0 +1,102 @@
+﻿{
+    "slug":  "physicad",
+    "title":  "PhysiCAD",
+    "year":  2023,
+    "institutionYear":  "Harvard University - Graduate School of Design 2023",
+    "contributors":  "Ben Kazer, Joe Tu",
+    "category":  "Interactive Systems",
+    "type":  "Academics",
+    "tags":  [
+                 "3D Modeling",
+                 "Interactive"
+             ],
+    "oneLiner":  "Interactive 3D Model Making Using Hand Gestures.",
+    "summaryShort":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures.",
+    "summaryMedium":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design. Traditional 3D modeling tools often come with steep learning curves, requiring familiarity with complex interfaces, commands, and workflows. This creates a gap between creative intent and technical execution, especially for beginners or those outside computational fields. PhysiCAD emerges from the need to make digital modeling more accessible, immediate, and engaging, while still retaining its underlying rigor.",
+    "summaryLong":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design. Traditional 3D modeling tools often come with steep learning curves, requiring familiarity with complex interfaces, commands, and workflows. This creates a gap between creative intent and technical execution, especially for beginners or those outside computational fields. PhysiCAD emerges from the need to make digital modeling more accessible, immediate, and engaging, while still retaining its underlying rigor. The project reframes modeling as a performative act, where the body becomes the primary interface. Instead of navigating menus or writing scripts, users shape geometry through gestures—pinching, dragging, and moving in space. This shifts the process from abstract manipulation to spatial intuition. At the same time, the system embeds computational constraints, ensuring that the generated forms remain structured, editable, and compatible with parametric workflows. PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design. The system was developed using Grasshopper as the computational backend, combined with a hand-tracking camera and custom gesture recognition algorithms. Hand movements are captured in real time and mapped to geometric operations, enabling users to generate and manipulate forms directly in 3D space. Iterations focused on refining gesture vocabulary, responsiveness, and the translation between continuous motion and discrete parametric logic. The result is a hybrid workflow that bridges physical interaction with computational modeling.",
+    "sections":  {
+                     "overview":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design.",
+                     "background":  "Traditional 3D modeling tools often come with steep learning curves, requiring familiarity with complex interfaces, commands, and workflows. This creates a gap between creative intent and technical execution, especially for beginners or those outside computational fields. PhysiCAD emerges from the need to make digital modeling more accessible, immediate, and engaging, while still retaining its underlying rigor.",
+                     "concept":  "The project reframes modeling as a performative act, where the body becomes the primary interface. Instead of navigating menus or writing scripts, users shape geometry through gestures—pinching, dragging, and moving in space. This shifts the process from abstract manipulation to spatial intuition. At the same time, the system embeds computational constraints, ensuring that the generated forms remain structured, editable, and compatible with parametric workflows.",
+                     "theProject":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design.",
+                     "process":  "The system was developed using Grasshopper as the computational backend, combined with a hand-tracking camera and custom gesture recognition algorithms. Hand movements are captured in real time and mapped to geometric operations, enabling users to generate and manipulate forms directly in 3D space. Iterations focused on refining gesture vocabulary, responsiveness, and the translation between continuous motion and discrete parametric logic. The result is a hybrid workflow that bridges physical interaction with computational modeling.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Ben Kazer, Joe Tu. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#."
+                 },
+    "roles":  [
+                  "Interaction \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "Grasshopper",
+                  "C#"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "algorithm-prison-experiment",
+                            "example-project",
+                            "flashsight",
+                            "inmyskin"
+                        ],
+    "seoTitle":  "PhysiCAD (2023) | Ariel Adhidevara",
+    "seoDescription":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "PhysiCAD is an interactive interface that enables users to create 3D models through physical gestures. By translating hand movements into digital geometry, the system reimagines 3D modeling as an embodied and intuitive experience rather than a technical skill. It lowers the barrier to entry while maintaining the precision and logic required for computational design. Traditional 3D modeling tools often come with steep learning curves, requiring familiarity with complex interfaces, commands, and workflows. This creates a gap between creative intent and technical execution, especially for beginners or those outside computational fields. PhysiCAD emerges from the need to make digital modeling more accessible, immediate, and engaging, while still retaining its underlying rigor.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/PhysiCAD/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

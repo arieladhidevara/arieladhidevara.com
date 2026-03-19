@@ -1,0 +1,102 @@
+﻿{
+    "slug":  "algorithm-prison-experiment",
+    "title":  "Algorithm Prison Experiment",
+    "year":  2026,
+    "institutionYear":  "Harvard University - Graduate School of Design 2026",
+    "contributors":  "",
+    "category":  "Interactive Systems",
+    "type":  "Academics",
+    "tags":  [
+                 "Algorithms",
+                 "Classification",
+                 "Narrative"
+             ],
+    "oneLiner":  "Interactive installation that explores how technological systems classify individuals, construct narratives, and ultimately shape human behavior.",
+    "summaryShort":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority.",
+    "summaryMedium":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it. The project draws from the legacy of the Stanford Prison Experiment and broader questions of surveillance, control, and social conditioning. While the original experiment exposed how institutional roles can quickly alter behavior, this project extends that inquiry into a computational context—where classification is no longer imposed only by humans, but by algorithmic systems. In a world increasingly governed by recommendation engines, automated judgments, and invisible digital infrastructures, identity becomes something continuously assigned, monitored, and reinforced by machines.",
+    "summaryLong":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it. The project draws from the legacy of the Stanford Prison Experiment and broader questions of surveillance, control, and social conditioning. While the original experiment exposed how institutional roles can quickly alter behavior, this project extends that inquiry into a computational context—where classification is no longer imposed only by humans, but by algorithmic systems. In a world increasingly governed by recommendation engines, automated judgments, and invisible digital infrastructures, identity becomes something continuously assigned, monitored, and reinforced by machines. The core idea is to stage a space where participants experience the psychological weight of algorithmic labeling. Upon entering the installation, users are analyzed by AI systems and assigned roles, traits, or levels of authority that influence how they are seen and how they are allowed to act. These roles may appear arbitrary, but once imposed, they begin to organize interaction and self-perception. The installation turns algorithmic bias, surveillance, and computational power into a lived experience, exposing how easily human behavior can be redirected when machine-generated classifications are treated as truth. Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it. The installation is built as a real-time interactive system combining computer vision, AI-based classification, and responsive media output. Participants are detected and analyzed through sensors or cameras, after which the system assigns roles and delivers corresponding visual, textual, or spatial feedback through projection, screens, or environmental cues. The logic of the installation is designed to create feedback loops, where participants begin responding not only to one another, but to the authority of the system itself. Iterations focused on defining role-assignment rules, shaping participant interaction flows, and designing an environment where the tension between observation, judgment, and performance becomes palpable.",
+    "sections":  {
+                     "overview":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it.",
+                     "background":  "The project draws from the legacy of the Stanford Prison Experiment and broader questions of surveillance, control, and social conditioning. While the original experiment exposed how institutional roles can quickly alter behavior, this project extends that inquiry into a computational context—where classification is no longer imposed only by humans, but by algorithmic systems. In a world increasingly governed by recommendation engines, automated judgments, and invisible digital infrastructures, identity becomes something continuously assigned, monitored, and reinforced by machines.",
+                     "concept":  "The core idea is to stage a space where participants experience the psychological weight of algorithmic labeling. Upon entering the installation, users are analyzed by AI systems and assigned roles, traits, or levels of authority that influence how they are seen and how they are allowed to act. These roles may appear arbitrary, but once imposed, they begin to organize interaction and self-perception. The installation turns algorithmic bias, surveillance, and computational power into a lived experience, exposing how easily human behavior can be redirected when machine-generated classifications are treated as truth.",
+                     "theProject":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it.",
+                     "process":  "The installation is built as a real-time interactive system combining computer vision, AI-based classification, and responsive media output. Participants are detected and analyzed through sensors or cameras, after which the system assigns roles and delivers corresponding visual, textual, or spatial feedback through projection, screens, or environmental cues. The logic of the installation is designed to create feedback loops, where participants begin responding not only to one another, but to the authority of the system itself. Iterations focused on defining role-assignment rules, shaping participant interaction flows, and designing an environment where the tension between observation, judgment, and performance becomes palpable.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Role: Conceptor \u0026 Technical Lead."
+                 },
+    "roles":  [
+                  "Conceptor \u0026 Technical Lead"
+              ],
+    "tools":  [
+
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "example-project",
+                            "flashsight",
+                            "inmyskin",
+                            "mnemonic-mixology"
+                        ],
+    "seoTitle":  "Algorithm Prison Experiment (2026) | Ariel Adhidevara",
+    "seoDescription":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "Algorithm Prison Experiment is an interactive AI installation that assigns participants constructed roles within a controlled system, revealing how identity and behavior can be shaped by algorithmic authority. Rather than simply observing the audience, the installation classifies, directs, and conditions them in real time, turning participants into subjects of a machine-mediated social experiment. The work explores how AI does not just interpret human behavior, but actively produces it. The project draws from the legacy of the Stanford Prison Experiment and broader questions of surveillance, control, and social conditioning. While the original experiment exposed how institutional roles can quickly alter behavior, this project extends that inquiry into a computational context—where classification is no longer imposed only by humans, but by algorithmic systems. In a world increasingly governed by recommendation engines, automated judgments, and invisible digital infrastructures, identity becomes something continuously assigned, monitored, and reinforced by machines.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Algorithm Prison Experiment/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

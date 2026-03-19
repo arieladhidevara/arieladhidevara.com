@@ -56,7 +56,7 @@ export function WorkLibrary({ projects, categories, initialCategory = "All Works
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className={cn(isWide && "md:col-span-2")}
             >
-              <ProjectCard project={project} compact={!isWide} />
+              <ProjectCard project={project} compact={!isWide} projectPool={projects} />
             </motion.div>
           );
         })}

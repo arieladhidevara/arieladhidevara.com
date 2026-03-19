@@ -1,0 +1,101 @@
+﻿{
+    "slug":  "artifacts-of-identity",
+    "title":  "Artifacts of Identity",
+    "year":  2023,
+    "institutionYear":  "Harvard University - Graduate School of Design 2023",
+    "contributors":  "Ben Kazer",
+    "category":  "Objects \u0026 Product",
+    "type":  "Academics",
+    "tags":  [
+                 "3D Sculpture",
+                 "Biometrics"
+             ],
+    "oneLiner":  "3D Sculpture Generated from Biometric Signals.",
+    "summaryShort":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
+    "summaryMedium":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+    "summaryLong":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes. The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated. Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
+    "sections":  {
+                     "overview":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
+                     "background":  "Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+                     "concept":  "The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated.",
+                     "theProject":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
+                     "process":  "Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Ben Kazer. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#, 3D Print."
+                 },
+    "roles":  [
+                  "Interaction \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "Grasshopper",
+                  "C#",
+                  "3D Print"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "hidden-self",
+                            "voxelize"
+                        ],
+    "seoTitle":  "Artifacts of Identity (2023) | Ariel Adhidevara",
+    "seoDescription":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Artifacts of Identity/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

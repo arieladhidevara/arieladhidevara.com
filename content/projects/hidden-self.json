@@ -1,0 +1,101 @@
+﻿{
+    "slug":  "hidden-self",
+    "title":  "Hidden Self",
+    "year":  2024,
+    "institutionYear":  "Harvard University - Graduate School of Design 2024",
+    "contributors":  "Yetong Xin",
+    "category":  "Objects \u0026 Product",
+    "type":  "Academics",
+    "tags":  [
+                 "3D Fabrications",
+                 "Grasshopper",
+                 "3D Print"
+             ],
+    "oneLiner":  "An anamorphic 3D print that turns a flat image into a hidden form, only revealing itself from a precise point of view.",
+    "summaryShort":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position.",
+    "summaryMedium":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery. We often understand identity through fixed images—portraits that suggest a stable and unified self. However, identity is inherently fragmented, layered, and dependent on perspective. This project challenges the idea of a single, truthful representation by exploring how multiple images can coexist within the same form, only becoming visible under certain conditions.",
+    "summaryLong":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery. We often understand identity through fixed images—portraits that suggest a stable and unified self. However, identity is inherently fragmented, layered, and dependent on perspective. This project challenges the idea of a single, truthful representation by exploring how multiple images can coexist within the same form, only becoming visible under certain conditions. The core idea is to embed multiple identities within a single object using anamorphic techniques. Each image is spatially encoded into the geometry so that it aligns only from a precise viewpoint, while appearing distorted or hidden from others. This creates a tension between visibility and invisibility, suggesting that identity is not something fully accessible at once, but something that emerges through position, movement, and perception. Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery. The project begins with multiple 2D images that are computationally mapped into a shared 3D space using anamorphic projection principles. These mappings are translated into volumetric geometries and fabricated as multi-color 3D printed objects. Each layer of color and form is carefully aligned to reconstruct specific images from designated viewpoints. Iterations focused on calibration between projection logic and physical fabrication, ensuring that the printed object maintains both structural integrity and visual precision across different perspectives.",
+    "sections":  {
+                     "overview":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery.",
+                     "background":  "We often understand identity through fixed images—portraits that suggest a stable and unified self. However, identity is inherently fragmented, layered, and dependent on perspective. This project challenges the idea of a single, truthful representation by exploring how multiple images can coexist within the same form, only becoming visible under certain conditions.",
+                     "concept":  "The core idea is to embed multiple identities within a single object using anamorphic techniques. Each image is spatially encoded into the geometry so that it aligns only from a precise viewpoint, while appearing distorted or hidden from others. This creates a tension between visibility and invisibility, suggesting that identity is not something fully accessible at once, but something that emerges through position, movement, and perception.",
+                     "theProject":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery.",
+                     "process":  "The project begins with multiple 2D images that are computationally mapped into a shared 3D space using anamorphic projection principles. These mappings are translated into volumetric geometries and fabricated as multi-color 3D printed objects. Each layer of color and form is carefully aligned to reconstruct specific images from designated viewpoints. Iterations focused on calibration between projection logic and physical fabrication, ensuring that the printed object maintains both structural integrity and visual precision across different perspectives.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Yetong Xin. Role: Conceptor \u0026 Technical Lead. Tools: Grasshopper, C#."
+                 },
+    "roles":  [
+                  "Conceptor \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "Grasshopper",
+                  "C#"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "artifacts-of-identity",
+                            "voxelize"
+                        ],
+    "seoTitle":  "Hidden Self (2024) | Ariel Adhidevara",
+    "seoDescription":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "Hidden Self is a project that transforms flat images into spatial objects through anamorphic projection, revealing different identities depending on the viewer’s position. By translating 2D visuals into 3D printed forms, the work creates objects that appear abstract from most angles but resolve into recognizable images from specific viewpoints. It turns perception into an active process of discovery. We often understand identity through fixed images—portraits that suggest a stable and unified self. However, identity is inherently fragmented, layered, and dependent on perspective. This project challenges the idea of a single, truthful representation by exploring how multiple images can coexist within the same form, only becoming visible under certain conditions.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/Hidden Self/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

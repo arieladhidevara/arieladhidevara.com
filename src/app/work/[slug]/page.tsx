@@ -7,12 +7,11 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { ProjectDemoWindow } from "@/components/project/project-demo-window";
 import { ProjectScrollBackdrop } from "@/components/project/project-scroll-backdrop";
 import {
-  getPlaceholderProjectBySlug,
   InteractiveModulePosition,
-  placeholderProjects,
   PlaceholderInteractiveModule
 } from "@/lib/placeholder-data";
 import { InteractiveModuleRenderer } from "@/components/interactive/interactive-module-renderer";
+import { loadPortfolioProjects } from "@/lib/portfolio-projects";
 
 type ProjectPageProps = {
   params: {
@@ -20,8 +19,9 @@ type ProjectPageProps = {
   };
 };
 
-export function generateStaticParams() {
-  return placeholderProjects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  const projects = await loadPortfolioProjects();
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 function getModulesAtPosition(
@@ -31,28 +31,42 @@ function getModulesAtPosition(
   return (modules ?? []).filter((module) => module.position === position);
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getPlaceholderProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const allProjects = await loadPortfolioProjects();
+  const project = allProjects.find((item) => item.slug === params.slug);
 
   if (!project) {
     notFound();
   }
 
   const related = project.related
-    .map((slug) => getPlaceholderProjectBySlug(slug))
+    .map((slug) => allProjects.find((item) => item.slug === slug))
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+
+  const relatedProjects =
+    related.length > 0
+      ? related
+      : allProjects.filter((item) => item.slug !== project.slug && item.category === project.category).slice(0, 4);
 
   const afterOverviewModules = getModulesAtPosition(project.interactiveModules, "after-overview");
   const afterConceptModules = getModulesAtPosition(project.interactiveModules, "after-concept");
   const afterProjectModules = getModulesAtPosition(project.interactiveModules, "after-project");
   const beforeDocumentationModules = getModulesAtPosition(project.interactiveModules, "before-documentation");
   const isInMySkin = project.slug === "inmyskin";
+  const isPhysiCAD = project.slug === "physicad";
 
   return (
-    <main className="relative project-glass">
+    <main className={`relative project-glass${isPhysiCAD ? " physicad-theme" : ""}`}>
       {isInMySkin ? <ProjectScrollBackdrop slug={project.slug} category={project.category} /> : null}
+      {isPhysiCAD ? (
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 bg-black" />
+          <div className="absolute inset-0 bg-[radial-gradient(64%_36%_at_50%_0%,rgba(0,255,221,0.26)_0%,rgba(0,255,221,0.08)_32%,rgba(0,0,0,0)_72%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,255,221,0.1)_0%,rgba(0,0,0,0)_30%,rgba(0,0,0,0.92)_100%)]" />
+        </div>
+      ) : null}
 
-      <div className={isInMySkin ? "relative z-[1]" : undefined}>
+      <div className={isInMySkin || isPhysiCAD ? "relative z-[1]" : undefined}>
         <Section
           disableDefaultSpacing
           className="min-h-[calc(100svh-6.5rem)] md:min-h-[calc(100svh-7rem)] flex items-center -translate-y-[15px]"
@@ -256,9 +270,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </FadeIn>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {related.map((item, index) => (
+            {relatedProjects.map((item, index) => (
               <FadeIn key={item.slug} delay={index * 0.05}>
-                <ProjectCard project={item} compact />
+                <ProjectCard project={item} compact projectPool={allProjects} />
               </FadeIn>
             ))}
           </div>

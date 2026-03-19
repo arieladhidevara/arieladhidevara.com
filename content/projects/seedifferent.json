@@ -1,0 +1,102 @@
+﻿{
+    "slug":  "seedifferent",
+    "title":  "SeeDifferent",
+    "year":  2024,
+    "institutionYear":  "MIT - Media Lab 2024",
+    "contributors":  "Ben Kazer",
+    "category":  "AI \u0026 Software",
+    "type":  "Academics",
+    "tags":  [
+                 "Image Processing"
+             ],
+    "oneLiner":  "Image Processing for Varied Color Spectrums.",
+    "summaryShort":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view.",
+    "summaryMedium":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience. Human perception is often treated as the default lens through which reality is understood. However, different species—and increasingly, artificial systems—perceive the world in fundamentally different ways. These alternative perceptual frameworks remain largely inaccessible, creating a gap between humans and the broader ecological and technological systems they coexist with. This project emerges from the need to challenge anthropocentrism and expand how we understand perception across entities.",
+    "summaryLong":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience. Human perception is often treated as the default lens through which reality is understood. However, different species—and increasingly, artificial systems—perceive the world in fundamentally different ways. These alternative perceptual frameworks remain largely inaccessible, creating a gap between humans and the broader ecological and technological systems they coexist with. This project emerges from the need to challenge anthropocentrism and expand how we understand perception across entities. The project reframes perception as something relative, constructed, and dependent on the observer. By simulating how animals or AI “see” the world, it exposes the instability of what we consider reality. Each mode of vision becomes a translation rather than a truth—highlighting that what we perceive is only one version among many. Through this, SeeDifferent fosters empathy not through narrative, but through direct perceptual experience. SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience. The system was developed as a simulation environment that transforms visual input based on different perceptual models, including animal vision and AI interpretation. Generative workflows, supported by AI tools such as ChatGPT, were used to construct and iterate on these alternative representations. Visual transformations were applied to simulate variations in color perception, depth, and pattern recognition, allowing users to switch between different modes of seeing. Iterations focused on balancing scientific reference with speculative interpretation, resulting in a system that is both informative and experientially engaging.",
+    "sections":  {
+                     "overview":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience.",
+                     "background":  "Human perception is often treated as the default lens through which reality is understood. However, different species—and increasingly, artificial systems—perceive the world in fundamentally different ways. These alternative perceptual frameworks remain largely inaccessible, creating a gap between humans and the broader ecological and technological systems they coexist with. This project emerges from the need to challenge anthropocentrism and expand how we understand perception across entities.",
+                     "concept":  "The project reframes perception as something relative, constructed, and dependent on the observer. By simulating how animals or AI “see” the world, it exposes the instability of what we consider reality. Each mode of vision becomes a translation rather than a truth—highlighting that what we perceive is only one version among many. Through this, SeeDifferent fosters empathy not through narrative, but through direct perceptual experience.",
+                     "theProject":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience.",
+                     "process":  "The system was developed as a simulation environment that transforms visual input based on different perceptual models, including animal vision and AI interpretation. Generative workflows, supported by AI tools such as ChatGPT, were used to construct and iterate on these alternative representations. Visual transformations were applied to simulate variations in color perception, depth, and pattern recognition, allowing users to switch between different modes of seeing. Iterations focused on balancing scientific reference with speculative interpretation, resulting in a system that is both informative and experientially engaging.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Ben Kazer. Role: Technical Lead. Tools: HTML, CSS, Javascript (p5)."
+                 },
+    "roles":  [
+                  "Technical Lead"
+              ],
+    "tools":  [
+                  "HTML",
+                  "CSS",
+                  "Javascript (p5)"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "buildsnap",
+                            "hivee",
+                            "altereal",
+                            "emotional-decision-making-algorithm"
+                        ],
+    "seoTitle":  "SeeDifferent (2024) | Ariel Adhidevara",
+    "seoDescription":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "SeeDifferent is a simulation that allows users to experience the world through non-human perspectives, shifting perception beyond a human-centered view. By embodying the vision of animals and AI systems, the project transforms familiar environments into unfamiliar, distorted, or reinterpreted realities—inviting users to question how perception defines experience. Human perception is often treated as the default lens through which reality is understood. However, different species—and increasingly, artificial systems—perceive the world in fundamentally different ways. These alternative perceptual frameworks remain largely inaccessible, creating a gap between humans and the broader ecological and technological systems they coexist with. This project emerges from the need to challenge anthropocentrism and expand how we understand perception across entities.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/SeeDifferent/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}

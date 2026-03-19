@@ -1,0 +1,108 @@
+﻿{
+    "slug":  "3depot",
+    "title":  "3Depot",
+    "year":  2023,
+    "institutionYear":  "Harvard University - Faculty Arts \u0026 Sciences 2023",
+    "contributors":  "Sophia Cabral",
+    "category":  "AI \u0026 Software",
+    "type":  "Academics",
+    "tags":  [
+                 "3D Model",
+                 "Platform",
+                 "Web Development"
+             ],
+    "oneLiner":  "3D Model Repository Platform.",
+    "summaryShort":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive.",
+    "summaryMedium":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially. As 3D content becomes increasingly central to design, gaming, and AR/VR applications, existing repositories often focus on storage rather than experience. Many platforms lack intuitive ways to preview or interact with models, creating friction between creators and audiences. 3Depot was developed to bridge this gap, offering a more engaging and accessible way to both share and consume 3D content.",
+    "summaryLong":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially. As 3D content becomes increasingly central to design, gaming, and AR/VR applications, existing repositories often focus on storage rather than experience. Many platforms lack intuitive ways to preview or interact with models, creating friction between creators and audiences. 3Depot was developed to bridge this gap, offering a more engaging and accessible way to both share and consume 3D content. The project rethinks a 3D repository as an interactive ecosystem rather than a passive database. It emphasizes immediacy—allowing users to instantly view models in 3D space or project them into their physical environment through AR. By combining accessibility with interactivity, 3Depot encourages a more exploratory and community-driven approach to digital design assets. 3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially. The platform was developed using a full-stack approach, with Python handling backend logic, MySQL managing the database, and JavaScript powering the frontend and real-time 3D/AR interactions. Key features include model uploading, storage, and web-based visualization, along with AR integration for spatial viewing. Iterations focused on optimizing file handling, rendering performance, and user interface simplicity to ensure a smooth and intuitive user experience across devices.",
+    "sections":  {
+                     "overview":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially.",
+                     "background":  "As 3D content becomes increasingly central to design, gaming, and AR/VR applications, existing repositories often focus on storage rather than experience. Many platforms lack intuitive ways to preview or interact with models, creating friction between creators and audiences. 3Depot was developed to bridge this gap, offering a more engaging and accessible way to both share and consume 3D content.",
+                     "concept":  "The project rethinks a 3D repository as an interactive ecosystem rather than a passive database. It emphasizes immediacy—allowing users to instantly view models in 3D space or project them into their physical environment through AR. By combining accessibility with interactivity, 3Depot encourages a more exploratory and community-driven approach to digital design assets.",
+                     "theProject":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially.",
+                     "process":  "The platform was developed using a full-stack approach, with Python handling backend logic, MySQL managing the database, and JavaScript powering the frontend and real-time 3D/AR interactions. Key features include model uploading, storage, and web-based visualization, along with AR integration for spatial viewing. Iterations focused on optimizing file handling, rendering performance, and user interface simplicity to ensure a smooth and intuitive user experience across devices.",
+                     "reflectionImpact":  "",
+                     "documentation":  "Contributors: Sophia Cabral. Role: Conceptor \u0026 Technical Lead. Tools: HTML, CSS, Javascript, Python (Flask, Jinja), mySQL, PostgreSQL."
+                 },
+    "roles":  [
+                  "Conceptor \u0026 Technical Lead"
+              ],
+    "tools":  [
+                  "HTML",
+                  "CSS",
+                  "Javascript",
+                  "Python (Flask",
+                  "Jinja)",
+                  "mySQL",
+                  "PostgreSQL"
+              ],
+    "heroImage":  {
+
+                  },
+    "coverImage":  {
+
+                   },
+    "cardImage":  {
+
+                  },
+    "primaryVideo":  {
+
+                     },
+    "primaryMedia":  {
+
+                     },
+    "gallery":  [
+
+                ],
+    "galleryImages":  [
+
+                      ],
+    "videos":  [
+
+               ],
+    "assets":  {
+                   "videos":  [
+
+                              ],
+                   "images":  [
+
+                              ],
+                   "scripts":  [
+
+                               ],
+                   "models":  [
+
+                              ],
+                   "documents":  [
+
+                                 ]
+               },
+    "relatedProjects":  [
+                            "buildsnap",
+                            "hivee",
+                            "altereal",
+                            "emotional-decision-making-algorithm"
+                        ],
+    "seoTitle":  "3Depot (2023) | Ariel Adhidevara",
+    "seoDescription":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive.",
+    "openGraphImage":  {
+
+                       },
+    "socialPreviewText":  "3Depot is a web-based platform for sharing and exploring 3D models, designed to make digital assets more accessible and interactive. Users can upload their own models and view them directly in the browser or in augmented reality, turning static files into immersive experiences. The platform positions 3D content not just as data, but as something to be explored spatially. As 3D content becomes increasingly central to design, gaming, and AR/VR applications, existing repositories often focus on storage rather than experience. Many platforms lack intuitive ways to preview or interact with models, creating friction between creators and audiences. 3Depot was developed to bridge this gap, offering a more engaging and accessible way to both share and consume 3D content.",
+    "featured":  false,
+    "status":  "draft",
+    "order":  0,
+    "source":  {
+                   "projectTxt":  "project-inbox/3Depot/project.txt",
+                   "metaJson":  null
+               },
+    "links":  [
+
+              ],
+    "upload":  {
+                   "attempted":  false,
+                   "success":  false,
+                   "uploadedCount":  0,
+                   "skippedCount":  0
+               }
+}
