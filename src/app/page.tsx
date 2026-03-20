@@ -5,6 +5,7 @@ import { HeroOpeningSection } from "@/components/home/hero-opening-section";
 import { CvPreviewSection } from "@/components/home/cv-preview-section";
 import { ScrollRainbowBackdrop } from "@/components/home/scroll-rainbow-backdrop";
 import { CategoryVideoBackdrop } from "@/components/home/category-video-backdrop";
+import { IntroVideoBackdrop } from "@/components/home/intro-video-backdrop";
 import { ImmersiveBreak } from "@/components/three/immersive-break";
 import { FeaturedProjectBlock } from "@/components/ui/featured-project-block";
 import { MediaBlock } from "@/components/ui/media-block";
@@ -22,6 +23,7 @@ const homeCategoryVideoSources: Record<PracticeCategory, string> = {
   "Objects & Product": resolveAssetUrl("ui-graphics/ObjectsandProduct.mp4"),
   "Visual & Media": resolveAssetUrl("ui-graphics/VisualandMedia.mp4")
 };
+const homeIntroVideoSrc = resolveAssetUrl("ui-graphics/background-video.mp4");
 
 function getHomeCategoryAnchorId(category: PracticeCategory) {
   return `home-category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -38,34 +40,37 @@ export default async function HomePage() {
   return (
     <main className="relative">
       <ScrollRainbowBackdrop targetId="practice-focus-anchor" />
+      <IntroVideoBackdrop endId="selected-works" videoSrc={homeIntroVideoSrc} />
       <CategoryVideoBackdrop targets={categoryVideoTargets} />
       <div className="relative z-10">
         <section className="relative -mt-20 h-[100svh] w-full overflow-hidden">
           <HeroOpeningSection />
         </section>
 
-        <Section className="pb-14 pt-12">
-          <FadeIn>
-            <div
-              id="practice-focus-anchor"
-              className="tone-layer rounded-card p-8 md:grid md:grid-cols-[1.08fr_0.92fr] md:gap-8 md:p-11"
-            >
+        <Section className="pb-[400px] pt-14">
+          <div
+            id="practice-focus-anchor"
+            className="tone-layer rounded-card p-8 md:grid md:grid-cols-[1.08fr_0.92fr] md:gap-8 md:p-11"
+          >
+            <FadeIn delay={0.12} amount={0} margin="-44% 0px -44% 0px">
               <div>
                 <p className="kicker">Practice Focus</p>
                 <h2 className="display-type mt-3 text-2xl font-semibold text-[#151a22] md:text-4xl">
                   Creative technology practice across interaction, software, space, products, and visual media.
                 </h2>
               </div>
-              <p className="editorial-copy mt-6 text-sm md:mt-0 md:text-base">
+            </FadeIn>
+            <FadeIn delay={0.36} amount={0} margin="-44% 0px -44% 0px" className="mt-6 md:mt-0">
+              <p className="editorial-copy text-sm md:text-base">
                 Ariel Adhidevara works across physical and digital mediums to shape calm, precise, and memorable
                 experiences. The portfolio is structured as a multidisciplinary system where each project connects
                 concept, execution, and narrative clarity.
               </p>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </Section>
 
-        <Section id="selected-works" className="pt-0">
+        <Section id="selected-works" className="pt-[300px] md:pt-[300px]">
           <FadeIn>
             <div className="mb-12">
               <h2 className="display-type text-3xl font-semibold text-[#131820] md:text-5xl">Selected Works:</h2>

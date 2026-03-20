@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/section";
 import { FadeIn } from "@/components/motion/fade-in";
+import { FadeGroup } from "@/components/motion/fade-group";
 import { MediaBlock } from "@/components/ui/media-block";
 import { ProjectDemoWindow } from "@/components/project/project-demo-window";
 import { ProjectScrollBackdrop } from "@/components/project/project-scroll-backdrop";
@@ -44,6 +45,14 @@ const SECTION_TO_ASSET_FOLDER: Record<NarrativeSectionKey, "overview" | "backgro
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]);
 const VIDEO_EXTENSIONS = new Set([".mp4", ".mov", ".m4v", ".webm", ".mkv"]);
+const TITLE_MEDIA_DELAY = 0.04;
+const BODY_TEXT_DELAY = 0.2;
+const BODY_META_DELAY = 0.26;
+const PROJECT_FADE_VIEWPORT = {
+  once: false,
+  amount: 0,
+  margin: "-49% 0px -49% 0px"
+} as const;
 
 function extensionOf(assetPath: string): string {
   const normalized = assetPath.replace(/\\/g, "/");
@@ -144,7 +153,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           const ratio = mediaItems.length === 1 ? "wide" : mediaItems.length === 3 && index > 0 ? "square" : "wide";
 
           return (
-            <FadeIn key={item.key} delay={index * 0.03} className={spanClass}>
+            <FadeIn {...PROJECT_FADE_VIEWPORT} key={item.key} delay={index * 0.03} className={spanClass}>
               <MediaBlock kind={item.kind} ratio={ratio} label={item.label} src={item.src} poster={item.poster} />
             </FadeIn>
           );
@@ -246,7 +255,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <div className="grid gap-4 md:grid-cols-2">
         {mediaItems.map((item, index) => (
-          <FadeIn key={item.key} delay={index * 0.03}>
+          <FadeIn {...PROJECT_FADE_VIEWPORT} key={item.key} delay={index * 0.03}>
             <MediaBlock kind={item.kind} ratio="wide" label={item.label} src={item.src} poster={item.poster} />
           </FadeIn>
         ))}
@@ -278,26 +287,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <p className="max-w-3xl text-base leading-relaxed text-[#4d5565] md:text-lg">{project.oneLiner}</p>
                 </div>
 
-                <MediaBlock
-                  label={project.heroLabel}
-                  kind={project.heroMediaKind ?? "image"}
-                  ratio="wide"
-                  src={project.heroMediaSrc}
-                  poster={project.heroMediaPoster}
-                  loading="eager"
-                  fetchPriority="high"
-                  className="w-full min-h-[360px] md:min-h-[460px] lg:h-[72svh] lg:min-h-[560px] lg:aspect-auto"
-                />
+                <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
+                  <MediaBlock
+                    label={project.heroLabel}
+                    kind={project.heroMediaKind ?? "image"}
+                    ratio="wide"
+                    src={project.heroMediaSrc}
+                    poster={project.heroMediaPoster}
+                    loading="eager"
+                    fetchPriority="high"
+                    className="w-full min-h-[360px] md:min-h-[460px] lg:h-[72svh] lg:min-h-[560px] lg:aspect-auto"
+                  />
+                </FadeIn>
               </div>
             </Section>
 
             <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-                <FadeIn>
-                  <article className="space-y-5 lg:pr-4">
+              <FadeGroup {...PROJECT_FADE_VIEWPORT} className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+                <article className="space-y-5 lg:pr-4">
+                  <FadeIn {...PROJECT_FADE_VIEWPORT}>
                     <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Overview</h2>
+                  </FadeIn>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
                     <p className="max-w-3xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.overview}</p>
+                  </FadeIn>
 
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_META_DELAY}>
                     <div className="grid gap-5 pt-1 sm:grid-cols-2">
                       <div>
                         <p className="kicker">Role</p>
@@ -316,22 +331,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         <p className="mt-1.5 text-sm leading-relaxed text-[#596173]">{project.tools.join(" | ")}</p>
                       </div>
                     </div>
-                  </article>
-                </FadeIn>
+                  </FadeIn>
+                </article>
 
                 {overviewAssets.mediaItems.length > 0 ? (
-                  <FadeIn delay={0.06}>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
                     {renderPhysicadMediaColumn("overview", overviewAssets.mediaItems)}
                   </FadeIn>
                 ) : null}
-              </div>
+              </FadeGroup>
             </Section>
 
             {afterOverviewModules.length > 0 ? (
               <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
                 <div className="space-y-6">
                   {afterOverviewModules.map((module, index) => (
-                    <FadeIn key={module.id} delay={index * 0.05}>
+                    <FadeIn {...PROJECT_FADE_VIEWPORT} key={module.id} delay={index * 0.05}>
                       <InteractiveModuleRenderer module={module} />
                     </FadeIn>
                   ))}
@@ -340,47 +355,51 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ) : null}
 
             <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-                <FadeIn>
-                  <article className="space-y-5 lg:pr-4">
+              <FadeGroup {...PROJECT_FADE_VIEWPORT} className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+                <article className="space-y-5 lg:pr-4">
+                  <FadeIn {...PROJECT_FADE_VIEWPORT}>
                     <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Background</h2>
+                  </FadeIn>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
                     <p className="max-w-3xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.background}</p>
-                  </article>
-                </FadeIn>
+                  </FadeIn>
+                </article>
 
                 {(isPhysiCAD ? physiCADBackgroundMediaItems : backgroundAssets.mediaItems).length > 0 ? (
-                  <FadeIn delay={0.06}>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
                     {renderPhysicadMediaColumn(
                       "background",
                       isPhysiCAD ? physiCADBackgroundMediaItems : backgroundAssets.mediaItems
                     )}
                   </FadeIn>
                 ) : null}
-              </div>
+              </FadeGroup>
             </Section>
 
             <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-                <FadeIn>
-                  <article className="space-y-5 lg:pr-4">
+              <FadeGroup {...PROJECT_FADE_VIEWPORT} className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+                <article className="space-y-5 lg:pr-4">
+                  <FadeIn {...PROJECT_FADE_VIEWPORT}>
                     <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Concept</h2>
+                  </FadeIn>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
                     <p className="max-w-3xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.concept}</p>
-                  </article>
-                </FadeIn>
+                  </FadeIn>
+                </article>
 
                 {conceptAssets.mediaItems.length > 0 ? (
-                  <FadeIn delay={0.06}>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
                     {renderPhysicadMediaColumn("concept", conceptAssets.mediaItems)}
                   </FadeIn>
                 ) : null}
-              </div>
+              </FadeGroup>
             </Section>
 
             {afterConceptModules.length > 0 ? (
               <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
                 <div className="space-y-6">
                   {afterConceptModules.map((module, index) => (
-                    <FadeIn key={module.id} delay={index * 0.05}>
+                    <FadeIn {...PROJECT_FADE_VIEWPORT} key={module.id} delay={index * 0.05}>
                       <InteractiveModuleRenderer module={module} />
                     </FadeIn>
                   ))}
@@ -389,16 +408,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ) : null}
 
             <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-stretch">
-                <FadeIn>
-                  <article className="space-y-5 lg:sticky lg:top-24 lg:h-[64svh] lg:min-h-[520px] lg:pr-4">
+              <FadeGroup {...PROJECT_FADE_VIEWPORT} className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-stretch">
+                <article className="space-y-5 lg:sticky lg:top-24 lg:h-[64svh] lg:min-h-[520px] lg:pr-4">
+                  <FadeIn {...PROJECT_FADE_VIEWPORT}>
                     <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">The Project</h2>
+                  </FadeIn>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
                     <p className="max-w-3xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.theProject}</p>
-                  </article>
-                </FadeIn>
+                  </FadeIn>
+                </article>
 
                 {theProjectAssets.mediaItems.length > 0 ? (
-                  <FadeIn delay={0.06}>
+                  <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
                     {renderPhysicadMediaColumn("theProject", theProjectAssets.mediaItems, {
                       projectSequence: isPhysiCAD,
                       sequenceClassName: isPhysiCAD ? "w-full" : undefined,
@@ -410,14 +431,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     })}
                   </FadeIn>
                 ) : null}
-              </div>
+              </FadeGroup>
             </Section>
 
             {afterProjectModules.length > 0 ? (
               <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
                 <div className="space-y-6">
                   {afterProjectModules.map((module, index) => (
-                    <FadeIn key={module.id} delay={index * 0.05}>
+                    <FadeIn {...PROJECT_FADE_VIEWPORT} key={module.id} delay={index * 0.05}>
                       <InteractiveModuleRenderer module={module} />
                     </FadeIn>
                   ))}
@@ -428,7 +449,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {project.demoUrl ? (
           <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-            <FadeIn>
+            <FadeIn {...PROJECT_FADE_VIEWPORT}>
               <ProjectDemoWindow title={`${project.title} WebGL Demo`} demoUrl={project.demoUrl} />
             </FadeIn>
           </Section>
@@ -439,18 +460,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           className="border-t border-[#d7dbe2] pt-10 pb-14"
         >
           {isPhysiCAD ? (
-            <div className="space-y-7">
-              <FadeIn>
-                <article className="surface-panel rounded-card p-8 md:p-10">
+            <FadeGroup {...PROJECT_FADE_VIEWPORT} className="space-y-7">
+              <article className="surface-panel rounded-card p-8 md:p-10">
+                <FadeIn {...PROJECT_FADE_VIEWPORT}>
                   <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Process</h2>
+                </FadeIn>
+                <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
                   <p className="mt-5 max-w-4xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.process}</p>
-                </article>
-              </FadeIn>
+                </FadeIn>
+              </article>
 
               {processAssets.mediaItems.length > 0 ? (
                 <div className="physicad-process-media-list space-y-5">
                   {processAssets.mediaItems.map((item, index) => (
-                    <FadeIn key={item.key} delay={index * 0.05}>
+                    <FadeIn {...PROJECT_FADE_VIEWPORT} key={item.key} delay={TITLE_MEDIA_DELAY + index * 0.05}>
                       <MediaBlock
                         kind={item.kind}
                         ratio="wide"
@@ -465,29 +488,35 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               ) : null}
 
               {processAssets.fileAssets.length > 0 ? (
-                <div className="flex flex-wrap gap-2.5">
-                  {processAssets.fileAssets.map((assetPath) => (
-                    <a
-                      key={`process-file-${assetPath}`}
-                      href={resolveAssetUrl(assetPath)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-white/24 bg-white/8 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.13em] text-white/90 transition-colors hover:bg-white/14 hover:text-white"
-                    >
-                      {assetLabel(assetPath)}
-                    </a>
-                  ))}
-                </div>
+                <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_META_DELAY}>
+                  <div className="flex flex-wrap gap-2.5">
+                    {processAssets.fileAssets.map((assetPath) => (
+                      <a
+                        key={`process-file-${assetPath}`}
+                        href={resolveAssetUrl(assetPath)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-full border border-white/24 bg-white/8 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.13em] text-white/90 transition-colors hover:bg-white/14 hover:text-white"
+                      >
+                        {assetLabel(assetPath)}
+                      </a>
+                    ))}
+                  </div>
+                </FadeIn>
               ) : null}
-            </div>
+            </FadeGroup>
           ) : (
-            <FadeIn>
+            <FadeGroup {...PROJECT_FADE_VIEWPORT}>
               <article className="surface-panel rounded-card p-8 md:p-10">
-                <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Process</h2>
-                <p className="mt-5 max-w-4xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.process}</p>
-                {renderSectionAssets("process")}
+                <FadeIn {...PROJECT_FADE_VIEWPORT}>
+                  <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Process</h2>
+                </FadeIn>
+                <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
+                  <p className="mt-5 max-w-4xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.process}</p>
+                </FadeIn>
+                <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>{renderSectionAssets("process")}</FadeIn>
               </article>
-            </FadeIn>
+            </FadeGroup>
           )}
         </Section>
 
@@ -495,20 +524,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           id={isPhysiCAD ? "physicad-reflection" : undefined}
           className="border-t border-[#d7dbe2] pt-10 pb-14"
         >
-          <FadeIn>
+          <FadeGroup {...PROJECT_FADE_VIEWPORT}>
             <article className="tone-layer rounded-card p-8 md:p-10">
-              <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Reflection / Impact</h2>
-              <p className="mt-5 max-w-4xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.reflectionImpact}</p>
-              {renderSectionAssets("reflectionImpact")}
+              <FadeIn {...PROJECT_FADE_VIEWPORT}>
+                <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Reflection / Impact</h2>
+              </FadeIn>
+              <FadeIn {...PROJECT_FADE_VIEWPORT} delay={BODY_TEXT_DELAY}>
+                <p className="mt-5 max-w-4xl text-base leading-relaxed text-[#4d5565] md:text-[1.03rem]">{project.sections.reflectionImpact}</p>
+              </FadeIn>
+              <FadeIn {...PROJECT_FADE_VIEWPORT} delay={TITLE_MEDIA_DELAY}>
+                {renderSectionAssets("reflectionImpact")}
+              </FadeIn>
             </article>
-          </FadeIn>
+          </FadeGroup>
         </Section>
 
         {beforeDocumentationModules.length > 0 ? (
           <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
             <div className="space-y-6">
               {beforeDocumentationModules.map((module, index) => (
-                <FadeIn key={module.id} delay={index * 0.05}>
+                <FadeIn {...PROJECT_FADE_VIEWPORT} key={module.id} delay={index * 0.05}>
                   <InteractiveModuleRenderer module={module} />
                 </FadeIn>
               ))}
@@ -517,30 +552,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : null}
 
         <Section className="border-t border-[#d7dbe2] pt-10 pb-14">
-          <FadeIn>
-            <article className="space-y-6">
-              <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Documentation</h2>
-              {documentationImageItems.length > 0 ? (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {documentationImageItems.map((item) => (
-                    <MediaBlock
-                      key={item.key}
-                      kind={item.kind}
-                      ratio="wide"
-                      label={item.label}
-                      src={item.src}
-                      poster={item.poster}
-                      className="min-h-[220px]"
-                    />
-                  ))}
-                </div>
-              ) : null}
-            </article>
-          </FadeIn>
+          <FadeGroup {...PROJECT_FADE_VIEWPORT}>
+            <FadeIn {...PROJECT_FADE_VIEWPORT}>
+              <article className="space-y-6">
+                <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Documentation</h2>
+                {documentationImageItems.length > 0 ? (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {documentationImageItems.map((item) => (
+                      <MediaBlock
+                        key={item.key}
+                        kind={item.kind}
+                        ratio="wide"
+                        label={item.label}
+                        src={item.src}
+                        poster={item.poster}
+                        className="min-h-[220px]"
+                      />
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            </FadeIn>
+          </FadeGroup>
         </Section>
 
         <Section className="border-t border-[#d7dbe2]">
-          <FadeIn>
+          <FadeIn {...PROJECT_FADE_VIEWPORT}>
             <div className="mb-8">
               <h2 className="display-type text-3xl font-semibold text-[#141921] md:text-5xl">Continue exploring</h2>
             </div>
@@ -548,7 +585,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {relatedProjects.map((item, index) => (
-              <FadeIn key={item.slug} delay={index * 0.05} className="mx-auto flex w-full max-w-[14.25rem]">
+              <FadeIn {...PROJECT_FADE_VIEWPORT} key={item.slug} delay={index * 0.05} className="mx-auto flex w-full max-w-[14.25rem]">
                 <ProjectPreviewLink
                   project={item}
                   allProjects={allProjects}
@@ -581,3 +618,4 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     </main>
   );
 }
+

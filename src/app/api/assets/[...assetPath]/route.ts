@@ -27,7 +27,8 @@ const CONTENT_TYPES: Record<string, string> = {
 };
 
 const SAFE_SEGMENT_PATTERN = /^[a-zA-Z0-9 _().%+-]+$/;
-const DEFAULT_CACHE_CONTROL = "public, max-age=60, stale-while-revalidate=300";
+const DEFAULT_CACHE_CONTROL =
+  process.env.NODE_ENV === "development" ? "no-store" : "public, max-age=60, stale-while-revalidate=300";
 
 type RouteContext = {
   params: {

@@ -1,7 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import { HeroScene } from "@/components/three/hero-scene";
+import { usePortfolioChat } from "@/components/chat/portfolio-chat-provider";
+
+const HERO_HEADING_PREFIX = "Welcome to";
+const HERO_HEADING_EMPHASIS = "Ariel's Experiential Portfolio.";
+const HERO_HEADING = `${HERO_HEADING_PREFIX} ${HERO_HEADING_EMPHASIS}`;
+const TYPE_START_PROGRESS = 0.95;
+const TYPE_SCROLL_START_PROGRESS = 0.2;
+const TYPE_INITIAL_DELAY_MS = 20;
+const TYPE_STEP_MS = 24;
+const TYPE_SPACE_STEP_MS = 14;
+const CHAT_REVEAL_DELAY_MS = 120;
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(Math.max(value, min), max);
@@ -9,19 +20,23 @@ function clamp(value: number, min = 0, max = 1) {
 
 export function HeroOpeningSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const lastTouchYRef = useRef<number | null>(null);
   const [copyProgress, setCopyProgress] = useState(0);
-  const [chatScrollProgress, setChatScrollProgress] = useState(0);
+  const [heroDraft, setHeroDraft] = useState("");
+  const [chatFadeProgress, setChatFadeProgress] = useState(0);
+  const [typedEmphasis, setTypedEmphasis] = useState("");
+  const [typingCompleted, setTypingCompleted] = useState(false);
+  const [typingReady, setTypingReady] = useState(false);
+  const [userScrolledDuringOpening, setUserScrolledDuringOpening] = useState(false);
+  const [chatRevealReady, setChatRevealReady] = useState(false);
+  const { submitPrompt, isSending, hasChattedEver } = usePortfolioChat();
   const textProgress = clamp(copyProgress);
   const textOpacity = clamp(textProgress);
-  const introRevealProgress = clamp((textProgress - 0.18) / 0.38, 0, 1);
-  const collapseProgress = clamp((chatScrollProgress - 0.05) / 0.63, 0, 1);
-  const vanishProgress = clamp((chatScrollProgress - 0.72) / 0.18, 0, 1);
-  const dockProgress = clamp((chatScrollProgress - 0.78) / 0.16, 0, 1);
-  const cardContentOpacity = 1 - clamp((collapseProgress - 0.08) / 0.34, 0, 1);
-  const miniGlyphOpacity = clamp((collapseProgress - 0.52) / 0.28, 0, 1) * (1 - vanishProgress * 0.72);
-  const collapseRadius = 16 - collapseProgress * 13;
-  const clipRightPercent = (1 - introRevealProgress) * 100 + introRevealProgress * (collapseProgress * 100);
-
+  const chatOpacity = clamp(1 - chatFadeProgress, 0, 1);
+  const chatRevealOpacity = chatRevealReady ? 1 : 0;
+  const chatCombinedOpacity = chatOpacity * chatRevealOpacity;
+  const chatScrollOffset = chatFadeProgress * 10;
+  const chatRevealOffset = chatRevealReady ? 0 : 14;
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -33,9 +48,8 @@ export function HeroOpeningSection() {
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
-      const nextProgress = clamp(-rect.top / Math.max(rect.height * 0.95, 1), 0, 1);
-
-      setChatScrollProgress((prev) => (Math.abs(prev - nextProgress) < 0.002 ? prev : nextProgress));
+      const nextProgress = clamp(-rect.top / Math.max(rect.height * 0.76, 1), 0, 1);
+      setChatFadeProgress((prev) => (Math.abs(prev - nextProgress) < 0.002 ? prev : nextProgress));
     };
 
     const scheduleUpdate = () => {
@@ -56,6 +70,114 @@ export function HeroOpeningSection() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typingReady || typingCompleted) return;
+    const startFromCompletion = textProgress >= TYPE_START_PROGRESS;
+    const startFromScroll = userScrolledDuringOpening && textProgress >= TYPE_SCROLL_START_PROGRESS;
+    if (!startFromCompletion && !startFromScroll) return;
+    setTypingReady(true);
+  }, [textProgress, typingCompleted, typingReady, userScrolledDuringOpening]);
+
+  useEffect(() => {
+    if (typingReady || typingCompleted || userScrolledDuringOpening) return;
+
+    const markScrolled = () => {
+      setUserScrolledDuringOpening(true);
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) < 0.5) return;
+      markScrolled();
+    };
+
+    const onTouchStart = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      lastTouchYRef.current = touch?.clientY ?? null;
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      const currentY = event.touches[0]?.clientY;
+      if (currentY == null) return;
+      const lastY = lastTouchYRef.current;
+      lastTouchYRef.current = currentY;
+      if (lastY == null) return;
+      if (Math.abs(lastY - currentY) < 2) return;
+      markScrolled();
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+  }, [typingReady, typingCompleted, userScrolledDuringOpening]);
+
+  useEffect(() => {
+    if (!typingReady || typingCompleted) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTypedEmphasis(HERO_HEADING_EMPHASIS);
+      setTypingCompleted(true);
+      return;
+    }
+
+    let index = 0;
+    let startTimeoutId = 0;
+    let stepTimeoutId = 0;
+
+    const tick = () => {
+      index += 1;
+      setTypedEmphasis(HERO_HEADING_EMPHASIS.slice(0, index));
+      if (index >= HERO_HEADING_EMPHASIS.length) {
+        setTypingCompleted(true);
+        return;
+      }
+
+      const nextChar = HERO_HEADING_EMPHASIS[index];
+      const nextDelay = nextChar === " " ? TYPE_SPACE_STEP_MS : TYPE_STEP_MS;
+      stepTimeoutId = window.setTimeout(tick, nextDelay);
+    };
+
+    setTypedEmphasis("");
+    startTimeoutId = window.setTimeout(tick, TYPE_INITIAL_DELAY_MS);
+
+    return () => {
+      window.clearTimeout(startTimeoutId);
+      window.clearTimeout(stepTimeoutId);
+    };
+  }, [typingReady, typingCompleted]);
+
+  useEffect(() => {
+    if (hasChattedEver) {
+      setChatRevealReady(false);
+      return;
+    }
+    if (!typingCompleted) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setChatRevealReady(true);
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setChatRevealReady(true);
+    }, CHAT_REVEAL_DELAY_MS);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [typingCompleted, hasChattedEver]);
+
+  const handleHeroSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    void submitPrompt(heroDraft, { open: true });
+    setHeroDraft("");
+  };
+
   return (
     <div ref={sectionRef} className="relative h-full w-full overflow-hidden">
       <HeroScene onOverlayProgress={setCopyProgress} />
@@ -67,77 +189,73 @@ export function HeroOpeningSection() {
         style={{ opacity: textOpacity }}
       >
         <div className="mx-auto w-full max-w-layout px-6 md:px-10">
-          <h1 className="display-type mt-6 max-w-5xl text-4xl font-bold leading-[1.02] text-[#121418] md:text-7xl">
-            Welcome to Ariel&apos;s Experiential Portfolio.
+          <h1
+            className="display-type mt-6 max-w-5xl text-4xl font-extralight leading-[1.02] text-[#121418] md:text-7xl"
+            aria-label={HERO_HEADING}
+          >
+            <span aria-hidden className="block text-[0.52em] leading-[1.08] md:text-[0.46em]">
+              {HERO_HEADING_PREFIX}
+            </span>
+            <span aria-hidden className="mt-[0.08em] block font-bold">
+              {typedEmphasis}
+              {!typingCompleted ? (
+                <span
+                  aria-hidden
+                  className="ml-1 inline-block h-[0.88em] w-[0.08em] translate-y-[0.1em] animate-pulse bg-[#121418]"
+                />
+              ) : null}
+            </span>
           </h1>
           <p className="editorial-copy mt-7 text-sm text-[#4c5360] md:text-base">
             A multidisciplinary body of work across interactive systems, AI software, architecture, objects, and visual
             storytelling, presented through a calm editorial framework.
           </p>
 
-          <div
-            className="relative mt-8 w-full max-w-3xl overflow-hidden border border-white/22 bg-black/[0.28] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_18px_38px_-30px_rgba(8,11,17,0.64)] backdrop-blur-[16px] md:p-5"
-            style={{
-              borderRadius: `${collapseRadius}px`,
-              opacity: 1 - vanishProgress * 0.94,
-              clipPath: `inset(0 ${clipRightPercent}% 0 0 round ${collapseRadius}px)`,
-              willChange: "clip-path, opacity"
-            }}
-          >
+          {!hasChattedEver && (
             <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_0%_0%,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0)_52%),linear-gradient(150deg,rgba(18,24,32,0.06)_0%,rgba(5,8,12,0.32)_100%)]"
-            />
-
-            <div className="relative z-10" style={{ opacity: cardContentOpacity }}>
-              <div className="text-sm text-[#d0d6e0] md:text-base">Ask anything about Ariel or Ariel&apos;s works.</div>
-              <div className="mt-4 flex items-center gap-3 rounded-full border border-black/[0.08] bg-white/[0.76] px-4 py-2.5 backdrop-blur-lg">
-                <span className="text-xs text-[#8f98a8] md:text-sm">
-                  Try: &quot;What projects combine AI and architecture?&quot;
-                </span>
-                <span className="ml-auto shrink-0 rounded-full border border-black/[0.08] bg-black/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#8f98a8]">
-                  Chat Soon
-                </span>
+              className="relative mt-8 w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-[radial-gradient(124%_94%_at_0%_0%,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0)_52%),linear-gradient(155deg,rgba(26,35,47,0.48)_0%,rgba(9,13,20,0.72)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(93,108,128,0.28),0_24px_42px_-34px_rgba(7,10,15,0.74)] backdrop-blur-[18px] md:rounded-3xl md:p-5"
+              style={{
+                opacity: chatOpacity,
+                transform: `translateY(${chatScrollOffset}px)`,
+                pointerEvents: chatCombinedOpacity > 0.06 ? "auto" : "none"
+              }}
+            >
+              <div
+                className="relative transition-[opacity,transform] duration-[860ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{
+                  opacity: chatRevealOpacity,
+                  transform: `translateY(${chatRevealOffset}px)`
+                }}
+              >
+                <div className="relative z-10">
+                  <form
+                    className="mt-1 flex items-center gap-2.5 rounded-full border border-black/[0.24] bg-[linear-gradient(180deg,rgba(228,233,241,0.92)_0%,rgba(212,219,230,0.86)_100%)] px-3 py-2 shadow-[inset_0_2px_6px_rgba(12,17,24,0.26),inset_0_-1px_0_rgba(255,255,255,0.48)] md:mt-0 md:px-4 md:py-2.5"
+                    onSubmit={handleHeroSubmit}
+                  >
+                    <label htmlFor="hero-chat-input" className="sr-only">
+                      Ask about Ariel&apos;s portfolio
+                    </label>
+                    <input
+                      id="hero-chat-input"
+                      value={heroDraft}
+                      onChange={(event) => setHeroDraft(event.target.value)}
+                      placeholder='Try: "What projects combine AI and architecture?"'
+                      className="min-w-0 flex-1 bg-transparent text-xs text-[#202734] outline-none placeholder:text-[#8f98a8] md:text-sm"
+                    />
+                    <button
+                      type="submit"
+                      disabled={heroDraft.trim().length === 0 || isSending}
+                      className="shrink-0 rounded-full border border-black/[0.14] bg-transparent px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#586173] transition-colors hover:bg-black/[0.06] hover:text-[#1c2230] disabled:cursor-not-allowed disabled:opacity-45"
+                    >
+                      Send
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center" style={{ opacity: miniGlyphOpacity }}>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/28 bg-black/[0.26] backdrop-blur-xl">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path
-                    d="M7 8.5h10m-10 4h7m8-0.2c0 4.1-4.1 7.4-9.1 7.4-1.1 0-2.2-0.2-3.2-0.6L4 20l1.4-3.4c-1.5-1.2-2.4-2.8-2.4-4.6 0-4.1 4.1-7.4 9.1-7.4S22 8.2 22 12.3Z"
-                    stroke="#dbe0ea"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
-
-      <button
-        type="button"
-        aria-label="Open portfolio chat"
-        className="fixed bottom-5 right-5 z-[70] flex h-14 w-14 items-center justify-center rounded-full border border-white/24 bg-black/[0.26] shadow-[inset_0_1px_0_rgba(255,255,255,0.26),0_18px_34px_-24px_rgba(8,11,17,0.72)] backdrop-blur-xl md:bottom-7 md:right-7"
-        style={{
-          opacity: dockProgress * textOpacity,
-          pointerEvents: dockProgress > 0.12 && textProgress > 0.2 ? "auto" : "none",
-          transform: `translateY(${(1 - dockProgress) * 22}px) scale(${0.82 + dockProgress * 0.18})`
-        }}
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M7 8.5h10m-10 4h7m8-0.2c0 4.1-4.1 7.4-9.1 7.4-1.1 0-2.2-0.2-3.2-0.6L4 20l1.4-3.4c-1.5-1.2-2.4-2.8-2.4-4.6 0-4.1 4.1-7.4 9.1-7.4S22 8.2 22 12.3Z"
-            stroke="#dde2ec"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
     </div>
   );
 }

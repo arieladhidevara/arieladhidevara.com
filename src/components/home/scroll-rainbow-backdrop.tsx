@@ -77,8 +77,8 @@ export function ScrollRainbowBackdrop({ targetId }: ScrollRainbowBackdropProps) 
   if (intensity <= 0.001) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[1]" style={{ opacity: intensity }}>
-      <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_12%_10%,rgba(255,116,121,0.34)_0%,rgba(255,116,121,0)_55%),radial-gradient(90%_70%_at_88%_16%,rgba(255,199,109,0.35)_0%,rgba(255,199,109,0)_58%),radial-gradient(84%_82%_at_76%_84%,rgba(106,194,255,0.32)_0%,rgba(106,194,255,0)_58%),radial-gradient(72%_80%_at_24%_86%,rgba(138,232,187,0.3)_0%,rgba(138,232,187,0)_58%)]" />
+    <div className="pointer-events-none fixed inset-0 z-[1]" style={{ opacity: clamp(intensity * 1.45) }}>
+      <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_12%_10%,rgba(255,116,121,0.56)_0%,rgba(255,116,121,0)_55%),radial-gradient(90%_70%_at_88%_16%,rgba(255,199,109,0.58)_0%,rgba(255,199,109,0)_58%),radial-gradient(84%_82%_at_76%_84%,rgba(106,194,255,0.55)_0%,rgba(106,194,255,0)_58%),radial-gradient(72%_80%_at_24%_86%,rgba(138,232,187,0.52)_0%,rgba(138,232,187,0)_58%)]" />
     </div>
   );
 }
