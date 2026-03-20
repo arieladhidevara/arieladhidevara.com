@@ -152,8 +152,8 @@ export const categoryDescriptions: Record<PracticeCategory, string> = {
 
 // Featured is a lightweight editorial label only; update these slugs anytime.
 export const featuredProjectByCategory: Record<PracticeCategory, string> = {
-  "Interactive Systems": "physicad",
-  "AI & Software": "ephemera-of-existence",
+  "Interactive Systems": "unseen-realities",
+  "AI & Software": "physicad",
   "Spatial & Architectural Design": "unseen-realities",
   "Objects & Product": "mnemonic-mixology",
   "Visual & Media": "ephemera-of-existence"

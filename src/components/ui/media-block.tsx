@@ -123,16 +123,6 @@ export function MediaBlock({
         </div>
       ) : null}
 
-      {kind === "video" && (
-        <div
-          className={cn(
-            "absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full text-[10px] font-medium uppercase tracking-[0.12em]",
-            hasSource ? "border border-white/30 bg-black/35 text-white" : "bg-black/[0.05] text-[#121418] shadow-soft"
-          )}
-        >
-          Play
-        </div>
-      )}
     </div>
   );
 }

@@ -4,50 +4,41 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { HeroOpeningSection } from "@/components/home/hero-opening-section";
 import { CvPreviewSection } from "@/components/home/cv-preview-section";
 import { ScrollRainbowBackdrop } from "@/components/home/scroll-rainbow-backdrop";
+import { CategoryVideoBackdrop } from "@/components/home/category-video-backdrop";
 import { ImmersiveBreak } from "@/components/three/immersive-break";
 import { FeaturedProjectBlock } from "@/components/ui/featured-project-block";
 import { MediaBlock } from "@/components/ui/media-block";
 import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
-import {
-  categoryDescriptions,
-  practiceCategories
-} from "@/lib/placeholder-data";
-import type { PracticeCategory, PlaceholderProject } from "@/lib/placeholder-data";
-import { featuredProjectByCategory } from "@/lib/placeholder-data";
+import { categoryDescriptions, type PracticeCategory } from "@/lib/placeholder-data";
+import { buildCategoryShowcases } from "@/lib/category-showcases";
 import { loadPortfolioProjects } from "@/lib/portfolio-projects";
 import { getProjectCardImageSrc } from "@/lib/project-media";
+import { resolveAssetUrl } from "@/lib/asset-url";
 
-type CategoryShowcase = {
-  category: PracticeCategory;
-  featured: PlaceholderProject;
-  others: PlaceholderProject[];
+const homeCategoryVideoSources: Record<PracticeCategory, string> = {
+  "Interactive Systems": resolveAssetUrl("ui-graphics/InteractiveSystems.mp4"),
+  "AI & Software": resolveAssetUrl("ui-graphics/AIandSoftwares.mp4"),
+  "Spatial & Architectural Design": resolveAssetUrl("ui-graphics/SpatialandArchitecture.mp4"),
+  "Objects & Product": resolveAssetUrl("ui-graphics/ObjectsandProduct.mp4"),
+  "Visual & Media": resolveAssetUrl("ui-graphics/VisualandMedia.mp4")
 };
+
+function getHomeCategoryAnchorId(category: PracticeCategory) {
+  return `home-category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
 
 export default async function HomePage() {
   const projects = await loadPortfolioProjects();
-
-  const categoryShowcases: CategoryShowcase[] = practiceCategories
-    .map((category) => {
-      const projectsByCategory = projects.filter((project) => project.category === category);
-      if (projectsByCategory.length === 0) return null;
-
-      const featuredSlug = featuredProjectByCategory[category];
-      const featured = projects.find((project) => project.slug === featuredSlug) ?? projectsByCategory[0];
-      if (!featured) return null;
-
-      const others = projectsByCategory.filter((project) => project.slug !== featured.slug).slice(0, 4);
-
-      return {
-        category,
-        featured,
-        others
-      };
-    })
-    .filter((entry): entry is CategoryShowcase => Boolean(entry));
+  const categoryShowcases = buildCategoryShowcases(projects, { otherLimit: 4 });
+  const categoryVideoTargets = categoryShowcases.map(({ category }) => ({
+    id: getHomeCategoryAnchorId(category),
+    videoSrc: homeCategoryVideoSources[category]
+  }));
 
   return (
     <main className="relative">
       <ScrollRainbowBackdrop targetId="practice-focus-anchor" />
+      <CategoryVideoBackdrop targets={categoryVideoTargets} />
       <div className="relative z-10">
         <section className="relative -mt-20 h-[100svh] w-full overflow-hidden">
           <HeroOpeningSection />
@@ -77,20 +68,13 @@ export default async function HomePage() {
         <Section id="selected-works" className="pt-0">
           <FadeIn>
             <div className="mb-12">
-              <p className="kicker">Selected Works</p>
-              <h2 className="display-type mt-3 text-3xl font-semibold text-[#131820] md:text-5xl">
-                Featured by practice category
-              </h2>
-              <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#596173] md:text-base">
-                Each domain highlights one featured project and four related works so you can explore Ariel&apos;s practice
-                through a clear editorial structure.
-              </p>
+              <h2 className="display-type text-3xl font-semibold text-[#131820] md:text-5xl">Selected Works:</h2>
             </div>
           </FadeIn>
 
           <div className="space-y-20">
             {categoryShowcases.map(({ category, featured, others }, categoryIndex) => (
-              <div key={category} className="space-y-8">
+              <div key={category} id={getHomeCategoryAnchorId(category)} className="space-y-8">
                 <FadeIn delay={categoryIndex * 0.03}>
                   <div className="flex flex-wrap items-end justify-between gap-4">
                     <div>
@@ -108,19 +92,33 @@ export default async function HomePage() {
                   </div>
                 </FadeIn>
 
-                <FadeIn delay={0.04}>
-                  <FeaturedProjectBlock project={featured} projectPool={projects} />
-                </FadeIn>
+                {featured ? (
+                  <FadeIn delay={0.04}>
+                    <FeaturedProjectBlock
+                      project={featured}
+                      projectPool={projects}
+                      categoryLabel={category}
+                      showFeaturedLabel={false}
+                      emphasizeMedia
+                      glassTone
+                    />
+                  </FadeIn>
+                ) : (
+                  <FadeIn delay={0.04}>
+                    <div className="tone-layer rounded-card p-6 text-sm text-[#5a6272]">Featured project coming soon.</div>
+                  </FadeIn>
+                )}
 
-                <div className="overflow-x-auto pb-2">
-                  <div className="flex w-max items-stretch gap-4 pr-2">
-                    {others.map((project, index) => (
-                      <FadeIn key={project.slug} delay={index * 0.04} className="flex w-[15.25rem] shrink-0">
-                        <ProjectPreviewLink
-                          project={project}
-                          allProjects={projects}
-                          className="group flex h-full flex-col rounded-soft bg-black/[0.03] p-3.5 transition-colors hover:bg-black/[0.06]"
-                        >
+                {others.length > 0 ? (
+                  <div className="pb-2">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+                      {others.map((project, index) => (
+                        <FadeIn key={project.slug} delay={index * 0.04} className="h-full min-w-0">
+                          <ProjectPreviewLink
+                            project={project}
+                            allProjects={projects}
+                            className="group flex h-full min-h-[20.5rem] flex-col rounded-soft border border-black/[0.08] bg-white/[0.52] p-3.5 shadow-[0_18px_34px_-30px_rgba(14,20,29,0.4),inset_0_1px_0_rgba(255,255,255,0.68)] backdrop-blur-[14px] transition-colors hover:bg-white/[0.62]"
+                          >
                             <MediaBlock
                               label={project.heroLabel}
                               kind="image"
@@ -128,22 +126,25 @@ export default async function HomePage() {
                               className="rounded-soft"
                               src={getProjectCardImageSrc(project)}
                             />
-                          <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
-                            <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
-                              {project.title}
-                            </p>
-                            <p className="truncate text-xs text-[#677082]">
-                              {project.year} | {project.type}
-                            </p>
-                            <p className="overflow-hidden text-xs leading-relaxed text-[#505868] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
-                              {project.oneLiner}
-                            </p>
-                          </div>
-                        </ProjectPreviewLink>
-                      </FadeIn>
-                    ))}
+                            <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
+                              <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                                {project.title}
+                              </p>
+                              <p className="truncate text-xs text-[#677082]">
+                                {project.year} | {project.type}
+                              </p>
+                              <p className="overflow-hidden text-xs leading-relaxed text-[#505868] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
+                                {project.oneLiner}
+                              </p>
+                            </div>
+                          </ProjectPreviewLink>
+                        </FadeIn>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <p className="text-sm text-[#6b7383]">No additional projects in this category yet.</p>
+                )}
               </div>
             ))}
           </div>

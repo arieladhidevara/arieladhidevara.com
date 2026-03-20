@@ -10,7 +10,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
   const infoRows = [
     { label: "Role", value: project.roles[0] ?? "Interaction Designer" },
     { label: "Team", value: project.team ?? "Solo project" },
-    { label: "Timeline", value: project.timeline ?? `${project.year}` },
+    { label: "INSTITUTION / YEAR", value: project.timeline ?? `${project.year}` },
     { label: "Tools", value: project.tools.join(" ") }
   ];
 

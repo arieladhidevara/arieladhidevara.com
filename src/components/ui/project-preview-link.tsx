@@ -196,14 +196,14 @@ export function ProjectPreviewLink({
         ) : null}
 
         <div
-          className="relative z-10 max-h-[90vh] overflow-hidden rounded-card border border-white/34 bg-white/[0.24] p-4 shadow-[0_28px_58px_-36px_rgba(0,0,0,0.56),inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-[18px] md:p-6"
+          className="relative z-10 max-h-[90vh] overflow-hidden rounded-card border border-white/62 bg-white/[0.54] p-4 shadow-[0_28px_58px_-36px_rgba(0,0,0,0.56),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(152,164,182,0.18)] backdrop-blur-[20px] md:p-6"
           style={popupMotionStyle}
           onWheelCapture={blockInsideScroll}
           onTouchMoveCapture={blockInsideScroll}
         >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(110%_90%_at_0%_0%,rgba(255,255,255,0.24)_0%,rgba(255,255,255,0)_56%),linear-gradient(158deg,rgba(255,255,255,0.14)_0%,rgba(232,237,244,0.08)_52%,rgba(178,188,204,0.12)_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(125%_100%_at_0%_0%,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.28)_48%,rgba(255,255,255,0.08)_100%),linear-gradient(156deg,rgba(255,255,255,0.56)_0%,rgba(244,248,253,0.38)_56%,rgba(228,235,245,0.3)_100%)]"
         />
         <button
           type="button"
@@ -250,7 +250,7 @@ export function ProjectPreviewLink({
                   <dd className="text-clamp-1 text-sm leading-relaxed text-[#596173]">{previewTeam}</dd>
                 </div>
                 <div className="grid grid-cols-[4.9rem_1fr] gap-3">
-                  <dt className="kicker">Timeline</dt>
+                  <dt className="kicker">INSTITUTION / YEAR</dt>
                   <dd className="text-clamp-1 text-sm leading-relaxed text-[#596173]">{previewTimeline}</dd>
                 </div>
                 <div className="grid grid-cols-[4.9rem_1fr] gap-3">

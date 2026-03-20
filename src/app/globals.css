@@ -163,9 +163,82 @@ p {
   backdrop-filter: blur(12px) saturate(1.14);
 }
 
+.project-glass.physicad-theme {
+  background: #ffffff;
+}
+
+.project-glass section.border-t {
+  border-top-color: transparent !important;
+}
+
+.project-glass section.border-t::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(calc(100% - 3rem), 72rem);
+  transform: translateX(-50%);
+  border-top: 1px solid #d7dbe2;
+}
+
+@media (min-width: 768px) {
+  .project-glass section.border-t::before {
+    width: min(calc(100% - 5rem), 72rem);
+  }
+}
+
+.project-glass.physicad-theme .surface-panel,
+.project-glass.physicad-theme .tone-layer {
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.project-glass.physicad-theme .media-integrated {
+  border: 0 !important;
+  background: #f3f5f8 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.project-glass.physicad-theme ul > li.text-clamp-1.rounded-full {
+  border: 0 !important;
+  background: rgba(15, 23, 34, 0.08) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
 .project-glass.physicad-theme p:not(.kicker) {
   color: #0a0f14 !important;
   -webkit-text-fill-color: #0a0f14;
+}
+
+.project-glass.physicad-theme #physicad-process .kicker {
+  color: rgba(228, 233, 241, 0.72) !important;
+  -webkit-text-fill-color: rgba(228, 233, 241, 0.72);
+}
+
+.project-glass.physicad-theme #physicad-process h2,
+.project-glass.physicad-theme #physicad-process p:not(.kicker) {
+  color: #f5f7fb !important;
+  -webkit-text-fill-color: #f5f7fb;
+}
+
+.project-glass.physicad-theme .physicad-process-media {
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.project-glass.physicad-theme .physicad-process-media-list {
+  opacity: var(--physicad-process-media-visibility, 0);
+  transition: opacity 180ms ease-out;
+  will-change: opacity;
 }
 
 ::selection {

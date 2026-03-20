@@ -62,7 +62,7 @@
     "physicad/the-project/image-02.jpg"
   ],
   "videos": [
-    "physicad/concept/video-01.mp4",
+    "physicad/background/video-01.mp4",
     "physicad/documentation/video-01.mp4",
     "physicad/overview/demo.mp4",
     "physicad/the-project/demo.mp4",
@@ -73,7 +73,7 @@
   ],
   "assets": {
     "videos": [
-      "physicad/concept/video-01.mp4",
+      "physicad/background/video-01.mp4",
       "physicad/documentation/video-01.mp4",
       "physicad/overview/demo.mp4",
       "physicad/the-project/demo.mp4",
@@ -136,10 +136,10 @@
     "overview": [
       "physicad/overview/demo.mp4"
     ],
-    "background": [],
-    "concept": [
-      "physicad/concept/video-01.mp4"
+    "background": [
+      "physicad/background/video-01.mp4"
     ],
+    "concept": [],
     "the-project": [
       "physicad/the-project/demo.mp4",
       "physicad/the-project/image-01.jpg",
