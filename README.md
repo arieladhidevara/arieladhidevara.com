@@ -69,6 +69,100 @@ ARIELADHIDEVARA.com/
 - Never commit large project media to Git.
 - Keep Blob pathnames mirrored to local folder structure for predictable references.
 
+## Deployment Workflow
+
+This repository separates code/content from heavy media assets.
+
+Project JSON is versioned in Git, while large media files are stored in Cloudflare R2 (S3-compatible Blob storage).
+
+### 1. Sync project media to Blob storage (Cloudflare R2)
+
+Media stored in `assets-local/` should be uploaded to the R2 bucket before deployment.
+
+Example command:
+
+aws s3 sync ./assets-local s3://arieladhidevara \
+ --profile default \
+ --endpoint-url https://448bf439fae4019c77ffd698cbecb2a5.r2.cloudflarestorage.com
+
+Dry run:
+
+aws s3 sync ./assets-local s3://arieladhidevara \
+ --dryrun \
+ --profile default \
+ --endpoint-url https://448bf439fae4019c77ffd698cbecb2a5.r2.cloudflarestorage.com
+
+
+### 2. Commit structured content and code
+
+After assets are uploaded, commit JSON and source updates:
+
+git add .
+git commit -m "content: update project metadata"
+git push
+
+
+### 3. Automatic deployment
+
+The repository is connected to Cloudflare Pages.
+
+Every push to the main branch triggers a new build and deployment.
+
+
+### Typical Update Flow
+
+1. Add project media to:
+
+assets-local/<project-slug>/
+
+2. Process project content:
+
+ts-node scripts/process-project.ts <project-slug>
+
+3. Upload media:
+
+aws s3 sync ./assets-local s3://arieladhidevara \
+ --profile default \
+ --endpoint-url https://448bf439fae4019c77ffd698cbecb2a5.r2.cloudflarestorage.com
+
+4. Push updates:
+
+git add .
+git commit -m "content: add <project-slug>"
+git push
+
+
+### Notes
+
+• Do not commit heavy media files to Git  
+• Blob storage paths mirror local folder structure  
+• JSON files only reference public asset URLs  
+• assets-local acts as the staging area before upload  
+
+
+### Bucket Structure
+
+s3://arieladhidevara/
+
+  artifacts-of-identity/
+  inmyskin/
+  mnemonicmixology/
+  site/
+  ui-graphics/
+
+
+### Local Asset Structure
+
+assets-local/
+
+  unseen-realities/
+  inmyskin/
+  hivee/
+  flashsight/
+
+
+Keeping both structures aligned ensures predictable asset URLs.
+
 ## Frontend Prototype
 The repository includes a prototype-first Next.js frontend layer with placeholder content.
 
