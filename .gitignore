@@ -19,6 +19,7 @@ project-inbox/
 ONPROGRESS/
 TEMP/
 public/site/ui-graphics/cv-journey/
+.tmp/
 
 # Logs
 *.log
