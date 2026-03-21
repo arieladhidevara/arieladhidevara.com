@@ -2,199 +2,123 @@
   "slug": "inmyskin",
   "title": "InMySkin",
   "year": 2025,
-  "institutionYear": "MIT - Mechanical Enginering Dept 2025",
+  "institutionYear": "MIT - Mechanical Engineering Dept 2025",
   "contributors": "Guido Sijabat, Ana Paola, Petr Mogutov",
   "category": "Interactive Systems",
   "type": "Academics",
   "tags": [
     "VR",
     "Unity",
-    "Emphaty"
+    "Empathy",
+    "Perception",
+    "Simulation"
   ],
-  "oneLiner": "A VR experience that lets you see through someone else’s eyes, simulating how the world feels under different visual conditions.",
+
+  "oneLiner": "A VR experience that lets users perceive the world through altered visual conditions, transforming empathy into an embodied perceptual experience.",
+
   "summaryShort": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments.",
-  "summaryMedium": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation. Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. This project emerges from the need to make invisible conditions perceptible, using immersive technology to bridge that experiential gap.",
-  "summaryLong": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation. Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. This project emerges from the need to make invisible conditions perceptible, using immersive technology to bridge that experiential gap. The project reframes empathy as something that can be experienced rather than explained. By simulating different visual conditions in real time, InMySkin allows users to inhabit alternative perceptual realities. Each mode of vision alters clarity, color, and field of view, revealing how drastically perception shapes interaction with the environment. The experience highlights that what we consider “normal” vision is only one version of many possible ways of seeing. InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation. The system was developed as a VR experience using Unity, integrating real-time visual filters that simulate conditions such as glaucoma (tunnel vision), cataracts (blur and opacity), and color blindness (reduced or shifted color perception). The experience is deployed on VR headsets, allowing users to navigate environments while switching between different visual modes. Iterations focused on balancing realism and usability, ensuring that the simulations are both accurate enough to convey the conditions and intuitive enough to remain navigable. The result is an immersive tool for education, awareness, and embodied understanding.",
+
+  "summaryMedium": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. The project explores how immersive simulation can transform perception into an embodied experience of limitation, distortion, and adaptation.",
+
+  "summaryLong": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. The project reframes empathy as something that can be experienced rather than explained. By immersing users in alternative perceptual states, InMySkin transforms vision from a passive sense into an active, embodied condition. Each mode of vision alters clarity, color, and field of view, revealing how drastically perception shapes interaction with the environment. The system was developed using Unity and deployed on VR headsets, integrating real-time visual filters that simulate tunnel vision, blur, opacity, and color shifts. Iterations focused on balancing perceptual realism and navigational usability, ensuring that the experience communicates altered vision while remaining explorable. The result is an immersive tool that bridges perception, accessibility awareness, and experiential empathy.",
+
   "sections": {
-    "overview": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation.",
-    "background": "Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. This project emerges from the need to make invisible conditions perceptible, using immersive technology to bridge that experiential gap.",
-    "concept": "The project reframes empathy as something that can be experienced rather than explained. By simulating different visual conditions in real time, InMySkin allows users to inhabit alternative perceptual realities. Each mode of vision alters clarity, color, and field of view, revealing how drastically perception shapes interaction with the environment. The experience highlights that what we consider “normal” vision is only one version of many possible ways of seeing.",
-    "theProject": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation.",
-    "process": "The system was developed as a VR experience using Unity, integrating real-time visual filters that simulate conditions such as glaucoma (tunnel vision), cataracts (blur and opacity), and color blindness (reduced or shifted color perception). The experience is deployed on VR headsets, allowing users to navigate environments while switching between different visual modes. Iterations focused on balancing realism and usability, ensuring that the simulations are both accurate enough to convey the conditions and intuitive enough to remain navigable. The result is an immersive tool for education, awareness, and embodied understanding.",
-    "reflectionImpact": "",
-    "documentation": "Contributors: Guido Sijabat, Ana Paola, Petr Mogutov. Role: Conceptor & Technical Lead. Tools: Unity, C#."
+    "overview": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision into an embodied experience of limitation, distortion, and adaptation.",
+
+    "background": "Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone. The project emerges from the need to make invisible perceptual conditions experientially accessible, using immersive technology to bridge the gap between description and lived experience.",
+
+    "concept": "The project reframes empathy as an experiential condition rather than a cognitive understanding. By simulating altered visual perception in real time, InMySkin allows users to inhabit alternative perceptual realities. Each mode modifies clarity, color, and field of view, revealing how perception actively shapes spatial awareness and interaction with the environment.",
+
+    "theProject": "Users navigate a virtual environment while switching between simulated visual conditions such as glaucoma (tunnel vision), cataracts (blur and opacity), and color blindness (shifted color perception). These perceptual transformations create an embodied understanding of how visual conditions influence orientation, movement, and interpretation of space.",
+
+    "process": "The system was developed in Unity using real-time post-processing filters and shader-based visual transformations. Each visual condition was designed to balance perceptual accuracy with navigability, ensuring that the experience communicates limitation without preventing interaction. Iterations focused on calibration of blur intensity, field-of-view restriction, and color transformation matrices to produce perceptually convincing simulations.",
+
+    "reflectionImpact": "InMySkin demonstrates how immersive simulation can function as an empathy interface. By transforming invisible perceptual differences into embodied experience, the project highlights how technological mediation can expand awareness of diverse sensory realities.",
+
+    "documentation": "Contributors: Guido Sijabat, Ana Paola, Petr Mogutov. Role: Concept & Technical Direction. Tools: Unity, C#, VR headset."
   },
+
   "roles": [
-    "Conceptor & Technical Lead"
+    "Concept & Technical Direction"
   ],
+
   "tools": [
     "Unity",
-    "C#"
+    "C#",
+    "VR headset",
+    "Post-processing shaders"
   ],
-  "heroImage": "inmyskin/thumbnails/cover.jpg",
-  "coverImage": "inmyskin/thumbnails/cover.jpg",
-  "cardImage": "inmyskin/thumbnails/card.jpg",
-  "primaryVideo": "inmyskin/the-project/demo.mov",
-  "primaryMedia": "inmyskin/the-project/demo.mov",
+
+  "heroImage": "inmyskin/thumbnails/cover.png",
+  "coverImage": "inmyskin/thumbnails/cover.png",
+  "cardImage": "inmyskin/thumbnails/card.png",
+
+  "primaryVideo": {},
+
+  "primaryMedia": {},
+
   "gallery": [
     "inmyskin/overview/setup-01.png"
   ],
+
   "galleryImages": [
     "inmyskin/overview/setup-01.png"
   ],
+
   "videos": [
     "inmyskin/the-project/demo.mov"
   ],
+
   "assets": {
     "videos": [
       "inmyskin/the-project/demo.mov"
     ],
+
     "images": [
       "inmyskin/thumbnails/card.jpg",
       "inmyskin/thumbnails/cover.jpg",
       "inmyskin/overview/setup-01.png"
     ],
-    "scripts": [
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.data.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.framework.js.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.loader.js",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.wasm.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/index.html",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/Processes/Demo - Core Features/Demo - Core Features.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/Processes/Demo - VRIF Integration/Demo - VRIF Integration.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/RuntimeActionBindings.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_06217b02dc9fbab495549b3faa700b63.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_0912f8f8b87c237b8415f1b4c0a50438.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_20560918a87c33e3e0e969a3e41f95cb.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_21cbbd89e4711c8422fc08264f3353b5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_26ae249a3f0bde182d10e03f400264cd.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_26fe5b043f85462cd40cccb9caf80fa5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_27bda2ab79d907b6f1118c9c04d1fb8c.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3468bfa24cdce65bc59350f2130080f7.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3bffce3b154f34b9f831884e60f580fe.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3e987cb20d2dbee2c67ddc558dc5ddac.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_40a153d7a492b73c2ff6ef99f58a6781.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_4444a95a2a77d386527ec6e359c3ca7c.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_513c9be8a97d777393e01165759f1d0f.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_5209c742cb029dfccec3157851f7308a.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_60bfac8e86a568469883295b37379da7.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_61db57d4219e79b65abf579d4f1d310d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_640e92e69047814d317973c2119ed4e5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_68d5e5e2df1bcc7891644d8479ecca8d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_7a0329318a7fa995416d998f11afdfd1.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_86dc12731ffd034c0f617ff53759a91a.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_9b47905c31fa22630f6ffb666c90b695.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_a7d0f9747b966031f4297059148e0dc4.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_c3273d48719ff36ed89d0995211f249d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d1e6c324194f558646ecbb26a90b62eb.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d3fa17edecb13b417865771f5b80ce93.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d71d5d696156dbe666fae0a85eb62c16.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_e8ad126adc0555e6138acb299ef7e755.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_fe0cd68991532745b24f6e1d91a56e2e.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/favicon.ico",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/fullscreen-button.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/MemoryProfiler.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-empty-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-empty-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-full-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-full-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/style.css",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/unity-logo-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/unity-logo-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/webgl-logo.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/webmemd-icon.png"
-    ],
+
+    "scripts": [],
+
     "models": [],
+
     "documents": []
   },
+
   "relatedProjects": [
     "algorithm-prison-experiment",
-    "example-project",
     "flashsight",
-    "mnemonic-mixology"
+    "mnemonic-mixology",
+    "unseen-realities"
   ],
+
   "seoTitle": "InMySkin (2025) | Ariel Adhidevara",
+
   "seoDescription": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments.",
-  "openGraphImage": "inmyskin/thumbnails/card.jpg",
-  "socialPreviewText": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. By immersing users in different perceptual states, the project transforms vision from a passive sense into an active, embodied experience of limitation, distortion, and adaptation. Vision is often assumed to be stable and universal, yet millions of people experience the world through conditions such as glaucoma, cataracts, or color blindness. These realities are difficult to communicate through static images or descriptions alone, creating a gap in empathy and understanding. This project emerges from the need to make invisible conditions perceptible, using immersive technology to bridge that experiential gap.",
+
+  "openGraphImage": {},
+
+  "socialPreviewText": "InMySkin is a virtual reality experience that simulates altered visual conditions, allowing users to perceive the world through the lens of visual impairments. The project transforms perception into an embodied experience, allowing users to understand visual conditions through immersive simulation.",
+
   "featured": false,
+
   "status": "draft",
+
   "order": 0,
+
   "source": {
     "projectTxt": "project-inbox/InMySkin/project.txt",
     "metaJson": null
   },
+
   "links": [],
+
   "upload": {
     "attempted": false,
     "success": false,
     "uploadedCount": 0,
     "skippedCount": 0
-  },
-  "assetsBySection": {
-    "thumbnails": [
-      "inmyskin/thumbnails/card.jpg",
-      "inmyskin/thumbnails/cover.jpg"
-    ],
-    "overview": [
-      "inmyskin/overview/setup-01.png"
-    ],
-    "background": [],
-    "concept": [],
-    "the-project": [
-      "inmyskin/the-project/demo.mov"
-    ],
-    "process": [],
-    "reflection": [],
-    "documentation": [
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.data.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.framework.js.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.loader.js",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/Build/inmyskin.wasm.gz",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/Processes/Demo - Core Features/Demo - Core Features.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/Processes/Demo - VRIF Integration/Demo - VRIF Integration.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/RuntimeActionBindings.json",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_06217b02dc9fbab495549b3faa700b63.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_0912f8f8b87c237b8415f1b4c0a50438.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_20560918a87c33e3e0e969a3e41f95cb.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_21cbbd89e4711c8422fc08264f3353b5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_26ae249a3f0bde182d10e03f400264cd.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_26fe5b043f85462cd40cccb9caf80fa5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_27bda2ab79d907b6f1118c9c04d1fb8c.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3468bfa24cdce65bc59350f2130080f7.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3bffce3b154f34b9f831884e60f580fe.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_3e987cb20d2dbee2c67ddc558dc5ddac.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_40a153d7a492b73c2ff6ef99f58a6781.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_4444a95a2a77d386527ec6e359c3ca7c.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_513c9be8a97d777393e01165759f1d0f.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_5209c742cb029dfccec3157851f7308a.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_60bfac8e86a568469883295b37379da7.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_61db57d4219e79b65abf579d4f1d310d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_640e92e69047814d317973c2119ed4e5.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_68d5e5e2df1bcc7891644d8479ecca8d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_7a0329318a7fa995416d998f11afdfd1.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_86dc12731ffd034c0f617ff53759a91a.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_9b47905c31fa22630f6ffb666c90b695.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_a7d0f9747b966031f4297059148e0dc4.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_c3273d48719ff36ed89d0995211f249d.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d1e6c324194f558646ecbb26a90b62eb.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d3fa17edecb13b417865771f5b80ce93.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_d71d5d696156dbe666fae0a85eb62c16.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_e8ad126adc0555e6138acb299ef7e755.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/StreamingAssets/TextToSpeech/TTS_TTS_Male_En_fe0cd68991532745b24f6e1d91a56e2e.wav",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/MemoryProfiler.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/favicon.ico",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/fullscreen-button.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-empty-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-empty-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-full-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/progress-bar-full-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/style.css",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/unity-logo-dark.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/unity-logo-light.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/webgl-logo.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/TemplateData/webmemd-icon.png",
-      "inmyskin/documentation/scripts/webgl-demo/inmyskin-webgl/index.html"
-    ]
   }
 }

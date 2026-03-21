@@ -32,15 +32,9 @@
                   "CSS",
                   "Javascript (p5)"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "altereal/thumbnails/cover.png",
+    "coverImage": "altereal/thumbnails/cover.png",
+    "cardImage": "altereal/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

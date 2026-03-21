@@ -29,15 +29,9 @@
     "tools":  [
                   "Flutter"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "buildsnap/thumbnails/cover.png",
+    "coverImage": "buildsnap/thumbnails/cover.png",
+    "cardImage": "buildsnap/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

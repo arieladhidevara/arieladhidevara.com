@@ -33,15 +33,9 @@
                   "Stable Diffusion",
                   "OpenCV"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "flashsight/thumbnails/cover.png",
+    "coverImage": "flashsight/thumbnails/cover.png",
+    "cardImage": "flashsight/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

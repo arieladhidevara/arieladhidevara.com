@@ -36,15 +36,9 @@
                   "mySQL",
                   "PostgreSQL"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "3depot/thumbnails/cover.png",
+    "coverImage": "3depot/thumbnails/cover.png",
+    "cardImage": "3depot/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

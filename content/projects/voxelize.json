@@ -30,15 +30,9 @@
                   "Grasshopper",
                   "C#"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "voxelize/thumbnails/cover.png",
+    "coverImage": "voxelize/thumbnails/cover.png",
+    "cardImage": "voxelize/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

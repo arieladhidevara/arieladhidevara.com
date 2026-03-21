@@ -31,15 +31,9 @@
                   "C#",
                   "3D Print"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "artifacts-of-identity/thumbnails/cover.jpg",
+    "coverImage": "artifacts-of-identity/thumbnails/cover.jpg",
+    "cardImage": "artifacts-of-identity/thumbnails/card.jpg",
     "primaryVideo":  {
 
                      },

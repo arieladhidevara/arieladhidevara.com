@@ -35,15 +35,9 @@
                   "Python",
                   "Next.js"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "mnemonic-mixology/thumbnails/cover.png",
+    "coverImage": "mnemonic-mixology/thumbnails/cover.png",
+    "cardImage": "mnemonic-mixology/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

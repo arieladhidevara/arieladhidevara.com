@@ -32,15 +32,9 @@
                   "PsychoPy",
                   "Python"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "emotional-decision-making-algorithm/thumbnails/cover.png",
+    "coverImage": "emotional-decision-making-algorithm/thumbnails/cover.png",
+    "cardImage": "emotional-decision-making-algorithm/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

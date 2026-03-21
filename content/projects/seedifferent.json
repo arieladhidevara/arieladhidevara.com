@@ -30,15 +30,9 @@
                   "CSS",
                   "Javascript (p5)"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "seedifferent/thumbnails/cover.png",
+    "coverImage": "seedifferent/thumbnails/cover.png",
+    "cardImage": "seedifferent/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

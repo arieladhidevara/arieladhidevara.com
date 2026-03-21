@@ -32,15 +32,9 @@
     "tools":  [
                   "TouchDesigner"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "unseen-realities/thumbnails/cover.png",
+    "coverImage": "unseen-realities/thumbnails/cover.png",
+    "cardImage": "unseen-realities/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

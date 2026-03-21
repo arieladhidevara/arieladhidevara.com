@@ -29,15 +29,9 @@
                   "Grasshopper",
                   "C#"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "pixelpunk/thumbnails/cover.png",
+    "coverImage": "pixelpunk/thumbnails/cover.png",
+    "cardImage": "pixelpunk/thumbnails/card.png",
     "primaryVideo":  {
 
                      },

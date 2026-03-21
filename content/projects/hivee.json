@@ -32,15 +32,9 @@
                   "Python",
                   "MCP"
               ],
-    "heroImage":  {
-
-                  },
-    "coverImage":  {
-
-                   },
-    "cardImage":  {
-
-                  },
+    "heroImage": "hivee/thumbnails/cover.jpg",
+    "coverImage": "hivee/thumbnails/cover.jpg",
+    "cardImage": "hivee/thumbnails/card.jpg",
     "primaryVideo":  {
 
                      },
