@@ -13,6 +13,7 @@ type MediaBlockProps = {
   showMeta?: boolean;
   loading?: "lazy" | "eager";
   fetchPriority?: "auto" | "high" | "low";
+  colorOnHover?: boolean;
 };
 
 const ratioClasses: Record<NonNullable<MediaBlockProps["ratio"]>, string> = {
@@ -30,7 +31,8 @@ export function MediaBlock({
   poster,
   showMeta = false,
   loading = "lazy",
-  fetchPriority = "auto"
+  fetchPriority = "auto",
+  colorOnHover = false
 }: MediaBlockProps) {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -96,7 +98,13 @@ export function MediaBlock({
             alt={label}
             loading={loading}
             fetchPriority={fetchPriority}
-            className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-smooth", loaded ? "opacity-100" : "opacity-0")}
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover duration-300 ease-smooth",
+              loaded ? "opacity-100" : "opacity-0",
+              colorOnHover
+                ? "grayscale transition-[filter,opacity] group-hover:grayscale-0"
+                : "transition-opacity"
+            )}
             onLoad={() => setLoaded(true)}
             onError={() => setFailed(true)}
           />

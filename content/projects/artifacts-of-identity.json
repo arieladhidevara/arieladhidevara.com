@@ -1,95 +1,202 @@
-﻿{
-    "slug":  "artifacts-of-identity",
-    "title":  "Artifacts of Identity",
-    "year":  2023,
-    "institutionYear":  "Harvard University - Graduate School of Design 2023",
-    "contributors":  "Ben Kazer",
-    "category":  "Objects \u0026 Product",
-    "type":  "Academics",
-    "tags":  [
-                 "3D Sculpture",
-                 "Biometrics"
-             ],
-    "oneLiner":  "3D Sculpture Generated from Biometric Signals.",
-    "summaryShort":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
-    "summaryMedium":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
-    "summaryLong":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes. The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated. Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
-    "sections":  {
-                     "overview":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
-                     "background":  "Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
-                     "concept":  "The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated.",
-                     "theProject":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
-                     "process":  "Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
-                     "reflectionImpact":  "",
-                     "documentation":  "Contributors: Ben Kazer. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#, 3D Print."
-                 },
-    "roles":  [
-                  "Interaction \u0026 Technical Lead"
-              ],
-    "tools":  [
-                  "Grasshopper",
-                  "C#",
-                  "3D Print"
-              ],
-    "heroImage": "artifacts-of-identity/thumbnails/cover.jpg",
-    "coverImage": "artifacts-of-identity/thumbnails/cover.jpg",
-    "cardImage": "artifacts-of-identity/thumbnails/card.jpg",
-    "primaryVideo":  {
-
-                     },
-    "primaryMedia":  {
-
-                     },
-    "gallery":  [
-
-                ],
-    "galleryImages":  [
-
-                      ],
-    "videos":  [
-
-               ],
-    "assets":  {
-                   "videos":  [
-
-                              ],
-                   "images":  [
-
-                              ],
-                   "scripts":  [
-
-                               ],
-                   "models":  [
-
-                              ],
-                   "documents":  [
-
-                                 ]
-               },
-    "relatedProjects":  [
-                            "hidden-self",
-                            "voxelize"
-                        ],
-    "seoTitle":  "Artifacts of Identity (2023) | Ariel Adhidevara",
-    "seoDescription":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
-    "openGraphImage":  {
-
-                       },
-    "socialPreviewText":  "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
-    "featured":  false,
-    "status":  "draft",
-    "order":  0,
-    "source":  {
-                   "projectTxt":  "project-inbox/Artifacts of Identity/project.txt",
-                   "metaJson":  null
-               },
-    "links":  [
-
-              ],
-    "upload":  {
-                   "attempted":  false,
-                   "success":  false,
-                   "uploadedCount":  0,
-                   "skippedCount":  0
-               }
+{
+  "slug": "artifacts-of-identity",
+  "title": "Artifacts of Identity",
+  "year": 2023,
+  "institutionYear": "Harvard University - Graduate School of Design 2023",
+  "contributors": "Ben Kazer",
+  "category": "Objects & Product",
+  "type": "Academics",
+  "tags": [
+    "3D Sculpture",
+    "Biometrics"
+  ],
+  "oneLiner": "3D Sculpture Generated from Biometric Signals.",
+  "summaryShort": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
+  "summaryMedium": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+  "summaryLong": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes. The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated. Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
+  "sections": {
+    "overview": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
+    "background": "Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+    "concept": "The project reframes identity as something temporal, relational, and constantly evolving. By capturing signals such as heart rate and skin conductivity, it translates internal bodily states into external, physical expressions. Each sculpture becomes an “artifact” of a specific moment in time—an intersection of body, environment, and technological mediation. Rather than representing a fixed self, these forms embody identity as something fluid and continuously generated.",
+    "theProject": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment.",
+    "process": "Biometric data was collected using the Empatica E4 wristband, capturing real-time signals such as heart rate and electrodermal activity. This data was then processed and mapped into parametric design systems, where variations in physiological states informed geometry, form, and structure. The resulting models were materialized as physical sculptures, allowing individuals to hold and reflect on a tangible representation of their own data. Iterations focused on calibrating data-to-form translation, ensuring that the artifacts maintain both expressive variation and structural coherence.",
+    "reflectionImpact": "",
+    "documentation": "Contributors: Ben Kazer. Role: Interaction & Technical Lead. Tools: Grasshopper, C#, 3D Print."
+  },
+  "roles": [
+    "Interaction & Technical Lead"
+  ],
+  "tools": [
+    "Grasshopper",
+    "C#",
+    "3D Print"
+  ],
+  "heroImage": "artifacts-of-identity/thumbnails/cover.jpg",
+  "coverImage": "artifacts-of-identity/thumbnails/cover.jpg",
+  "cardImage": "artifacts-of-identity/thumbnails/card.jpg",
+  "primaryVideo": "",
+  "primaryMedia": "artifacts-of-identity/background/1.png",
+  "gallery": [
+    "artifacts-of-identity/background/1.png",
+    "artifacts-of-identity/background/2.png",
+    "artifacts-of-identity/background/3.png",
+    "artifacts-of-identity/background/Ácido_desoxirribonucleico_(DNA).png",
+    "artifacts-of-identity/concept/P1150413.JPG",
+    "artifacts-of-identity/documentation/P1150405.JPG",
+    "artifacts-of-identity/documentation/P1150406.JPG",
+    "artifacts-of-identity/documentation/P1150407.JPG",
+    "artifacts-of-identity/documentation/P1150408.JPG",
+    "artifacts-of-identity/documentation/P1150409.JPG",
+    "artifacts-of-identity/documentation/P1150410.JPG",
+    "artifacts-of-identity/documentation/P1150411.JPG",
+    "artifacts-of-identity/documentation/P1150412.JPG",
+    "artifacts-of-identity/documentation/P1150413.JPG",
+    "artifacts-of-identity/documentation/P1150414.JPG",
+    "artifacts-of-identity/overview/P1150382.jpg",
+    "artifacts-of-identity/overview/P1150384.jpg",
+    "artifacts-of-identity/process/P1150388.JPG",
+    "artifacts-of-identity/process/P1150389.JPG",
+    "artifacts-of-identity/process/P1150390.JPG",
+    "artifacts-of-identity/process/P1150391.JPG",
+    "artifacts-of-identity/process/P1150392.JPG",
+    "artifacts-of-identity/process/P1150393.JPG",
+    "artifacts-of-identity/process/P1150394.JPG",
+    "artifacts-of-identity/process/P1150395.JPG",
+    "artifacts-of-identity/the-project/P1150383.jpg",
+    "artifacts-of-identity/the-project/P1150413.JPG"
+  ],
+  "galleryImages": [
+    "artifacts-of-identity/background/1.png",
+    "artifacts-of-identity/background/2.png",
+    "artifacts-of-identity/background/3.png",
+    "artifacts-of-identity/background/Ácido_desoxirribonucleico_(DNA).png",
+    "artifacts-of-identity/concept/P1150413.JPG",
+    "artifacts-of-identity/documentation/P1150405.JPG",
+    "artifacts-of-identity/documentation/P1150406.JPG",
+    "artifacts-of-identity/documentation/P1150407.JPG",
+    "artifacts-of-identity/documentation/P1150408.JPG",
+    "artifacts-of-identity/documentation/P1150409.JPG",
+    "artifacts-of-identity/documentation/P1150410.JPG",
+    "artifacts-of-identity/documentation/P1150411.JPG",
+    "artifacts-of-identity/documentation/P1150412.JPG",
+    "artifacts-of-identity/documentation/P1150413.JPG",
+    "artifacts-of-identity/documentation/P1150414.JPG",
+    "artifacts-of-identity/overview/P1150382.jpg",
+    "artifacts-of-identity/overview/P1150384.jpg",
+    "artifacts-of-identity/process/P1150388.JPG",
+    "artifacts-of-identity/process/P1150389.JPG",
+    "artifacts-of-identity/process/P1150390.JPG",
+    "artifacts-of-identity/process/P1150391.JPG",
+    "artifacts-of-identity/process/P1150392.JPG",
+    "artifacts-of-identity/process/P1150393.JPG",
+    "artifacts-of-identity/process/P1150394.JPG",
+    "artifacts-of-identity/process/P1150395.JPG",
+    "artifacts-of-identity/the-project/P1150383.jpg",
+    "artifacts-of-identity/the-project/P1150413.JPG"
+  ],
+  "videos": [],
+  "assets": {
+    "videos": [],
+    "images": [
+      "artifacts-of-identity/background/1.png",
+      "artifacts-of-identity/background/2.png",
+      "artifacts-of-identity/background/3.png",
+      "artifacts-of-identity/background/Ácido_desoxirribonucleico_(DNA).png",
+      "artifacts-of-identity/concept/P1150413.JPG",
+      "artifacts-of-identity/documentation/P1150405.JPG",
+      "artifacts-of-identity/documentation/P1150406.JPG",
+      "artifacts-of-identity/documentation/P1150407.JPG",
+      "artifacts-of-identity/documentation/P1150408.JPG",
+      "artifacts-of-identity/documentation/P1150409.JPG",
+      "artifacts-of-identity/documentation/P1150410.JPG",
+      "artifacts-of-identity/documentation/P1150411.JPG",
+      "artifacts-of-identity/documentation/P1150412.JPG",
+      "artifacts-of-identity/documentation/P1150413.JPG",
+      "artifacts-of-identity/documentation/P1150414.JPG",
+      "artifacts-of-identity/overview/P1150382.jpg",
+      "artifacts-of-identity/overview/P1150384.jpg",
+      "artifacts-of-identity/process/P1150388.JPG",
+      "artifacts-of-identity/process/P1150389.JPG",
+      "artifacts-of-identity/process/P1150390.JPG",
+      "artifacts-of-identity/process/P1150391.JPG",
+      "artifacts-of-identity/process/P1150392.JPG",
+      "artifacts-of-identity/process/P1150393.JPG",
+      "artifacts-of-identity/process/P1150394.JPG",
+      "artifacts-of-identity/process/P1150395.JPG",
+      "artifacts-of-identity/the-project/P1150383.jpg",
+      "artifacts-of-identity/the-project/P1150413.JPG",
+      "artifacts-of-identity/thumbnails/card.jpg",
+      "artifacts-of-identity/thumbnails/cover.jpg"
+    ],
+    "scripts": [],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "hidden-self",
+    "voxelize"
+  ],
+  "seoTitle": "Artifacts of Identity (2023) | Ariel Adhidevara",
+  "seoDescription": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures.",
+  "openGraphImage": "artifacts-of-identity/thumbnails/card.jpg",
+  "socialPreviewText": "Artifacts of Identity is a project that translates human biometric data into physical form, transforming invisible physiological signals into tangible sculptures. Using data collected from a wearable device, each artifact becomes a unique embodiment of an individual’s lived experience—capturing not who they are genetically, but how they exist in a specific moment. Identity is often framed through fixed biological structures such as DNA, suggesting a form of genetic determinism. However, human experience is far more dynamic, shaped continuously by emotions, environments, and interactions with technology. This project challenges the dominance of genetic narratives by shifting focus toward real-time physiological data, proposing that identity is constructed through ongoing processes rather than predetermined codes.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/Artifacts of Identity/project.txt",
+    "metaJson": null
+  },
+  "links": [],
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  },
+  "assetsBySection": {
+    "background": [
+      "artifacts-of-identity/background/1.png",
+      "artifacts-of-identity/background/2.png",
+      "artifacts-of-identity/background/3.png",
+      "artifacts-of-identity/background/Ácido_desoxirribonucleico_(DNA).png"
+    ],
+    "concept": [
+      "artifacts-of-identity/concept/P1150413.JPG"
+    ],
+    "documentation": [
+      "artifacts-of-identity/documentation/P1150405.JPG",
+      "artifacts-of-identity/documentation/P1150406.JPG",
+      "artifacts-of-identity/documentation/P1150407.JPG",
+      "artifacts-of-identity/documentation/P1150408.JPG",
+      "artifacts-of-identity/documentation/P1150409.JPG",
+      "artifacts-of-identity/documentation/P1150410.JPG",
+      "artifacts-of-identity/documentation/P1150411.JPG",
+      "artifacts-of-identity/documentation/P1150412.JPG",
+      "artifacts-of-identity/documentation/P1150413.JPG",
+      "artifacts-of-identity/documentation/P1150414.JPG"
+    ],
+    "overview": [
+      "artifacts-of-identity/overview/P1150382.jpg",
+      "artifacts-of-identity/overview/P1150384.jpg"
+    ],
+    "process": [
+      "artifacts-of-identity/process/P1150388.JPG",
+      "artifacts-of-identity/process/P1150389.JPG",
+      "artifacts-of-identity/process/P1150390.JPG",
+      "artifacts-of-identity/process/P1150391.JPG",
+      "artifacts-of-identity/process/P1150392.JPG",
+      "artifacts-of-identity/process/P1150393.JPG",
+      "artifacts-of-identity/process/P1150394.JPG",
+      "artifacts-of-identity/process/P1150395.JPG"
+    ],
+    "the-project": [
+      "artifacts-of-identity/the-project/P1150383.jpg",
+      "artifacts-of-identity/the-project/P1150413.JPG"
+    ],
+    "thumbnails": [
+      "artifacts-of-identity/thumbnails/card.jpg",
+      "artifacts-of-identity/thumbnails/cover.jpg"
+    ]
+  }
 }

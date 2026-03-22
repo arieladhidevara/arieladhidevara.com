@@ -73,11 +73,11 @@ export default async function WorkIndexPage({ searchParams }: WorkIndexPageProps
                 <div className="overflow-x-auto pb-2">
                   <div className="flex w-max items-stretch gap-4 pr-2">
                     {others.map((project, index) => (
-                      <FadeIn key={`${category}-${project.slug}`} delay={index * 0.04} className="flex w-[15.25rem] shrink-0">
+                      <FadeIn key={`${category}-${project.slug}`} delay={index * 0.04} className="w-[15.25rem] shrink-0">
                         <ProjectPreviewLink
                           project={project}
                           allProjects={projects}
-                          className="group flex h-full flex-col rounded-soft bg-black/[0.03] p-3.5 transition-colors hover:bg-black/[0.06]"
+                          className="no-glass-hover group flex h-[18rem] flex-col rounded-soft bg-black/[0.03] p-3.5 transition-colors hover:bg-white/[0.88]"
                         >
                           <MediaBlock
                             label={project.heroLabel}
@@ -85,6 +85,7 @@ export default async function WorkIndexPage({ searchParams }: WorkIndexPageProps
                             ratio="wide"
                             className="rounded-soft"
                             src={getProjectCardImageSrc(project)}
+                            colorOnHover
                           />
                           <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
                             <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">

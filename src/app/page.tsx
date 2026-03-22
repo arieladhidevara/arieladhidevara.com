@@ -118,11 +118,11 @@ export default async function HomePage() {
                   <div className="pb-2">
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
                       {others.map((project, index) => (
-                        <FadeIn key={project.slug} delay={index * 0.04} className="h-full min-w-0">
+                        <FadeIn key={project.slug} delay={index * 0.04} className="min-w-0">
                           <ProjectPreviewLink
                             project={project}
                             allProjects={projects}
-                            className="group flex h-full min-h-[20.5rem] flex-col rounded-soft border border-black/[0.08] bg-white/[0.52] p-3.5 shadow-[0_18px_34px_-30px_rgba(14,20,29,0.4),inset_0_1px_0_rgba(255,255,255,0.68)] backdrop-blur-[14px] transition-colors hover:bg-white/[0.62]"
+                            className="no-glass-hover group flex h-[22rem] flex-col rounded-soft border border-black/[0.08] bg-white/[0.52] p-3.5 shadow-[0_18px_34px_-30px_rgba(14,20,29,0.4),inset_0_1px_0_rgba(255,255,255,0.68)] backdrop-blur-[14px] transition-colors hover:bg-white/[0.88]"
                           >
                             <MediaBlock
                               label={project.heroLabel}
@@ -130,6 +130,7 @@ export default async function HomePage() {
                               ratio="wide"
                               className="rounded-soft"
                               src={getProjectCardImageSrc(project)}
+                              colorOnHover
                             />
                             <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
                               <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">

@@ -449,18 +449,12 @@ function mapRecord(raw: ContentProjectRecord, fileName: string): MappedProject |
   const summaryShort = asString(raw.summaryShort);
   const summaryMedium = asString(raw.summaryMedium);
   const overview = withSentenceEnding(asString(sectionsRecord.overview), summaryShort);
-  const background = withSentenceEnding(asString(sectionsRecord.background), "Background section pending.");
-  const concept = withSentenceEnding(asString(sectionsRecord.concept), "Concept section pending.");
+  const background = withSentenceEnding(asString(sectionsRecord.background));
+  const concept = withSentenceEnding(asString(sectionsRecord.concept));
   const theProject = withSentenceEnding(asString(sectionsRecord.theProject), overview || summaryShort);
-  const process = withSentenceEnding(asString(sectionsRecord.process), "Process section pending.");
-  const reflectionImpact = withSentenceEnding(
-    asString(sectionsRecord.reflectionImpact),
-    "Reflection / impact notes will be expanded."
-  );
-  const documentation = withSentenceEnding(
-    asString(sectionsRecord.documentation),
-    "Documentation links and assets are being prepared."
-  );
+  const process = withSentenceEnding(asString(sectionsRecord.process));
+  const reflectionImpact = withSentenceEnding(asString(sectionsRecord.reflectionImpact));
+  const documentation = withSentenceEnding(asString(sectionsRecord.documentation));
 
   const oneLiner = withSentenceEnding(
     asString(raw.oneLiner),

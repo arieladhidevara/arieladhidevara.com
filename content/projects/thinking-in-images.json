@@ -1,0 +1,143 @@
+{
+  "slug": "thinking-in-images",
+  "title": "Thinking in Images",
+  "year": 2025,
+  "institutionYear": "Harvard University - Graduate School of Design 2025",
+  "contributors": "Yuhan Wang, Joe Tu",
+  "category": "AI & Software",
+  "type": "Academics",
+  "tags": [
+    "AI",
+    "Latent Space",
+    "Human-AI Interaction",
+    "Generative Models",
+    "Computational Design"
+  ],
+  "oneLiner": "Images become a medium for thinking through soft navigation in latent space.",
+  "summaryShort": "Thinking in Images explores images as a cognitive interface where meaning emerges through interaction rather than prompt-based generation.",
+  "summaryMedium": "Thinking in Images proposes a shift from prompt-based image generation toward a mode of visual reasoning in which images function as an active medium for thought. Instead of producing fixed outputs, the system allows users to navigate latent semantic space through iterative interaction. Sketches, image fragments, and visual gestures act as directional cues rather than explicit commands, enabling meaning to gradually emerge through transformation. The project frames latent space as a cognitive terrain where ideas remain open, unstable, and exploratory, allowing human intuition and machine perception to co-produce visual understanding.",
+  "summaryLong": "Thinking in Images proposes a shift from prompt-based image generation toward a mode of visual reasoning in which images function as an active medium for thought. Instead of producing fixed outputs, the system allows users to navigate latent semantic space through iterative interaction. Sketches, image fragments, and visual gestures act as directional cues rather than explicit commands, enabling meaning to gradually emerge through transformation. The project reframes generative AI from a tool for producing images into a partner for exploratory cognition. Rather than moving toward predetermined visual targets, the system follows soft vectors — directional tendencies that guide exploration without fully defining outcomes. Interaction unfolds as a continuous dialogue between human intuition and machine inference, allowing concepts to develop across visual trajectories instead of discrete prompts. By treating images as semantic anchors, the project explores how nouns can structure visual reasoning while verbs and affect emerge through transformation and relational positioning. The work positions latent space as a cognitive topology in which meaning is discovered through navigation, iteration, and interaction.",
+  "sections": {
+    "overview": "Thinking in Images explores how generative AI can function as a medium for reasoning rather than image production. The system allows users to navigate semantic space visually, enabling meaning to emerge gradually through interaction.",
+    "background": "Contemporary generative models primarily operate through prompt-response structures that position images as outputs of textual instruction. This approach limits the role of images to representation rather than cognition. The project questions whether latent space can instead operate as an exploratory medium where ideas evolve through iterative interaction.",
+    "concept": "The project introduces the idea of soft vector navigation within latent space. Instead of specifying precise visual targets, users provide approximate directional signals through sketching, image placement, and interaction. Meaning develops across trajectories rather than endpoints, allowing ambiguity and emergence to remain central to the process.",
+    "theProject": "The interface enables users to interact with generative models through visual input rather than solely textual prompts. Drawings and image fragments are interpreted as approximate semantic directions, allowing the system to iteratively adjust visual trajectories while maintaining openness. Images become both the medium and the site of reasoning.",
+    "process": "The system experiments with iterative interaction loops between user intuition and model inference. Visual inputs act as soft constraints guiding latent transitions. Through continuous feedback, semantic neighborhoods are explored rather than selected, allowing ideas to evolve dynamically.",
+    "reflectionImpact": "Thinking in Images suggests a broader paradigm shift in how generative AI may support creative thinking. By framing latent space as a cognitive environment, the project proposes new forms of human-AI collaboration where ambiguity and exploration become productive components of reasoning.",
+    "documentation": "Contributors: Yuhan Wang, Joe Tu."
+  },
+  "roles": [
+    "Concept Development",
+    "Interaction Design",
+    "Computational Design"
+  ],
+  "tools": [
+    "Python",
+    "Stable Diffusion",
+    "Latent Space Models",
+    "Generative AI",
+    "Custom Interface Prototyping"
+  ],
+  "heroImage": "thinking-in-images/thumbnails/cover.png",
+  "coverImage": "thinking-in-images/thumbnails/cover.png",
+  "cardImage": "thinking-in-images/thumbnails/card.png",
+  "primaryVideo": "",
+  "primaryMedia": "thinking-in-images/overview/1.gif",
+  "gallery": [
+    "thinking-in-images/overview/1.gif",
+    "thinking-in-images/overview/2.png",
+    "thinking-in-images/the-project/10.gif",
+    "thinking-in-images/the-project/11.gif",
+    "thinking-in-images/the-project/2.png",
+    "thinking-in-images/the-project/3.gif",
+    "thinking-in-images/the-project/4.png",
+    "thinking-in-images/the-project/5.gif",
+    "thinking-in-images/the-project/6.png",
+    "thinking-in-images/the-project/7.gif",
+    "thinking-in-images/the-project/8.gif",
+    "thinking-in-images/the-project/9.gif"
+  ],
+  "galleryImages": [
+    "thinking-in-images/overview/1.gif",
+    "thinking-in-images/overview/2.png",
+    "thinking-in-images/the-project/10.gif",
+    "thinking-in-images/the-project/11.gif",
+    "thinking-in-images/the-project/2.png",
+    "thinking-in-images/the-project/3.gif",
+    "thinking-in-images/the-project/4.png",
+    "thinking-in-images/the-project/5.gif",
+    "thinking-in-images/the-project/6.png",
+    "thinking-in-images/the-project/7.gif",
+    "thinking-in-images/the-project/8.gif",
+    "thinking-in-images/the-project/9.gif"
+  ],
+  "videos": [],
+  "assets": {
+    "videos": [],
+    "images": [
+      "thinking-in-images/overview/1.gif",
+      "thinking-in-images/overview/2.png",
+      "thinking-in-images/the-project/10.gif",
+      "thinking-in-images/the-project/11.gif",
+      "thinking-in-images/the-project/2.png",
+      "thinking-in-images/the-project/3.gif",
+      "thinking-in-images/the-project/4.png",
+      "thinking-in-images/the-project/5.gif",
+      "thinking-in-images/the-project/6.png",
+      "thinking-in-images/the-project/7.gif",
+      "thinking-in-images/the-project/8.gif",
+      "thinking-in-images/the-project/9.gif",
+      "thinking-in-images/thumbnails/card.png",
+      "thinking-in-images/thumbnails/cover.png"
+    ],
+    "scripts": [],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "unseen-realities",
+    "hidden-self",
+    "flashsight",
+    "inmyskin"
+  ],
+  "seoTitle": "Thinking in Images | Ariel Adhidevara",
+  "seoDescription": "Thinking in Images explores images as a medium for reasoning through soft navigation in latent space.",
+  "openGraphImage": "thinking-in-images/thumbnails/card.png",
+  "socialPreviewText": "Thinking in Images explores images as a medium for reasoning through soft navigation in latent space, allowing meaning to emerge through interaction rather than prompt-based generation.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/Thinking in Images/project.txt",
+    "metaJson": null
+  },
+  "links": [],
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  },
+  "assetsBySection": {
+    "overview": [
+      "thinking-in-images/overview/1.gif",
+      "thinking-in-images/overview/2.png"
+    ],
+    "the-project": [
+      "thinking-in-images/the-project/10.gif",
+      "thinking-in-images/the-project/11.gif",
+      "thinking-in-images/the-project/2.png",
+      "thinking-in-images/the-project/3.gif",
+      "thinking-in-images/the-project/4.png",
+      "thinking-in-images/the-project/5.gif",
+      "thinking-in-images/the-project/6.png",
+      "thinking-in-images/the-project/7.gif",
+      "thinking-in-images/the-project/8.gif",
+      "thinking-in-images/the-project/9.gif"
+    ],
+    "thumbnails": [
+      "thinking-in-images/thumbnails/card.png",
+      "thinking-in-images/thumbnails/cover.png"
+    ]
+  }
+}

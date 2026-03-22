@@ -1,96 +1,122 @@
-﻿{
-    "slug":  "ephemera-of-existence",
-    "title":  "Ephemera of Existence",
-    "year":  2023,
-    "institutionYear":  "Harvard University - Graduate School of Design 2023",
-    "contributors":  "Ben Kazer, Joe Tu",
-    "category":  "AI \u0026 Software",
-    "type":  "Academics",
-    "tags":  [
-                 "3D",
-                 "Image Processing"
-             ],
-    "oneLiner":  "3D-Generated Anamorphic Image Processing.",
-    "summaryShort":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences.",
-    "summaryMedium":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
-    "summaryLong":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth. The core concept treats humanness as something relational and perspective-dependent rather than fixed. By combining multiple images into a single spatial construct, the work creates a tension between abstraction and recognition. From most angles, the composition appears as a disordered cloud of fragments. But from precise viewpoints, these fragments align into clear, legible images. This anamorphic strategy positions perception as a negotiation—where meaning emerges only through movement, alignment, and discovery. Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. The project was developed by translating multiple 2D images into layered 3D geometries and strategically distributing them in space using anamorphic projection techniques. Each image is fragmented and mapped onto spatial coordinates so that they visually reconstruct from designated viewpoints. Iterations focused on calibrating alignment, density, and depth to balance abstraction and legibility. The final output is presented as a spatial projection, where viewers navigate the field to uncover shifting moments of clarity within an otherwise chaotic visual environment.",
-    "sections":  {
-                     "overview":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process.",
-                     "background":  "Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
-                     "concept":  "The core concept treats humanness as something relational and perspective-dependent rather than fixed. By combining multiple images into a single spatial construct, the work creates a tension between abstraction and recognition. From most angles, the composition appears as a disordered cloud of fragments. But from precise viewpoints, these fragments align into clear, legible images. This anamorphic strategy positions perception as a negotiation—where meaning emerges only through movement, alignment, and discovery.",
-                     "theProject":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process.",
-                     "process":  "The project was developed by translating multiple 2D images into layered 3D geometries and strategically distributing them in space using anamorphic projection techniques. Each image is fragmented and mapped onto spatial coordinates so that they visually reconstruct from designated viewpoints. Iterations focused on calibrating alignment, density, and depth to balance abstraction and legibility. The final output is presented as a spatial projection, where viewers navigate the field to uncover shifting moments of clarity within an otherwise chaotic visual environment.",
-                     "reflectionImpact":  "",
-                     "documentation":  "Contributors: Ben Kazer, Joe Tu. Role: Interaction \u0026 Technical Lead. Tools: Grasshopper, C#."
-                 },
-    "roles":  [
-                  "Interaction \u0026 Technical Lead"
-              ],
-    "tools":  [
-                  "Grasshopper",
-                  "C#"
-              ],
-    "heroImage": "ephemera-of-existence/thumbnails/cover.jpg",
-    "coverImage": "ephemera-of-existence/thumbnails/cover.jpg",
-    "cardImage": "ephemera-of-existence/thumbnails/card.jpg",
-    "primaryVideo":  {
-
-                     },
-    "primaryMedia":  {
-
-                     },
-    "gallery":  [
-
-                ],
-    "galleryImages":  [
-
-                      ],
-    "videos":  [
-
-               ],
-    "assets":  {
-                   "videos":  [
-
-                              ],
-                   "images":  [
-
-                              ],
-                   "scripts":  [
-
-                               ],
-                   "models":  [
-
-                              ],
-                   "documents":  [
-
-                                 ]
-               },
-    "relatedProjects":  [
-                            "buildsnap",
-                            "hivee",
-                            "altereal",
-                            "emotional-decision-making-algorithm"
-                        ],
-    "seoTitle":  "Ephemera of Existence (2023) | Ariel Adhidevara",
-    "seoDescription":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences.",
-    "openGraphImage":  {
-
-                       },
-    "socialPreviewText":  "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
-    "featured":  false,
-    "status":  "draft",
-    "order":  0,
-    "source":  {
-                   "projectTxt":  "project-inbox/Ephemera of Existence/project.txt",
-                   "metaJson":  null
-               },
-    "links":  [
-
-              ],
-    "upload":  {
-                   "attempted":  false,
-                   "success":  false,
-                   "uploadedCount":  0,
-                   "skippedCount":  0
-               }
+{
+  "slug": "ephemera-of-existence",
+  "title": "Ephemera of Existence",
+  "year": 2023,
+  "institutionYear": "Harvard University - Graduate School of Design 2023",
+  "contributors": "Ben Kazer, Joe Tu",
+  "category": "AI & Software",
+  "type": "Academics",
+  "tags": [
+    "3D",
+    "Image Processing"
+  ],
+  "oneLiner": "3D-Generated Anamorphic Image Processing.",
+  "summaryShort": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences.",
+  "summaryMedium": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
+  "summaryLong": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth. The core concept treats humanness as something relational and perspective-dependent rather than fixed. By combining multiple images into a single spatial construct, the work creates a tension between abstraction and recognition. From most angles, the composition appears as a disordered cloud of fragments. But from precise viewpoints, these fragments align into clear, legible images. This anamorphic strategy positions perception as a negotiation—where meaning emerges only through movement, alignment, and discovery. Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. The project was developed by translating multiple 2D images into layered 3D geometries and strategically distributing them in space using anamorphic projection techniques. Each image is fragmented and mapped onto spatial coordinates so that they visually reconstruct from designated viewpoints. Iterations focused on calibrating alignment, density, and depth to balance abstraction and legibility. The final output is presented as a spatial projection, where viewers navigate the field to uncover shifting moments of clarity within an otherwise chaotic visual environment.",
+  "sections": {
+    "overview": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process.",
+    "background": "Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
+    "concept": "The core concept treats humanness as something relational and perspective-dependent rather than fixed. By combining multiple images into a single spatial construct, the work creates a tension between abstraction and recognition. From most angles, the composition appears as a disordered cloud of fragments. But from precise viewpoints, these fragments align into clear, legible images. This anamorphic strategy positions perception as a negotiation—where meaning emerges only through movement, alignment, and discovery.",
+    "theProject": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process.",
+    "process": "The project was developed by translating multiple 2D images into layered 3D geometries and strategically distributing them in space using anamorphic projection techniques. Each image is fragmented and mapped onto spatial coordinates so that they visually reconstruct from designated viewpoints. Iterations focused on calibrating alignment, density, and depth to balance abstraction and legibility. The final output is presented as a spatial projection, where viewers navigate the field to uncover shifting moments of clarity within an otherwise chaotic visual environment.",
+    "reflectionImpact": "",
+    "documentation": "Contributors: Ben Kazer, Joe Tu. Role: Interaction & Technical Lead. Tools: Grasshopper, C#."
+  },
+  "roles": [
+    "Interaction & Technical Lead"
+  ],
+  "tools": [
+    "Grasshopper",
+    "C#"
+  ],
+  "heroImage": "ephemera-of-existence/thumbnails/cover.jpg",
+  "coverImage": "ephemera-of-existence/thumbnails/cover.jpg",
+  "cardImage": "ephemera-of-existence/thumbnails/card.jpg",
+  "primaryVideo": "ephemera-of-existence/the-project/video4.mp4",
+  "primaryMedia": "ephemera-of-existence/the-project/video4.mp4",
+  "gallery": [
+    "ephemera-of-existence/concept/diagram - overall - white.png",
+    "ephemera-of-existence/process/Technical Diagram.png",
+    "ephemera-of-existence/the-project/Hero Image 1_fixed.jpg"
+  ],
+  "galleryImages": [
+    "ephemera-of-existence/concept/diagram - overall - white.png",
+    "ephemera-of-existence/process/Technical Diagram.png",
+    "ephemera-of-existence/the-project/Hero Image 1_fixed.jpg"
+  ],
+  "videos": [
+    "ephemera-of-existence/background/video1.mp4",
+    "ephemera-of-existence/concept/video7.mp4",
+    "ephemera-of-existence/the-project/video4.mp4",
+    "ephemera-of-existence/the-project/video5.mp4"
+  ],
+  "assets": {
+    "videos": [
+      "ephemera-of-existence/background/video1.mp4",
+      "ephemera-of-existence/concept/video7.mp4",
+      "ephemera-of-existence/the-project/video4.mp4",
+      "ephemera-of-existence/the-project/video5.mp4"
+    ],
+    "images": [
+      "ephemera-of-existence/concept/diagram - overall - white.png",
+      "ephemera-of-existence/process/Technical Diagram.png",
+      "ephemera-of-existence/the-project/Hero Image 1_fixed.jpg",
+      "ephemera-of-existence/thumbnails/card.jpg",
+      "ephemera-of-existence/thumbnails/cover.jpg"
+    ],
+    "scripts": [],
+    "models": [
+      "ephemera-of-existence/overview/Ephemeral of Existence 3D.obj"
+    ],
+    "documents": []
+  },
+  "relatedProjects": [
+    "buildsnap",
+    "hivee",
+    "altereal",
+    "emotional-decision-making-algorithm"
+  ],
+  "seoTitle": "Ephemera of Existence (2023) | Ariel Adhidevara",
+  "seoDescription": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences.",
+  "openGraphImage": "ephemera-of-existence/thumbnails/card.jpg",
+  "socialPreviewText": "Ephemera of Existence reimagines how we perceive human identity through images by transforming flat visuals into spatial experiences. The project constructs anamorphic 3D compositions from multiple 2D images, allowing viewers to encounter fragmented, abstract forms that resolve into recognizable figures only from specific viewpoints. What appears chaotic from one angle becomes coherent from another, turning perception itself into an active process. Conventional representations of humanness often rely on static images—snapshots that flatten identity into a single, fixed moment. This simplification overlooks the complex, evolving, and multi-sensory nature of human existence. The project emerges from a critique of this limitation, questioning how images might better reflect the fluidity and multiplicity of being human. It draws from ideas of perception, temporality, and the instability of visual truth.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/Ephemera of Existence/project.txt",
+    "metaJson": null
+  },
+  "links": [],
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  },
+  "assetsBySection": {
+    "background": [
+      "ephemera-of-existence/background/video1.mp4"
+    ],
+    "concept": [
+      "ephemera-of-existence/concept/diagram - overall - white.png",
+      "ephemera-of-existence/concept/video7.mp4"
+    ],
+    "overview": [
+      "ephemera-of-existence/overview/Ephemeral of Existence 3D.obj"
+    ],
+    "process": [
+      "ephemera-of-existence/process/Technical Diagram.png"
+    ],
+    "the-project": [
+      "ephemera-of-existence/the-project/Hero Image 1_fixed.jpg",
+      "ephemera-of-existence/the-project/video4.mp4",
+      "ephemera-of-existence/the-project/video5.mp4"
+    ],
+    "thumbnails": [
+      "ephemera-of-existence/thumbnails/card.jpg",
+      "ephemera-of-existence/thumbnails/cover.jpg"
+    ]
+  }
 }

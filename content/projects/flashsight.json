@@ -1,99 +1,84 @@
-﻿{
-    "slug":  "flashsight",
-    "title":  "FlashSight",
-    "year":  2026,
-    "institutionYear":  "Harvard University - Graduate School of Design 2026",
-    "contributors":  "Heff Jin",
-    "category":  "Interactive Systems",
-    "type":  "Academics",
-    "tags":  [
-                 "Image Processing",
-                 "Image Segmentation",
-                 "Projection",
-                 "AI Generative"
-             ],
-    "oneLiner":  "A software–hardware system that uses AI to generate and project new textures onto real objects in real time, turning physical space into a living canvas.",
-    "summaryShort":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived.",
-    "summaryMedium":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
-    "summaryLong":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated. The core idea is to treat physical objects as canvases for generative imagination. Using a camera-projector system, FlashSight captures the geometry of an object and overlays it with AI-generated textures that adapt to its form. This creates a condition where the object remains physically unchanged, but its perceived identity is constantly re-authored. The system shifts perception from recognition to reinterpretation—where seeing becomes an act of continuous transformation. FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. The system integrates computer vision, real-time rendering, and projection mapping. A camera captures the target object and extracts its geometry or surface features, which are then used as input for generating context-aware textures. These textures are produced using AI models and aligned back onto the object through calibrated projection. Iterations focused on spatial alignment, texture coherence, and responsiveness, ensuring that generated visuals accurately adhere to the object’s form while maintaining fluid, real-time transformation.",
-    "sections":  {
-                     "overview":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts.",
-                     "background":  "Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
-                     "concept":  "The core idea is to treat physical objects as canvases for generative imagination. Using a camera-projector system, FlashSight captures the geometry of an object and overlays it with AI-generated textures that adapt to its form. This creates a condition where the object remains physically unchanged, but its perceived identity is constantly re-authored. The system shifts perception from recognition to reinterpretation—where seeing becomes an act of continuous transformation.",
-                     "theProject":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts.",
-                     "process":  "The system integrates computer vision, real-time rendering, and projection mapping. A camera captures the target object and extracts its geometry or surface features, which are then used as input for generating context-aware textures. These textures are produced using AI models and aligned back onto the object through calibrated projection. Iterations focused on spatial alignment, texture coherence, and responsiveness, ensuring that generated visuals accurately adhere to the object’s form while maintaining fluid, real-time transformation.",
-                     "reflectionImpact":  "",
-                     "documentation":  "Contributors: Heff Jin. Role: Conceptor \u0026 Technical Lead. Tools: Python, Stable Diffusion, OpenCV."
-                 },
-    "roles":  [
-                  "Conceptor \u0026 Technical Lead"
-              ],
-    "tools":  [
-                  "Python",
-                  "Stable Diffusion",
-                  "OpenCV"
-              ],
-    "heroImage": "flashsight/thumbnails/cover.png",
-    "coverImage": "flashsight/thumbnails/cover.png",
-    "cardImage": "flashsight/thumbnails/card.png",
-    "primaryVideo":  {
-
-                     },
-    "primaryMedia":  {
-
-                     },
-    "gallery":  [
-
-                ],
-    "galleryImages":  [
-
-                      ],
-    "videos":  [
-
-               ],
-    "assets":  {
-                   "videos":  [
-
-                              ],
-                   "images":  [
-
-                              ],
-                   "scripts":  [
-
-                               ],
-                   "models":  [
-
-                              ],
-                   "documents":  [
-
-                                 ]
-               },
-    "relatedProjects":  [
-                            "algorithm-prison-experiment",
-                            "example-project",
-                            "inmyskin",
-                            "mnemonic-mixology"
-                        ],
-    "seoTitle":  "FlashSight (2026) | Ariel Adhidevara",
-    "seoDescription":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived.",
-    "openGraphImage":  {
-
-                       },
-    "socialPreviewText":  "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
-    "featured":  false,
-    "status":  "draft",
-    "order":  0,
-    "source":  {
-                   "projectTxt":  "project-inbox/FlashSight/project.txt",
-                   "metaJson":  null
-               },
-    "links":  [
-
-              ],
-    "upload":  {
-                   "attempted":  false,
-                   "success":  false,
-                   "uploadedCount":  0,
-                   "skippedCount":  0
-               }
+{
+  "slug": "flashsight",
+  "title": "FlashSight",
+  "year": 2026,
+  "institutionYear": "Harvard University - Graduate School of Design 2026",
+  "contributors": "Heff Jin",
+  "category": "Interactive Systems",
+  "type": "Academics",
+  "tags": [
+    "Image Processing",
+    "Image Segmentation",
+    "Projection",
+    "AI Generative"
+  ],
+  "oneLiner": "A software–hardware system that uses AI to generate and project new textures onto real objects in real time, turning physical space into a living canvas.",
+  "summaryShort": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived.",
+  "summaryMedium": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
+  "summaryLong": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated. The core idea is to treat physical objects as canvases for generative imagination. Using a camera-projector system, FlashSight captures the geometry of an object and overlays it with AI-generated textures that adapt to its form. This creates a condition where the object remains physically unchanged, but its perceived identity is constantly re-authored. The system shifts perception from recognition to reinterpretation—where seeing becomes an act of continuous transformation. FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. The system integrates computer vision, real-time rendering, and projection mapping. A camera captures the target object and extracts its geometry or surface features, which are then used as input for generating context-aware textures. These textures are produced using AI models and aligned back onto the object through calibrated projection. Iterations focused on spatial alignment, texture coherence, and responsiveness, ensuring that generated visuals accurately adhere to the object’s form while maintaining fluid, real-time transformation.",
+  "sections": {
+    "overview": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts.",
+    "background": "Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
+    "concept": "The core idea is to treat physical objects as canvases for generative imagination. Using a camera-projector system, FlashSight captures the geometry of an object and overlays it with AI-generated textures that adapt to its form. This creates a condition where the object remains physically unchanged, but its perceived identity is constantly re-authored. The system shifts perception from recognition to reinterpretation—where seeing becomes an act of continuous transformation.",
+    "theProject": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts.",
+    "process": "The system integrates computer vision, real-time rendering, and projection mapping. A camera captures the target object and extracts its geometry or surface features, which are then used as input for generating context-aware textures. These textures are produced using AI models and aligned back onto the object through calibrated projection. Iterations focused on spatial alignment, texture coherence, and responsiveness, ensuring that generated visuals accurately adhere to the object’s form while maintaining fluid, real-time transformation.",
+    "reflectionImpact": "",
+    "documentation": "Contributors: Heff Jin. Role: Conceptor & Technical Lead. Tools: Python, Stable Diffusion, OpenCV."
+  },
+  "roles": [
+    "Conceptor & Technical Lead"
+  ],
+  "tools": [
+    "Python",
+    "Stable Diffusion",
+    "OpenCV"
+  ],
+  "heroImage": "flashsight/thumbnails/cover.png",
+  "coverImage": "flashsight/thumbnails/cover.png",
+  "cardImage": "flashsight/thumbnails/card.png",
+  "primaryVideo": "",
+  "primaryMedia": "",
+  "gallery": [],
+  "galleryImages": [],
+  "videos": [],
+  "assets": {
+    "videos": [],
+    "images": [
+      "flashsight/thumbnails/card.png",
+      "flashsight/thumbnails/cover.png"
+    ],
+    "scripts": [],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "algorithm-prison-experiment",
+    "example-project",
+    "inmyskin",
+    "mnemonic-mixology"
+  ],
+  "seoTitle": "FlashSight (2026) | Ariel Adhidevara",
+  "seoDescription": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived.",
+  "openGraphImage": "flashsight/thumbnails/card.png",
+  "socialPreviewText": "FlashSight is a hybrid system that generates and projects dynamic textures onto real-world objects, transforming how surfaces are perceived. Rather than revealing what already exists, the system imagines and applies new visual layers onto physical matter—turning ordinary objects into continuously shifting visual artifacts. Our perception of objects is largely defined by their surface—color, texture, and material qualities that appear fixed and inherent. However, with advances in computer vision and generative AI, these visual properties can be detached from the object itself and redefined in real time. This project emerges from the question of whether material perception can be manipulated without altering the object physically, blurring the boundary between what is real and what is computationally generated.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/FlashSight/project.txt",
+    "metaJson": null
+  },
+  "links": [],
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  },
+  "assetsBySection": {
+    "thumbnails": [
+      "flashsight/thumbnails/card.png",
+      "flashsight/thumbnails/cover.png"
+    ]
+  }
 }

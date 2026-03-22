@@ -1,98 +1,83 @@
-﻿{
-    "slug":  "hivee",
-    "title":  "HIVEE",
-    "year":  2026,
-    "institutionYear":  "MIT - Media Lab 2026",
-    "contributors":  "",
-    "category":  "AI \u0026 Software",
-    "type":  "Academics",
-    "tags":  [
-                 "AI",
-                 "Agents",
-                 "Collaboration"
-             ],
-    "oneLiner":  "Hivee is a multi-agent platform where AI agents collaborate, share context, and execute tasks together like a team.",
-    "summaryShort":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals.",
-    "summaryMedium":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
-    "summaryLong":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control. The core idea is to treat AI agents as independent entities that can collaborate within a shared space, similar to how humans work in teams. Each agent maintains its own identity, capabilities, and knowledge base, but can communicate, negotiate, and contribute toward a common objective. Rather than a single intelligence, Hivee operates as an ecosystem—where outcomes emerge from the interaction between agents. This reframes AI systems from tools into participants within a collaborative network. Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. The platform is designed as a multi-agent orchestration layer, integrating agent frameworks, tool access systems, and shared communication protocols. Agents are connected through a workspace interface where tasks can be distributed, executed, and monitored in parallel. The system supports structured task flows, inter-agent messaging, and human-in-the-loop escalation when conflicts arise. Development involved prototyping agent coordination logic, defining interaction protocols, and building a scalable architecture that allows agents to collaborate while preserving autonomy and data boundaries.",
-    "sections":  {
-                     "overview":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration.",
-                     "background":  "As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
-                     "concept":  "The core idea is to treat AI agents as independent entities that can collaborate within a shared space, similar to how humans work in teams. Each agent maintains its own identity, capabilities, and knowledge base, but can communicate, negotiate, and contribute toward a common objective. Rather than a single intelligence, Hivee operates as an ecosystem—where outcomes emerge from the interaction between agents. This reframes AI systems from tools into participants within a collaborative network.",
-                     "theProject":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration.",
-                     "process":  "The platform is designed as a multi-agent orchestration layer, integrating agent frameworks, tool access systems, and shared communication protocols. Agents are connected through a workspace interface where tasks can be distributed, executed, and monitored in parallel. The system supports structured task flows, inter-agent messaging, and human-in-the-loop escalation when conflicts arise. Development involved prototyping agent coordination logic, defining interaction protocols, and building a scalable architecture that allows agents to collaborate while preserving autonomy and data boundaries.",
-                     "reflectionImpact":  "",
-                     "documentation":  "Role: Conceptor \u0026 Technical Lead. Tools: Next.js, Python, MCP."
-                 },
-    "roles":  [
-                  "Conceptor \u0026 Technical Lead"
-              ],
-    "tools":  [
-                  "Next.js",
-                  "Python",
-                  "MCP"
-              ],
-    "heroImage": "hivee/thumbnails/cover.jpg",
-    "coverImage": "hivee/thumbnails/cover.jpg",
-    "cardImage": "hivee/thumbnails/card.jpg",
-    "primaryVideo":  {
-
-                     },
-    "primaryMedia":  {
-
-                     },
-    "gallery":  [
-
-                ],
-    "galleryImages":  [
-
-                      ],
-    "videos":  [
-
-               ],
-    "assets":  {
-                   "videos":  [
-
-                              ],
-                   "images":  [
-
-                              ],
-                   "scripts":  [
-
-                               ],
-                   "models":  [
-
-                              ],
-                   "documents":  [
-
-                                 ]
-               },
-    "relatedProjects":  [
-                            "buildsnap",
-                            "altereal",
-                            "emotional-decision-making-algorithm",
-                            "seedifferent"
-                        ],
-    "seoTitle":  "HIVEE (2026) | Ariel Adhidevara",
-    "seoDescription":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals.",
-    "openGraphImage":  {
-
-                       },
-    "socialPreviewText":  "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
-    "featured":  false,
-    "status":  "draft",
-    "order":  0,
-    "source":  {
-                   "projectTxt":  "project-inbox/HIVEE/project.txt",
-                   "metaJson":  null
-               },
-    "links":  [
-
-              ],
-    "upload":  {
-                   "attempted":  false,
-                   "success":  false,
-                   "uploadedCount":  0,
-                   "skippedCount":  0
-               }
+{
+  "slug": "hivee",
+  "title": "HIVEE",
+  "year": 2026,
+  "institutionYear": "MIT - Media Lab 2026",
+  "contributors": "",
+  "category": "AI & Software",
+  "type": "Academics",
+  "tags": [
+    "AI",
+    "Agents",
+    "Collaboration"
+  ],
+  "oneLiner": "Hivee is a multi-agent platform where AI agents collaborate, share context, and execute tasks together like a team.",
+  "summaryShort": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals.",
+  "summaryMedium": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
+  "summaryLong": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control. The core idea is to treat AI agents as independent entities that can collaborate within a shared space, similar to how humans work in teams. Each agent maintains its own identity, capabilities, and knowledge base, but can communicate, negotiate, and contribute toward a common objective. Rather than a single intelligence, Hivee operates as an ecosystem—where outcomes emerge from the interaction between agents. This reframes AI systems from tools into participants within a collaborative network. Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. The platform is designed as a multi-agent orchestration layer, integrating agent frameworks, tool access systems, and shared communication protocols. Agents are connected through a workspace interface where tasks can be distributed, executed, and monitored in parallel. The system supports structured task flows, inter-agent messaging, and human-in-the-loop escalation when conflicts arise. Development involved prototyping agent coordination logic, defining interaction protocols, and building a scalable architecture that allows agents to collaborate while preserving autonomy and data boundaries.",
+  "sections": {
+    "overview": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration.",
+    "background": "As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
+    "concept": "The core idea is to treat AI agents as independent entities that can collaborate within a shared space, similar to how humans work in teams. Each agent maintains its own identity, capabilities, and knowledge base, but can communicate, negotiate, and contribute toward a common objective. Rather than a single intelligence, Hivee operates as an ecosystem—where outcomes emerge from the interaction between agents. This reframes AI systems from tools into participants within a collaborative network.",
+    "theProject": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration.",
+    "process": "The platform is designed as a multi-agent orchestration layer, integrating agent frameworks, tool access systems, and shared communication protocols. Agents are connected through a workspace interface where tasks can be distributed, executed, and monitored in parallel. The system supports structured task flows, inter-agent messaging, and human-in-the-loop escalation when conflicts arise. Development involved prototyping agent coordination logic, defining interaction protocols, and building a scalable architecture that allows agents to collaborate while preserving autonomy and data boundaries.",
+    "reflectionImpact": "",
+    "documentation": "Role: Conceptor & Technical Lead. Tools: Next.js, Python, MCP."
+  },
+  "roles": [
+    "Conceptor & Technical Lead"
+  ],
+  "tools": [
+    "Next.js",
+    "Python",
+    "MCP"
+  ],
+  "heroImage": "hivee/thumbnails/cover.jpg",
+  "coverImage": "hivee/thumbnails/cover.jpg",
+  "cardImage": "hivee/thumbnails/card.jpg",
+  "primaryVideo": "",
+  "primaryMedia": "",
+  "gallery": [],
+  "galleryImages": [],
+  "videos": [],
+  "assets": {
+    "videos": [],
+    "images": [
+      "hivee/thumbnails/card.jpg",
+      "hivee/thumbnails/cover.jpg"
+    ],
+    "scripts": [],
+    "models": [],
+    "documents": []
+  },
+  "relatedProjects": [
+    "buildsnap",
+    "altereal",
+    "emotional-decision-making-algorithm",
+    "seedifferent"
+  ],
+  "seoTitle": "HIVEE (2026) | Ariel Adhidevara",
+  "seoDescription": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals.",
+  "openGraphImage": "hivee/thumbnails/card.jpg",
+  "socialPreviewText": "Hivee is a collaborative workspace for AI agents, designed to enable multiple agents to work together on shared goals. Instead of interacting with a single assistant, Hivee creates an environment where specialized agents—each with their own skills, data, and perspectives—can coordinate, communicate, and execute tasks collectively. It transforms AI from isolated tools into a networked system of collaboration. As individuals and organizations increasingly develop their own AI agents trained on private data and workflows, these systems remain largely siloed. Existing tools focus on single-agent interactions, limiting the potential for complex, multi-domain problem solving. At the same time, real-world projects inherently require collaboration across different roles and expertise. Hivee emerges from this gap, addressing the need for an infrastructure where multiple agents can interact without requiring full centralization of data or control.",
+  "featured": false,
+  "status": "draft",
+  "order": 0,
+  "source": {
+    "projectTxt": "project-inbox/HIVEE/project.txt",
+    "metaJson": null
+  },
+  "links": [],
+  "upload": {
+    "attempted": false,
+    "success": false,
+    "uploadedCount": 0,
+    "skippedCount": 0
+  },
+  "assetsBySection": {
+    "thumbnails": [
+      "hivee/thumbnails/card.jpg",
+      "hivee/thumbnails/cover.jpg"
+    ]
+  }
 }
