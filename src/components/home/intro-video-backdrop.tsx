@@ -14,7 +14,26 @@ function clamp(value: number, min = 0, max = 1) {
 export function IntroVideoBackdrop({ endId, videoSrc }: IntroVideoBackdropProps) {
   const [opacity, setOpacity] = useState(1);
   const rafRef = useRef<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const normalizedVideoSrc = videoSrc.trim();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const attempt = () => {
+      video.play().catch(() => {});
+    };
+
+    const result = video.play();
+    if (result) {
+      result.catch(() => {
+        window.addEventListener("touchstart", attempt, { once: true, passive: true });
+        window.addEventListener("scroll", attempt, { once: true, passive: true });
+        window.addEventListener("click", attempt, { once: true });
+      });
+    }
+  }, []);
 
   useEffect(() => {
     const update = () => {
@@ -62,6 +81,7 @@ export function IntroVideoBackdrop({ endId, videoSrc }: IntroVideoBackdropProps)
       aria-hidden
     >
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full scale-[1.04] object-cover blur-[3px] opacity-[0.76]"
         style={{ pointerEvents: "none" }}
         autoPlay

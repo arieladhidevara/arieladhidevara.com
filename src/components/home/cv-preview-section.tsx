@@ -833,45 +833,52 @@ export function CvPreviewSection() {
     window.addEventListener("wheel", onWheel, { passive: false });
 
     let touchStartY = 0;
+    let touchCurrentY = 0;
     const TOUCH_STEP_THRESHOLD = 50;
 
     const onTouchStart = (event: TouchEvent) => {
       const touch = event.touches[0];
       if (!touch) return;
       touchStartY = touch.clientY;
+      touchCurrentY = touch.clientY;
+    };
+
+    const isCvInFocus = () => {
+      const sectionEl = sectionRef.current;
+      if (!sectionEl) return false;
+      const rect = sectionEl.getBoundingClientRect();
+      const topOffset = getViewportTopOffset();
+      return rect.top <= topOffset + 28 && rect.top >= topOffset - 28 && rect.bottom >= window.innerHeight - 28;
     };
 
     const onTouchMove = (event: TouchEvent) => {
-      const sectionEl = sectionRef.current;
-      if (!sectionEl) return;
       if (!videoReadyRef.current) return;
       if (sequenceCompletedRef.current) return;
-
-      const rect = sectionEl.getBoundingClientRect();
-      const topOffset = getViewportTopOffset();
-      const inFocusRange =
-        rect.top <= topOffset + 28 && rect.top >= topOffset - 28 && rect.bottom >= window.innerHeight - 28;
-      if (!inFocusRange) return;
-
+      if (!isCvInFocus()) return;
       event.preventDefault();
-      setShowHint(false);
-
       const touch = event.touches[0];
-      if (!touch) return;
-      const dy = touchStartY - touch.clientY;
-      if (Math.abs(dy) < TOUCH_STEP_THRESHOLD) return;
+      if (touch) touchCurrentY = touch.clientY;
+    };
 
-      touchStartY = touch.clientY;
+    const onTouchEnd = () => {
+      if (!videoReadyRef.current) return;
+      if (sequenceCompletedRef.current) return;
+      if (!isCvInFocus()) return;
+      const dy = touchStartY - touchCurrentY;
+      if (Math.abs(dy) < TOUCH_STEP_THRESHOLD) return;
+      setShowHint(false);
       stepVideo(dy > 0 ? 1 : -1);
     };
 
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
 
     return () => {
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
       stepVideoRef.current = () => {};
       jumpToPhaseRef.current = () => {};
       if (wheelResetTimerRef.current != null) {
@@ -905,7 +912,7 @@ export function CvPreviewSection() {
     translateY: number
   ) => (
     <div
-      className="relative overflow-hidden rounded-card border border-white/42 bg-white/[0.2] p-4 shadow-[0_24px_52px_-38px_rgba(14,20,29,0.46)] backdrop-blur-[20px] transition-all duration-500 ease-smooth md:p-5 [color:#131920] [&_h3]:[color:#131920] [&_p]:[color:#576173]"
+      className="relative overflow-hidden rounded-card border border-white/42 bg-white/[0.72] p-4 shadow-[0_24px_52px_-38px_rgba(14,20,29,0.46)] backdrop-blur-[20px] transition-all duration-500 ease-smooth md:bg-white/[0.2] md:p-5 [color:#131920] [&_h3]:[color:#131920] [&_p]:[color:#576173]"
       style={{
         opacity: cardOpacity,
         transform: `translateY(${translateY}px)`
