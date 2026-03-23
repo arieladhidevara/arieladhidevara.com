@@ -834,36 +834,46 @@ export function CvPreviewSection() {
 
     let touchStartY = 0;
     let touchCurrentY = 0;
-    const TOUCH_STEP_THRESHOLD = 50;
+    let touchLocked = false;
+    const TOUCH_STEP_THRESHOLD = 44;
+
+    const getCvVisibleRatio = () => {
+      const sectionEl = sectionRef.current;
+      if (!sectionEl) return 0;
+      const rect = sectionEl.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const visiblePx = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+      return visiblePx / vh;
+    };
 
     const onTouchStart = (event: TouchEvent) => {
       const touch = event.touches[0];
       if (!touch) return;
       touchStartY = touch.clientY;
       touchCurrentY = touch.clientY;
-    };
-
-    const isCvInFocus = () => {
-      const sectionEl = sectionRef.current;
-      if (!sectionEl) return false;
-      const rect = sectionEl.getBoundingClientRect();
-      const topOffset = getViewportTopOffset();
-      return rect.top <= topOffset + 28 && rect.top >= topOffset - 28 && rect.bottom >= window.innerHeight - 28;
+      touchLocked = videoReadyRef.current && !sequenceCompletedRef.current && getCvVisibleRatio() >= 0.6;
+      if (touchLocked) {
+        const sectionEl = sectionRef.current;
+        if (sectionEl) {
+          const rect = sectionEl.getBoundingClientRect();
+          const topOffset = getViewportTopOffset();
+          if (Math.abs(rect.top - topOffset) > 10) {
+            window.scrollTo({ top: window.scrollY + rect.top - topOffset, behavior: "auto" });
+          }
+        }
+      }
     };
 
     const onTouchMove = (event: TouchEvent) => {
-      if (!videoReadyRef.current) return;
-      if (sequenceCompletedRef.current) return;
-      if (!isCvInFocus()) return;
+      if (!touchLocked) return;
       event.preventDefault();
       const touch = event.touches[0];
       if (touch) touchCurrentY = touch.clientY;
     };
 
     const onTouchEnd = () => {
-      if (!videoReadyRef.current) return;
-      if (sequenceCompletedRef.current) return;
-      if (!isCvInFocus()) return;
+      if (!touchLocked) return;
+      touchLocked = false;
       const dy = touchStartY - touchCurrentY;
       if (Math.abs(dy) < TOUCH_STEP_THRESHOLD) return;
       setShowHint(false);
