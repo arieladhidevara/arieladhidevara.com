@@ -38,7 +38,17 @@ ARIELADHIDEVARA.com/
     process-project.ts
   src/
     app/
+      work/
+        [slug]/
+          page.tsx          ← dispatcher: routes slug to layout component
     components/
+      project/
+        layouts/
+          shared.tsx        ← shared types, constants, helpers
+          DefaultProjectLayout.tsx
+          PhysicadLayout.tsx
+          EphemeraLayout.tsx
+          InMySkinLayout.tsx
     lib/
   public/
     brand/
@@ -55,6 +65,15 @@ ARIELADHIDEVARA.com/
    - Place technical runtime assets in `Documentation/scripts/`, `Documentation/models/`, and `Documentation/documents/`
 4. Run `ts-node scripts/process-project.ts <project-slug>` to process ingestion and generate JSON.
 5. Optionally run `ts-node scripts/process-project.ts <project-slug> --upload` to upload media to Blob after local sync.
+
+### Adding a project with a custom page layout
+If the project needs a unique visual treatment (custom background, special section layout, per-project components):
+1. Create `src/components/project/layouts/<ProjectName>Layout.tsx` (use `DefaultProjectLayout.tsx` as a reference).
+2. Add a single dispatch line in `src/app/work/[slug]/page.tsx`:
+   ```ts
+   if (project.slug === "<slug>") return <ProjectNameLayout {...layoutProps} />;
+   ```
+3. Do not add per-project `if/else` logic anywhere else — all project-specific JSX stays in the layout file.
 
 ## How Agents Process Projects
 1. Read `AGENTS.md` and `docs/` to follow repository conventions.
@@ -162,6 +181,19 @@ assets-local/
 
 
 Keeping both structures aligned ensures predictable asset URLs.
+
+## Project Page Layout Architecture
+
+Project pages use a dispatcher pattern. `src/app/work/[slug]/page.tsx` loads data and routes to a self-contained layout component in `src/components/project/layouts/`:
+
+| Layout | Slug |
+|---|---|
+| `PhysicadLayout` | `physicad` |
+| `EphemeraLayout` | `ephemera-of-existence` |
+| `InMySkinLayout` | `inmyskin` |
+| `DefaultProjectLayout` | all other projects |
+
+Shared helpers, types, and render utilities live in `layouts/shared.tsx`. See `AGENTS.md` for the full rule set.
 
 ## Frontend Prototype
 The repository includes a prototype-first Next.js frontend layer with placeholder content.
