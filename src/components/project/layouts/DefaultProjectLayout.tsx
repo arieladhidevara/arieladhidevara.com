@@ -35,7 +35,6 @@ export function DefaultProjectLayout({
   const backgroundAssets = getSectionAssetData(project, "background");
   const conceptAssets = getSectionAssetData(project, "concept");
   const theProjectAssets = getSectionAssetData(project, "theProject");
-  const processAssets = getSectionAssetData(project, "process");
   const documentationAssets = getSectionAssetData(project, "documentation");
   const documentationMediaItems = documentationAssets.mediaItems.filter(
     (item) => !item.key.includes("/scripts/")

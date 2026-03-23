@@ -185,6 +185,7 @@ export function EphemeraLayout({
                   </FadeGroup>
                   {conceptImageItems.length > 0 && (
                     <FadeIn {...PROJECT_FADE_VIEWPORT}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={conceptImageItems[0].src}
                         alt={conceptImageItems[0].label}
@@ -239,6 +240,7 @@ export function EphemeraLayout({
                 </FadeGroup>
                 {theProjectImageItems.length > 0 && (
                   <FadeIn {...PROJECT_FADE_VIEWPORT}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={theProjectImageItems[0].src}
                       alt={theProjectImageItems[0].label}
