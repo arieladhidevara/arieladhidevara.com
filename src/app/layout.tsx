@@ -1,9 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/navigation/site-nav";
 import { SiteFooter } from "@/components/footer/site-footer";
 import { PortfolioChatProvider } from "@/components/chat/portfolio-chat-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const display = Instrument_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="pt-20">{children}</div>
           <SiteFooter />
         </PortfolioChatProvider>
+        <Analytics />
       </body>
     </html>
   );
