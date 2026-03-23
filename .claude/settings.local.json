@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/update-assets.py)",
+      "Bash(python -c \":*)"
+    ]
+  }
+}

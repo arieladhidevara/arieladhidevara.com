@@ -867,7 +867,7 @@ export function CvPreviewSection() {
     translateY: number
   ) => (
     <div
-      className="relative overflow-hidden rounded-card border border-white/42 bg-white/[0.2] p-4 shadow-[0_24px_52px_-38px_rgba(14,20,29,0.46)] backdrop-blur-[20px] transition-all duration-500 ease-smooth md:p-5"
+      className="relative overflow-hidden rounded-card border border-white/42 bg-white/[0.2] p-4 shadow-[0_24px_52px_-38px_rgba(14,20,29,0.46)] backdrop-blur-[20px] transition-all duration-500 ease-smooth md:p-5 [color:#131920] [&_h3]:[color:#131920] [&_p]:[color:#576173]"
       style={{
         opacity: cardOpacity,
         transform: `translateY(${translateY}px)`
@@ -883,42 +883,53 @@ export function CvPreviewSection() {
       />
 
       <div className="relative z-10">
-        <p className="kicker">Career Journey</p>
-        <h3
-          className="display-type mt-3 text-2xl font-semibold leading-[1.1] text-[#131920] md:text-4xl"
-          style={{
-            opacity: revealProgress,
-            transform: `translateY(${(1 - revealProgress) * 12}px)`
-          }}
-        >
-          {phase.title}
-        </h3>
-        <p
-          className="mt-3 max-w-xl text-xs leading-relaxed text-[#576173] md:text-sm"
-          style={{
-            opacity: revealProgress,
-            transform: `translateY(${(1 - revealProgress) * 10}px)`
-          }}
-        >
-          {phase.story}
-        </p>
-        <p className="mt-4 text-[0.64rem] uppercase tracking-[0.18em] text-[#8d95a2]">Milestones</p>
-        <div className="mt-2.5 flex flex-wrap gap-2">
-          {phase.milestones.map((milestone, index) => {
-            const reveal = milestoneReveal(revealProgress, index, phase.milestones.length);
-            return (
-              <p
-                key={milestone}
-                className="rounded-soft border border-white/45 bg-white/[0.2] px-2.5 py-1.5 text-[11px] leading-snug text-[#3f4755] shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-lg"
-                style={{
-                  opacity: reveal * cardOpacity,
-                  transform: `translateY(${(1 - reveal) * 8}px) scale(${0.98 + reveal * 0.02})`
-                }}
-              >
-                {milestone}
-              </p>
-            );
-          })}
+        {/* Mobile: horizontal compact layout */}
+        <div className="flex gap-3 md:block">
+          <div className="w-28 shrink-0 md:w-auto">
+            <p className="kicker">Career Journey</p>
+            <h3
+              className="display-type mt-2 text-base font-semibold leading-tight text-[#131920] md:mt-3 md:text-4xl md:leading-[1.1]"
+              style={{
+                opacity: revealProgress,
+                transform: `translateY(${(1 - revealProgress) * 12}px)`,
+                WebkitTextFillColor: "#131920",
+                color: "#131920"
+              }}
+            >
+              {phase.title}
+            </h3>
+          </div>
+          <div className="min-w-0">
+            <p
+              className="text-clamp-3 text-xs leading-relaxed text-[#576173] md:mt-3 md:max-w-xl md:text-sm"
+              style={{
+                opacity: revealProgress,
+                transform: `translateY(${(1 - revealProgress) * 10}px)`
+              }}
+            >
+              {phase.story}
+            </p>
+            <div className="hidden md:block">
+              <p className="mt-4 text-[0.64rem] uppercase tracking-[0.18em] text-[#8d95a2]">Milestones</p>
+              <div className="mt-2.5 flex flex-wrap gap-2">
+                {phase.milestones.map((milestone, index) => {
+                  const reveal = milestoneReveal(revealProgress, index, phase.milestones.length);
+                  return (
+                    <p
+                      key={milestone}
+                      className="rounded-soft border border-white/45 bg-white/[0.2] px-2.5 py-1.5 text-[11px] leading-snug text-[#3f4755] shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-lg"
+                      style={{
+                        opacity: reveal * cardOpacity,
+                        transform: `translateY(${(1 - reveal) * 8}px) scale(${0.98 + reveal * 0.02})`
+                      }}
+                    >
+                      {milestone}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -947,17 +958,18 @@ export function CvPreviewSection() {
       <div
         className={cn(
           "relative z-10 mx-auto flex h-full w-full max-w-layout flex-col px-5 pb-7 pt-14 md:px-8 md:pb-9 md:pt-16",
-          useTopLayout ? "justify-between" : "justify-end gap-4"
+          "justify-end gap-4",
+          useTopLayout ? "md:justify-between" : "md:justify-end md:gap-4"
         )}
       >
         <div
           className={cn(
-            "relative",
+            "relative w-full",
             useTopLayout
-              ? "max-w-2xl"
+              ? "md:max-w-2xl"
               : useBottomRightCard
-                ? "ml-auto w-full max-w-xl"
-                : "mr-auto w-full max-w-xl"
+                ? "md:ml-auto md:max-w-xl"
+                : "md:mr-auto md:max-w-xl"
           )}
         >
           {hasTextTransition ? (
@@ -967,7 +979,7 @@ export function CvPreviewSection() {
           )}
         </div>
 
-        <div className="rounded-card bg-[#ecf0f5]/82 p-4 backdrop-blur-[2px] md:p-5">
+        <div className="hidden rounded-card bg-[#ecf0f5]/82 p-4 backdrop-blur-[2px] md:block md:p-5">
           <div className="h-[2px] w-full overflow-hidden rounded-full bg-black/[0.08]">
             <div
               className="h-full rounded-full bg-[#1a212b] transition-[width] duration-200 ease-out"

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type MediaBlockProps = {
   label: string;
   kind?: "image" | "video";
-  ratio?: "wide" | "tall" | "square";
+  ratio?: "wide" | "tall" | "square" | "fill";
   className?: string;
   src?: string;
   poster?: string;
@@ -19,7 +19,8 @@ type MediaBlockProps = {
 const ratioClasses: Record<NonNullable<MediaBlockProps["ratio"]>, string> = {
   wide: "aspect-[16/10]",
   square: "aspect-square",
-  tall: "aspect-[3/4]"
+  tall: "aspect-[3/4]",
+  fill: "h-full"
 };
 
 export function MediaBlock({

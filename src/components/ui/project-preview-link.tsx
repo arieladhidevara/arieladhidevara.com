@@ -168,7 +168,7 @@ export function ProjectPreviewLink({
         }}
         onClick={() => setOpen(false)}
       />
-      <div className="relative z-10 w-full max-w-4xl">
+      <div className="relative z-10 w-full max-w-5xl">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0 rounded-card shadow-[0_0_36px_100vmax_rgba(0,0,0,0.64)]"
@@ -196,7 +196,7 @@ export function ProjectPreviewLink({
         ) : null}
 
         <div
-          className="relative z-10 max-h-[90vh] overflow-hidden rounded-card border border-white/62 bg-white/[0.54] p-4 shadow-[0_28px_58px_-36px_rgba(0,0,0,0.56),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(152,164,182,0.18)] backdrop-blur-[20px] md:p-6"
+          className="relative z-10 h-[85dvh] overflow-hidden rounded-card border border-white/62 bg-white/[0.54] p-4 shadow-[0_28px_58px_-36px_rgba(0,0,0,0.56),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(152,164,182,0.18)] backdrop-blur-[20px] md:h-[520px] md:p-6"
           style={popupMotionStyle}
           onWheelCapture={blockInsideScroll}
           onTouchMoveCapture={blockInsideScroll}
@@ -214,33 +214,33 @@ export function ProjectPreviewLink({
           X
         </button>
 
-        <div className="relative z-10 grid grid-cols-[0.86fr_1.14fr] items-stretch gap-3 md:gap-6">
-          <div className="w-full">
+        <div className="relative z-10 flex h-full flex-col gap-3 md:grid md:grid-cols-2 md:items-stretch md:gap-6">
+          <div className="h-52 w-full shrink-0 md:h-full">
             <MediaBlock
               label={activeProject.heroLabel}
               kind={previewKind}
-              ratio="square"
-              className="h-full w-full"
+              ratio="fill"
+              className="w-full"
               src={previewMediaSrc}
               poster={previewMediaPoster}
             />
           </div>
 
-          <div className="min-w-0">
-            <div className="flex h-full min-h-0 flex-col gap-3.5 md:gap-4">
-              <div>
-              <p className="kicker">Project Preview</p>
-              <h3 className="display-type text-clamp-2 mt-2 text-[1.2rem] font-semibold leading-tight text-[#161c24] md:text-[2rem]">
-                {activeProject.title}
-              </h3>
-              <p className="text-clamp-1 mt-1 text-xs text-[#6d7687] md:text-sm">
-                {activeProject.year} | {activeProject.type}
-              </p>
-            </div>
+          <div className="min-h-0 min-w-0 overflow-y-auto md:overflow-hidden">
+            <div className="flex min-h-full flex-col gap-3 md:gap-3.5">
+              <div className="shrink-0">
+                <p className="kicker">Project Preview</p>
+                <h3 className="display-type text-clamp-2 mt-2 min-h-[3rem] text-[1.2rem] font-semibold leading-tight text-[#161c24] md:min-h-[5rem] md:text-[2rem]">
+                  {activeProject.title}
+                </h3>
+                <p className="text-clamp-1 mt-1 text-xs text-[#6d7687] md:text-sm">
+                  {activeProject.year} | {activeProject.type}
+                </p>
+              </div>
 
-            <p className="text-clamp-2 text-xs leading-relaxed text-[#4f5868] md:text-base">{activeProject.oneLiner}</p>
+              <p className="text-clamp-2 min-h-[2.5rem] shrink-0 text-xs leading-relaxed text-[#4f5868] md:min-h-[3.25rem] md:text-base">{activeProject.oneLiner}</p>
 
-              <dl className="space-y-2.5 rounded-soft bg-white/44 p-4">
+              <dl className="shrink-0 space-y-2 rounded-soft bg-white/44 p-3 md:p-4">
                 <div className="grid grid-cols-[4.9rem_1fr] gap-3">
                   <dt className="kicker">Role</dt>
                   <dd className="text-clamp-1 text-sm leading-relaxed text-[#596173]">{previewRole}</dd>
@@ -255,17 +255,19 @@ export function ProjectPreviewLink({
                 </div>
                 <div className="grid grid-cols-[4.9rem_1fr] gap-3">
                   <dt className="kicker">Tools</dt>
-                  <dd className="text-clamp-2 text-sm leading-relaxed text-[#596173]">{previewTools}</dd>
+                  <dd className="text-clamp-1 text-sm leading-relaxed text-[#596173]">{previewTools}</dd>
                 </div>
               </dl>
 
-            <TagList tags={activeProject.tags.slice(0, 3)} size="compact" />
+              <div className="shrink-0">
+                <TagList tags={activeProject.tags.slice(0, 3)} size="compact" />
+              </div>
 
-            <div className="mt-auto flex justify-end pt-1">
-              <Link
-                href={previewHref}
-                className="rounded-full px-3 py-2 text-xs font-semibold text-[#1a2029] transition-colors hover:text-[#f8fafc] md:px-4 md:py-2.5 md:text-sm"
-              >
+              <div className="mt-auto flex justify-end pt-1">
+                <Link
+                  href={previewHref}
+                  className="rounded-full px-3 py-2 text-xs font-semibold text-[#1a2029] transition-colors hover:text-[#f8fafc] md:px-4 md:py-2.5 md:text-sm"
+                >
                   View Full Project
                 </Link>
               </div>

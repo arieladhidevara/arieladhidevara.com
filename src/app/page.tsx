@@ -8,12 +8,10 @@ import { CategoryVideoBackdrop } from "@/components/home/category-video-backdrop
 import { IntroVideoBackdrop } from "@/components/home/intro-video-backdrop";
 import { ImmersiveBreak } from "@/components/three/immersive-break";
 import { FeaturedProjectBlock } from "@/components/ui/featured-project-block";
-import { MediaBlock } from "@/components/ui/media-block";
-import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
+import { OthersCarousel } from "@/components/home/others-carousel";
 import { categoryDescriptions, type PracticeCategory } from "@/lib/placeholder-data";
 import { buildCategoryShowcases } from "@/lib/category-showcases";
 import { loadPortfolioProjects } from "@/lib/portfolio-projects";
-import { getProjectCardImageSrc } from "@/lib/project-media";
 import { resolveAssetUrl } from "@/lib/asset-url";
 
 const homeCategoryVideoSources: Record<PracticeCategory, string> = {
@@ -31,7 +29,11 @@ function getHomeCategoryAnchorId(category: PracticeCategory) {
 
 export default async function HomePage() {
   const projects = await loadPortfolioProjects();
-  const categoryShowcases = buildCategoryShowcases(projects, { otherLimit: 4 });
+  const categoryShowcases = buildCategoryShowcases(projects, {
+    othersOrder: {
+      "Interactive Systems": ["physicad", "mnemonic-mixology", "flashsight", "inmyskin"]
+    }
+  });
   const categoryVideoTargets = categoryShowcases.map(({ category }) => ({
     id: getHomeCategoryAnchorId(category),
     videoSrc: homeCategoryVideoSources[category]
@@ -115,39 +117,7 @@ export default async function HomePage() {
                 )}
 
                 {others.length > 0 ? (
-                  <div className="pb-2">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-                      {others.map((project, index) => (
-                        <FadeIn key={project.slug} delay={index * 0.04} className="min-w-0">
-                          <ProjectPreviewLink
-                            project={project}
-                            allProjects={projects}
-                            className="no-glass-hover group flex h-[22rem] flex-col rounded-soft border border-black/[0.08] bg-white/[0.52] p-3.5 shadow-[0_18px_34px_-30px_rgba(14,20,29,0.4),inset_0_1px_0_rgba(255,255,255,0.68)] backdrop-blur-[14px] transition-colors hover:bg-white/[0.88]"
-                          >
-                            <MediaBlock
-                              label={project.heroLabel}
-                              kind="image"
-                              ratio="wide"
-                              className="rounded-soft"
-                              src={getProjectCardImageSrc(project)}
-                              colorOnHover
-                            />
-                            <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
-                              <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
-                                {project.title}
-                              </p>
-                              <p className="truncate text-xs text-[#677082]">
-                                {project.year} | {project.type}
-                              </p>
-                              <p className="overflow-hidden text-xs leading-relaxed text-[#505868] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
-                                {project.oneLiner}
-                              </p>
-                            </div>
-                          </ProjectPreviewLink>
-                        </FadeIn>
-                      ))}
-                    </div>
-                  </div>
+                  <OthersCarousel projects={others} allProjects={projects} />
                 ) : (
                   <p className="text-sm text-[#6b7383]">No additional projects in this category yet.</p>
                 )}

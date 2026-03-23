@@ -1,12 +1,10 @@
 import { FeaturedProjectBlock } from "@/components/ui/featured-project-block";
-import { MediaBlock } from "@/components/ui/media-block";
-import { ProjectPreviewLink } from "@/components/ui/project-preview-link";
+import { OthersCarousel } from "@/components/home/others-carousel";
 import { Section } from "@/components/layout/section";
 import { FadeIn } from "@/components/motion/fade-in";
 import { buildCategoryShowcases } from "@/lib/category-showcases";
 import { categoryDescriptions, practiceCategories } from "@/lib/placeholder-data";
 import { loadPortfolioProjects } from "@/lib/portfolio-projects";
-import { getProjectCardImageSrc } from "@/lib/project-media";
 
 type WorkIndexPageProps = {
   searchParams?: {
@@ -70,39 +68,7 @@ export default async function WorkIndexPage({ searchParams }: WorkIndexPageProps
               )}
 
               {others.length > 0 ? (
-                <div className="overflow-x-auto pb-2">
-                  <div className="flex w-max items-stretch gap-4 pr-2">
-                    {others.map((project, index) => (
-                      <FadeIn key={`${category}-${project.slug}`} delay={index * 0.04} className="w-[15.25rem] shrink-0">
-                        <ProjectPreviewLink
-                          project={project}
-                          allProjects={projects}
-                          className="no-glass-hover group flex h-[18rem] flex-col rounded-soft bg-black/[0.03] p-3.5 transition-colors hover:bg-white/[0.88]"
-                        >
-                          <MediaBlock
-                            label={project.heroLabel}
-                            kind="image"
-                            ratio="wide"
-                            className="rounded-soft"
-                            src={getProjectCardImageSrc(project)}
-                            colorOnHover
-                          />
-                          <div className="mt-3 flex flex-1 flex-col gap-1.5 overflow-hidden">
-                            <p className="display-type overflow-hidden text-lg font-semibold leading-tight text-[#171c24] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
-                              {project.title}
-                            </p>
-                            <p className="truncate text-xs text-[#677082]">
-                              {project.year} | {project.type}
-                            </p>
-                            <p className="overflow-hidden text-xs leading-relaxed text-[#505868] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
-                              {project.oneLiner}
-                            </p>
-                          </div>
-                        </ProjectPreviewLink>
-                      </FadeIn>
-                    ))}
-                  </div>
-                </div>
+                <OthersCarousel projects={others} allProjects={projects} />
               ) : (
                 <p className="text-sm text-[#6b7383]">No additional projects in this category yet.</p>
               )}
