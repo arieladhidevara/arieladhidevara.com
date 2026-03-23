@@ -178,6 +178,7 @@ export function PhysicadLayout({
               </FadeGroup>
               {conceptImageItems.length > 0 && (
                 <FadeIn {...PROJECT_FADE_VIEWPORT}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={conceptImageItems[0].src}
                     alt={conceptImageItems[0].label}

@@ -289,6 +289,7 @@ export function EphemeraLayout({
                     <div className="mt-6 space-y-4">
                       {processAssets.mediaItems.map((item) => (
                         <FadeIn {...PROJECT_FADE_VIEWPORT} key={item.key}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={item.src} alt={item.label} className="w-full h-auto block" />
                         </FadeIn>
                       ))}

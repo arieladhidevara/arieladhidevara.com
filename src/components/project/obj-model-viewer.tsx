@@ -4,15 +4,16 @@ import { Suspense, useEffect } from "react";
 import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls, Center } from "@react-three/drei";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { MeshStandardMaterial, Box3, Vector3, Mesh } from "three";
+import { MeshStandardMaterial, Box3, Vector3, Mesh, PerspectiveCamera } from "three";
 
 function AutoCamera({ size }: { size: number }) {
   const { camera } = useThree();
   useEffect(() => {
-    (camera as any).position.set(0, 0, size * 2.2);
-    (camera as any).near = size * 0.001;
-    (camera as any).far = size * 100;
-    (camera as any).updateProjectionMatrix();
+    const cam = camera as PerspectiveCamera;
+    cam.position.set(0, 0, size * 2.2);
+    cam.near = size * 0.001;
+    cam.far = size * 100;
+    cam.updateProjectionMatrix();
   }, [camera, size]);
   return null;
 }
