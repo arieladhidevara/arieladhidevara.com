@@ -139,7 +139,9 @@
     "background": [
       "physicad/background/video-01.mp4"
     ],
-    "concept": [],
+    "concept": [
+      "physicad/concept/image-01.jpg"
+    ],
     "the-project": [
       "physicad/the-project/demo.mp4",
       "physicad/the-project/image-01.jpg",

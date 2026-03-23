@@ -63,6 +63,22 @@ All project pages and project JSON should follow this section order:
 - Allowed examples: brand marks, favicon, OG image, profile photos, decorative UI graphics.
 - Never place large project galleries or long-form videos in `public/`.
 
+## PROJECT PAGE LAYOUT ARCHITECTURE
+Project pages use a dispatcher pattern. `src/app/work/[slug]/page.tsx` loads data and routes to a layout component:
+- `PhysicadLayout` → `physicad`
+- `EphemeraLayout` → `ephemera-of-existence`
+- `InMySkinLayout` → `inmyskin`
+- `DefaultProjectLayout` → all other projects (including `seedifferent`, `mnemonic-mixology`)
+
+All layout components live in `src/components/project/layouts/`. Shared helpers, types, and constants are in `layouts/shared.tsx`.
+
+**To add a new project with a custom layout:**
+1. Create `src/components/project/layouts/<ProjectName>Layout.tsx`
+2. Add one dispatch line in `page.tsx`: `if (project.slug === "<slug>") return <ProjectNameLayout {...layoutProps} />;`
+3. Do not modify the other layout files.
+
+**Do not** put per-project branching logic (`if (slug === "x")`) back into `page.tsx` beyond the dispatch line. All project-specific JSX belongs in the layout file.
+
 ## DESIGN RULES
 - All project pages must use the shared project template.
 - Do not introduce new typography systems or layout patterns without instruction.

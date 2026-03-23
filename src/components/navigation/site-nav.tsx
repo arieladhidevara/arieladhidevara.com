@@ -46,7 +46,7 @@ export function SiteNav() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50">
-      <div className="relative z-10 w-full border-b border-black/[0.07] bg-white/78 backdrop-blur-lg">
+      <div className="relative z-10 w-full border-b border-black/[0.07] bg-white/40 backdrop-blur-lg">
         <div className="mx-auto flex h-[35px] w-full max-w-layout items-center justify-between px-4 md:px-6">
           <Link href="/" aria-label="Ariel Adhidevara Home" className="inline-flex items-center">
             <Image

@@ -33,12 +33,14 @@ export function PhysicadProcessBackdrop({ startId, endId, className }: PhysicadP
       const scrollY = window.scrollY;
 
       const processTop = startElement.offsetTop;
+      const processBottom = processTop + startElement.offsetHeight;
       const reflectionTop = endElement?.offsetTop ?? processTop + viewportHeight * 1.25;
 
       // Start darkening while still in "The Project" and hit full black right as Process takes focus.
       const fadeInStart = processTop - viewportHeight * 1.04;
       const fadeInEnd = processTop - viewportHeight * 0.08;
-      const rawFadeOutStart = reflectionTop - viewportHeight * 0.9;
+      // Keep backdrop black until the process section content is fully scrolled through.
+      const rawFadeOutStart = Math.max(reflectionTop - viewportHeight * 0.9, processBottom - viewportHeight * 0.4);
       const fadeOutStart = Math.max(rawFadeOutStart, fadeInEnd + viewportHeight * 0.22);
       const fadeOutEnd = Math.max(reflectionTop - viewportHeight * 0.2, fadeOutStart + viewportHeight * 0.22);
 
@@ -57,8 +59,8 @@ export function PhysicadProcessBackdrop({ startId, endId, className }: PhysicadP
         nextOpacity = 0;
       }
 
-      // Show Process media only when the backdrop is fully black and hide as soon as white fade-out starts.
-      mediaVisibility = nextOpacity >= 0.999 && scrollY < fadeOutStart ? 1 : 0;
+      // Show Process media whenever backdrop is fully black.
+      mediaVisibility = nextOpacity >= 0.999 ? 1 : 0;
 
       setOpacity(nextOpacity);
       root.style.setProperty("--physicad-process-media-visibility", `${mediaVisibility}`);

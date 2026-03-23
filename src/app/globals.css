@@ -223,6 +223,8 @@ p {
   -webkit-text-fill-color: rgba(228, 233, 241, 0.72);
 }
 
+.project-glass.physicad-theme .physicad-dark-section h2,
+.project-glass.physicad-theme .physicad-dark-section p:not(.kicker),
 .project-glass.physicad-theme #physicad-process h2,
 .project-glass.physicad-theme #physicad-process p:not(.kicker) {
   color: #f5f7fb !important;
@@ -240,6 +242,63 @@ p {
   transition: opacity 180ms ease-out;
   will-change: opacity;
 }
+
+/* ── Ephemera of Existence theme ── */
+.project-glass.ephemera-theme {
+  background: #000000;
+}
+
+.project-glass.ephemera-theme .surface-panel,
+.project-glass.ephemera-theme .tone-layer {
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.project-glass.ephemera-theme .media-integrated {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Dark zone (hero → the project) */
+.ephemera-dark section.border-t::before {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.ephemera-dark h1,
+.ephemera-dark h2,
+.ephemera-dark h3 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.ephemera-dark p:not(.kicker),
+.ephemera-dark li {
+  color: #a8b2c4 !important;
+  -webkit-text-fill-color: #a8b2c4 !important;
+}
+
+.ephemera-dark .kicker {
+  color: rgba(255, 255, 255, 0.38) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.38) !important;
+}
+
+/* Ephemera page: footer gets white background and sits above the black overlay.
+   margin-top → padding-top so the white background covers the gap. */
+body:has(main.ephemera-theme) footer {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  margin-top: 0 !important;
+  padding-top: 3rem;
+}
+
 
 ::selection {
   background: color-mix(in oklab, var(--color-accent) 35%, transparent);
