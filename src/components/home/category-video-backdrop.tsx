@@ -130,7 +130,7 @@ export function CategoryVideoBackdrop({ targets }: CategoryVideoBackdropProps) {
         <video
           key={`category-video-${source}`}
           className="absolute inset-0 h-full w-full scale-[1.06] object-cover blur-[9px] transition-opacity duration-[980ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-          style={{ opacity: sourceOpacities[source] ?? 0 }}
+          style={{ opacity: sourceOpacities[source] ?? 0, pointerEvents: "none" }}
           autoPlay
           muted
           loop

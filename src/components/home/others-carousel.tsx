@@ -43,7 +43,7 @@ export function OthersCarousel({ projects, allProjects }: Props) {
     <div className="relative pb-2">
       <div
         ref={trackRef}
-        className="grid grid-flow-col gap-4 overflow-x-auto overflow-y-hidden [grid-auto-columns:calc(25%-12px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="grid grid-flow-col gap-4 overflow-x-auto overflow-y-hidden [grid-auto-columns:calc(33.33%-11px)] md:[grid-auto-columns:calc(25%-12px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project, index) => (
           <FadeIn key={project.slug} delay={index * 0.04}>

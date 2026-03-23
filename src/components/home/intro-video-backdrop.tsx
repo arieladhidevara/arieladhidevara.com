@@ -63,6 +63,7 @@ export function IntroVideoBackdrop({ endId, videoSrc }: IntroVideoBackdropProps)
     >
       <video
         className="absolute inset-0 h-full w-full scale-[1.04] object-cover blur-[3px] opacity-[0.76]"
+        style={{ pointerEvents: "none" }}
         autoPlay
         muted
         loop

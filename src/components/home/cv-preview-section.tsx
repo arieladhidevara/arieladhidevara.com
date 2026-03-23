@@ -832,8 +832,46 @@ export function CvPreviewSection() {
 
     window.addEventListener("wheel", onWheel, { passive: false });
 
+    let touchStartY = 0;
+    const TOUCH_STEP_THRESHOLD = 50;
+
+    const onTouchStart = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      if (!touch) return;
+      touchStartY = touch.clientY;
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      const sectionEl = sectionRef.current;
+      if (!sectionEl) return;
+      if (!videoReadyRef.current) return;
+      if (sequenceCompletedRef.current) return;
+
+      const rect = sectionEl.getBoundingClientRect();
+      const topOffset = getViewportTopOffset();
+      const inFocusRange =
+        rect.top <= topOffset + 28 && rect.top >= topOffset - 28 && rect.bottom >= window.innerHeight - 28;
+      if (!inFocusRange) return;
+
+      event.preventDefault();
+      setShowHint(false);
+
+      const touch = event.touches[0];
+      if (!touch) return;
+      const dy = touchStartY - touch.clientY;
+      if (Math.abs(dy) < TOUCH_STEP_THRESHOLD) return;
+
+      touchStartY = touch.clientY;
+      stepVideo(dy > 0 ? 1 : -1);
+    };
+
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+
     return () => {
       window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
       stepVideoRef.current = () => {};
       jumpToPhaseRef.current = () => {};
       if (wheelResetTimerRef.current != null) {
@@ -940,7 +978,7 @@ export function CvPreviewSection() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
-        style={{ opacity: videoOpacity }}
+        style={{ opacity: videoOpacity, pointerEvents: "none" }}
         src={videoSource}
         preload="auto"
         muted
@@ -977,6 +1015,35 @@ export function CvPreviewSection() {
           ) : (
             renderPhaseCard(incomingPhase, staticReveal, staticReveal, (1 - staticReveal) * 10)
           )}
+        </div>
+
+        <div className="md:hidden">
+          <div className="mb-2 h-[1.5px] w-full overflow-hidden rounded-full bg-black/[0.1]">
+            <div
+              className="h-full rounded-full bg-[#1a212b] transition-[width] duration-200 ease-out"
+              style={{ width: `${progress * 100}%` }}
+            />
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {phases.map((phase, index) => {
+              const active = index === displayPhaseIndex;
+              return (
+                <button
+                  key={phase.label}
+                  type="button"
+                  onClick={() => jumpToPhaseRef.current(index)}
+                  aria-label={`Jump to ${phase.title}`}
+                  className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 text-[10px] uppercase tracking-[0.1em] transition-all duration-300 ${
+                    active
+                      ? "border-white/85 bg-white/[0.6] text-[#161c24] shadow-[0_0_0_1px_rgba(255,255,255,0.85),0_0_22px_rgba(255,255,255,0.7)] backdrop-blur-md"
+                      : "border-black/[0.05] bg-black/[0.015] text-[#98a2b2] opacity-55"
+                  }`}
+                >
+                  {phase.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div className="hidden rounded-card bg-[#ecf0f5]/82 p-4 backdrop-blur-[2px] md:block md:p-5">
